@@ -29,7 +29,7 @@ namespace ModelServices.EntitiesServices
         private readonly ITipoMensagemRepository _tmRepository;
         private readonly ITemplateRepository _tpRepository;
         private readonly IConfiguracaoRepository _conRepository;
-        protected ERP_Condominio_DBEntities Db = new ERP_Condominio_DBEntities();
+        protected ERP_JurisEntities Db = new ERP_JurisEntities();
 
         public FornecedorService(IFornecedorRepository baseRepository, ILogRepository logRepository, ICategoriaFornecedorRepository tipoRepository, IFornecedorAnexoRepository anexoRepository, ITipoPessoaRepository pesRepository, IFornecedorContatoRepository contRepository, IUFRepository ufRepository, IFornecedorMensagemRepository mensRepository, ITipoMensagemRepository tmRepository, ITemplateRepository tpRepository, IConfiguracaoRepository conRepository) : base(baseRepository)
         {

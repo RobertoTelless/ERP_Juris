@@ -22,17 +22,15 @@ namespace ModelServices.EntitiesServices
         private readonly ILogRepository _logRepository;
         private readonly ICategoriaAgendaRepository _tipoRepository;
         private readonly IAgendaAnexoRepository _anexoRepository;
-        private readonly IAgendaVinculoRepository _vincRepository;
 
-        protected ERP_Condominio_DBEntities Db = new ERP_Condominio_DBEntities();
+        protected ERP_JurisEntities Db = new ERP_JurisEntities();
 
-        public AgendaService(IAgendaRepository baseRepository, ILogRepository logRepository, ICategoriaAgendaRepository tipoRepository, IAgendaAnexoRepository anexoRepository, IAgendaVinculoRepository vincRepository) : base(baseRepository)
+        public AgendaService(IAgendaRepository baseRepository, ILogRepository logRepository, ICategoriaAgendaRepository tipoRepository, IAgendaAnexoRepository anexoRepository) : base(baseRepository)
         {
             _baseRepository = baseRepository;
             _logRepository = logRepository;
             _tipoRepository = tipoRepository;
             _anexoRepository = anexoRepository;
-            _vincRepository = vincRepository;
         }
 
         public List<AGENDA> GetByDate(DateTime data, Int32 idAss)
@@ -72,11 +70,6 @@ namespace ModelServices.EntitiesServices
         public AGENDA_ANEXO GetAnexoById(Int32 id)
         {
             return _anexoRepository.GetItemById(id);
-        }
-
-        public AGENDA_VINCULO GetVinculoById(Int32 id)
-        {
-            return _vincRepository.GetItemById(id);
         }
 
         public List<CATEGORIA_AGENDA> GetAllTipos(Int32 idAss)

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntitiesServices.Model;
-using EntitiesServices.Work_Classes;
 
 namespace ModelServices.Interfaces.EntitiesServices
 {
@@ -14,6 +13,5 @@ namespace ModelServices.Interfaces.EntitiesServices
         List<CONFIGURACAO> GetAllItems();
         Int32 Edit(CONFIGURACAO item, LOG log);
         Int32 Create(CONFIGURACAO item);
-        List<CONFIGURACAO_ASSOCIACAO> GetAllAssociacoes(Int32 id);
     }
 }

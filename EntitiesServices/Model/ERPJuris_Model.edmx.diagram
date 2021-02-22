@@ -84,6 +84,11 @@
         <AssociationConnector Association="ERP_JurisModel.FK_TAREFA_VINCULO_USUARIO" ManuallyRouted="false" />
         <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_ANEXO_USUARIO" ManuallyRouted="false" />
         <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_USUARIO" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ERP_JurisModel.TIPO_MENSAGEM" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ERP_JurisModel.FORNECEDOR_MENSAGEM" Width="1.5" PointX="12.75" PointY="22.25" />
+        <AssociationConnector Association="ERP_JurisModel.FK_FORNECEDOR_MENSAGEM_FORNECEDOR" />
+        <AssociationConnector Association="ERP_JurisModel.FK_FORNECEDOR_MENSAGEM_TIPO_MENSAGEM" />
+        <AssociationConnector Association="ERP_JurisModel.FK_FORNECEDOR_MENSAGEM_USUARIO" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

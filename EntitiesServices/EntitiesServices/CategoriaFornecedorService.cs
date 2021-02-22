@@ -20,7 +20,7 @@ namespace ModelServices.EntitiesServices
     {
         private readonly ICategoriaFornecedorRepository _baseRepository;
         private readonly ILogRepository _logRepository;
-        protected ERP_Condominio_DBEntities Db = new ERP_Condominio_DBEntities();
+        protected ERP_JurisEntities Db = new ERP_JurisEntities();
 
         public CategoriaFornecedorService(ICategoriaFornecedorRepository baseRepository, ILogRepository logRepository) : base(baseRepository)
         {

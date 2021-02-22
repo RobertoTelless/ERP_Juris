@@ -20,14 +20,12 @@ namespace ModelServices.EntitiesServices
     {
         private readonly IConfiguracaoRepository _baseRepository;
         private readonly ILogRepository _logRepository;
-        private readonly IConfiguracaoAssociacaoRepository _assRepository;
-        protected ERP_Condominio_DBEntities Db = new ERP_Condominio_DBEntities();
+        protected ERP_JurisEntities Db = new ERP_JurisEntities();
 
-        public ConfiguracaoService(IConfiguracaoRepository baseRepository, ILogRepository logRepository, IConfiguracaoAssociacaoRepository assRepository) : base(baseRepository)
+        public ConfiguracaoService(IConfiguracaoRepository baseRepository, ILogRepository logRepository) : base(baseRepository)
         {
             _baseRepository = baseRepository;
             _logRepository = logRepository;
-            _assRepository = assRepository;
         }
 
         public CONFIGURACAO GetItemById(Int32 id)
@@ -39,12 +37,6 @@ namespace ModelServices.EntitiesServices
         public List<CONFIGURACAO> GetAllItems()
         {
             List<CONFIGURACAO> item = _baseRepository.GetAllItems();
-            return item;
-        }
-
-        public List<CONFIGURACAO_ASSOCIACAO> GetAllAssociacoes(Int32 id)
-        {
-            List<CONFIGURACAO_ASSOCIACAO> item = _assRepository.GetAllItens(id);
             return item;
         }
 

@@ -191,6 +191,7 @@
     <Compile Include="Repositories\FornecedorAnexoRepository.cs" />
     <Compile Include="Repositories\FornecedorCnpjRepository.cs" />
     <Compile Include="Repositories\FornecedorContatoRepository.cs" />
+    <Compile Include="Repositories\FornecedorMensagemRepository.cs" />
     <Compile Include="Repositories\FornecedorRepository.cs" />
     <Compile Include="Repositories\LogRepository.cs" />
     <Compile Include="Repositories\NoticiaComentarioRepository.cs" />
@@ -205,6 +206,7 @@
     <Compile Include="Repositories\TarefaRepository.cs" />
     <Compile Include="Repositories\TarefaVinculoRepository.cs" />
     <Compile Include="Repositories\TemplateRepository.cs" />
+    <Compile Include="Repositories\TipoMensagemRepository.cs" />
     <Compile Include="Repositories\TipoPessoaRepository.cs" />
     <Compile Include="Repositories\TipoTarefaRepository.cs" />
     <Compile Include="Repositories\UFRepository.cs" />

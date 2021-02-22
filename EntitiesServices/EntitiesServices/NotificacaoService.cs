@@ -22,7 +22,7 @@ namespace ModelServices.EntitiesServices
         private readonly ILogRepository _logRepository;
         private readonly INotificacaoAnexoRepository _anexoRepository;
         private readonly ICategoriaNotificacaoRepository _catRepository;
-        protected ERP_Condominio_DBEntities Db = new ERP_Condominio_DBEntities();
+        protected ERP_JurisEntities Db = new ERP_JurisEntities();
 
         public NotificacaoService(INotificacaoRepository baseRepository, ILogRepository logRepository, INotificacaoAnexoRepository anexoRepository, ICategoriaNotificacaoRepository catRepository) : base(baseRepository)
         {

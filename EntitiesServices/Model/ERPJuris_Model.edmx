@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ERP_JurisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ERP_JurisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AGENDA">
           <Key>
             <PropertyRef Name="AGEN_CD_ID" />
@@ -185,6 +185,19 @@
           <Property Name="FOCO_NR_TELEFONES" Type="varchar" MaxLength="50" />
           <Property Name="FOCO_IN_ATIVO" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="FORNECEDOR_MENSAGEM">
+          <Key>
+            <PropertyRef Name="FOME_CD_ID" />
+          </Key>
+          <Property Name="FOME_CD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FORN_CD_ID" Type="int" Nullable="false" />
+          <Property Name="USUA_CD_ID" Type="int" Nullable="false" />
+          <Property Name="TIME_CD_ID" Type="int" Nullable="false" />
+          <Property Name="FOME_DT_ENVIO" Type="datetime" Nullable="false" />
+          <Property Name="FOME_DS_TEXTO" Type="varchar" MaxLength="5000" />
+          <Property Name="FOME_IN_ATIVO" Type="int" />
+          <Property Name="FOME_IN_ENVIADO" Type="int" />
+        </EntityType>
         <EntityType Name="FORNECEDOR_QUADRO_SOCIETARIO">
           <Key>
             <PropertyRef Name="FOQS_CD_ID" />
@@ -356,6 +369,14 @@
           <Property Name="TEMP_TX_CORPO" Type="text" />
           <Property Name="TEMP_TX_DADOS" Type="text" />
           <Property Name="TEMP_DT_CRIACAO" Type="date" />
+        </EntityType>
+        <EntityType Name="TIPO_MENSAGEM">
+          <Key>
+            <PropertyRef Name="TIME_CD_ID" />
+          </Key>
+          <Property Name="TIME_CD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIME_NM_NOME" Type="varchar" MaxLength="50" />
+          <Property Name="TIME_IN_ATIVO" Type="int" />
         </EntityType>
         <EntityType Name="TIPO_PESSOA">
           <Key>
@@ -690,6 +711,42 @@
             </Principal>
             <Dependent Role="FORNECEDOR_CONTATO">
               <PropertyRef Name="FORN_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORNECEDOR_MENSAGEM_FORNECEDOR">
+          <End Role="FORNECEDOR" Type="Self.FORNECEDOR" Multiplicity="1" />
+          <End Role="FORNECEDOR_MENSAGEM" Type="Self.FORNECEDOR_MENSAGEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORNECEDOR">
+              <PropertyRef Name="FORN_CD_ID" />
+            </Principal>
+            <Dependent Role="FORNECEDOR_MENSAGEM">
+              <PropertyRef Name="FORN_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORNECEDOR_MENSAGEM_TIPO_MENSAGEM">
+          <End Role="TIPO_MENSAGEM" Type="Self.TIPO_MENSAGEM" Multiplicity="1" />
+          <End Role="FORNECEDOR_MENSAGEM" Type="Self.FORNECEDOR_MENSAGEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_MENSAGEM">
+              <PropertyRef Name="TIME_CD_ID" />
+            </Principal>
+            <Dependent Role="FORNECEDOR_MENSAGEM">
+              <PropertyRef Name="TIME_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORNECEDOR_MENSAGEM_USUARIO">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="FORNECEDOR_MENSAGEM" Type="Self.FORNECEDOR_MENSAGEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="USUA_CD_ID" />
+            </Principal>
+            <Dependent Role="FORNECEDOR_MENSAGEM">
+              <PropertyRef Name="USUA_CD_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1055,6 +1112,7 @@
           <EntitySet Name="FORNECEDOR_ANEXO" EntityType="Self.FORNECEDOR_ANEXO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FORNECEDOR_COMENTARIO" EntityType="Self.FORNECEDOR_COMENTARIO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FORNECEDOR_CONTATO" EntityType="Self.FORNECEDOR_CONTATO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FORNECEDOR_MENSAGEM" EntityType="Self.FORNECEDOR_MENSAGEM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FORNECEDOR_QUADRO_SOCIETARIO" EntityType="Self.FORNECEDOR_QUADRO_SOCIETARIO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOG" EntityType="Self.LOG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NOTICIA" EntityType="Self.NOTICIA" Schema="dbo" store:Type="Tables" />
@@ -1068,6 +1126,7 @@
           <EntitySet Name="TAREFA_NOTIFICACAO" EntityType="Self.TAREFA_NOTIFICACAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAREFA_VINCULO" EntityType="Self.TAREFA_VINCULO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TEMPLATE" EntityType="Self.TEMPLATE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_MENSAGEM" EntityType="Self.TIPO_MENSAGEM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_PESSOA" EntityType="Self.TIPO_PESSOA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_TAREFA" EntityType="Self.TIPO_TAREFA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UF" EntityType="Self.UF" Schema="dbo" store:Type="Tables" />
@@ -1145,6 +1204,18 @@
           <AssociationSet Name="FK_FORNECEDOR_CONTATO_FORNECEDOR" Association="Self.FK_FORNECEDOR_CONTATO_FORNECEDOR">
             <End Role="FORNECEDOR" EntitySet="FORNECEDOR" />
             <End Role="FORNECEDOR_CONTATO" EntitySet="FORNECEDOR_CONTATO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORNECEDOR_MENSAGEM_FORNECEDOR" Association="Self.FK_FORNECEDOR_MENSAGEM_FORNECEDOR">
+            <End Role="FORNECEDOR" EntitySet="FORNECEDOR" />
+            <End Role="FORNECEDOR_MENSAGEM" EntitySet="FORNECEDOR_MENSAGEM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORNECEDOR_MENSAGEM_TIPO_MENSAGEM" Association="Self.FK_FORNECEDOR_MENSAGEM_TIPO_MENSAGEM">
+            <End Role="TIPO_MENSAGEM" EntitySet="TIPO_MENSAGEM" />
+            <End Role="FORNECEDOR_MENSAGEM" EntitySet="FORNECEDOR_MENSAGEM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORNECEDOR_MENSAGEM_USUARIO" Association="Self.FK_FORNECEDOR_MENSAGEM_USUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="FORNECEDOR_MENSAGEM" EntitySet="FORNECEDOR_MENSAGEM" />
           </AssociationSet>
           <AssociationSet Name="FK_FORNECEDOR_QUADRO_SOCIETARIO_FORNECEDOR" Association="Self.FK_FORNECEDOR_QUADRO_SOCIETARIO_FORNECEDOR">
             <End Role="FORNECEDOR" EntitySet="FORNECEDOR" />
@@ -1263,8 +1334,7 @@
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ERP_JurisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1451,6 +1521,7 @@
           <NavigationProperty Name="FORNECEDOR_QUADRO_SOCIETARIO" Relationship="Self.FK_FORNECEDOR_QUADRO_SOCIETARIO_FORNECEDOR" FromRole="FORNECEDOR" ToRole="FORNECEDOR_QUADRO_SOCIETARIO" />
           <NavigationProperty Name="TIPO_PESSOA" Relationship="Self.FK_FORNECEDOR_TIPO_PESSOA" FromRole="FORNECEDOR" ToRole="TIPO_PESSOA" />
           <NavigationProperty Name="UF" Relationship="Self.FK_FORNECEDOR_UF" FromRole="FORNECEDOR" ToRole="UF" />
+          <NavigationProperty Name="FORNECEDOR_MENSAGEM" Relationship="ERP_JurisModel.FK_FORNECEDOR_MENSAGEM_FORNECEDOR" FromRole="FORNECEDOR" ToRole="FORNECEDOR_MENSAGEM" />
         </EntityType>
         <EntityType Name="FORNECEDOR_ANEXO">
           <Key>
@@ -1778,6 +1849,7 @@
           <NavigationProperty Name="TAREFA_VINCULO" Relationship="Self.FK_TAREFA_VINCULO_USUARIO" FromRole="USUARIO" ToRole="TAREFA_VINCULO" />
           <NavigationProperty Name="USUARIO_ANEXO" Relationship="Self.FK_USUARIO_ANEXO_USUARIO" FromRole="USUARIO" ToRole="USUARIO_ANEXO" />
           <NavigationProperty Name="USUARIO_FUNCIONARIO" Relationship="Self.FK_USUARIO_FUNCIONARIO_USUARIO" FromRole="USUARIO" ToRole="USUARIO_FUNCIONARIO" />
+          <NavigationProperty Name="FORNECEDOR_MENSAGEM" Relationship="ERP_JurisModel.FK_FORNECEDOR_MENSAGEM_USUARIO" FromRole="USUARIO" ToRole="FORNECEDOR_MENSAGEM" />
         </EntityType>
         <EntityType Name="USUARIO_ANEXO">
           <Key>
@@ -2619,7 +2691,82 @@
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
           </AssociationSet>
+          <EntitySet Name="TIPO_MENSAGEM" EntityType="ERP_JurisModel.TIPO_MENSAGEM" />
+          <EntitySet Name="FORNECEDOR_MENSAGEM" EntityType="ERP_JurisModel.FORNECEDOR_MENSAGEM" />
+          <AssociationSet Name="FK_FORNECEDOR_MENSAGEM_FORNECEDOR" Association="ERP_JurisModel.FK_FORNECEDOR_MENSAGEM_FORNECEDOR">
+            <End Role="FORNECEDOR" EntitySet="FORNECEDOR" />
+            <End Role="FORNECEDOR_MENSAGEM" EntitySet="FORNECEDOR_MENSAGEM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORNECEDOR_MENSAGEM_TIPO_MENSAGEM" Association="ERP_JurisModel.FK_FORNECEDOR_MENSAGEM_TIPO_MENSAGEM">
+            <End Role="TIPO_MENSAGEM" EntitySet="TIPO_MENSAGEM" />
+            <End Role="FORNECEDOR_MENSAGEM" EntitySet="FORNECEDOR_MENSAGEM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORNECEDOR_MENSAGEM_USUARIO" Association="ERP_JurisModel.FK_FORNECEDOR_MENSAGEM_USUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="FORNECEDOR_MENSAGEM" EntitySet="FORNECEDOR_MENSAGEM" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="TIPO_MENSAGEM">
+          <Key>
+            <PropertyRef Name="TIME_CD_ID" />
+          </Key>
+          <Property Name="TIME_CD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIME_NM_NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TIME_IN_ATIVO" Type="Int32" />
+          <NavigationProperty Name="FORNECEDOR_MENSAGEM" Relationship="ERP_JurisModel.FK_FORNECEDOR_MENSAGEM_TIPO_MENSAGEM" FromRole="TIPO_MENSAGEM" ToRole="FORNECEDOR_MENSAGEM" />
+        </EntityType>
+        <EntityType Name="FORNECEDOR_MENSAGEM">
+          <Key>
+            <PropertyRef Name="FOME_CD_ID" />
+          </Key>
+          <Property Name="FOME_CD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FORN_CD_ID" Type="Int32" Nullable="false" />
+          <Property Name="USUA_CD_ID" Type="Int32" Nullable="false" />
+          <Property Name="TIME_CD_ID" Type="Int32" Nullable="false" />
+          <Property Name="FOME_DT_ENVIO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FOME_DS_TEXTO" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="FOME_IN_ATIVO" Type="Int32" />
+          <Property Name="FOME_IN_ENVIADO" Type="Int32" />
+          <NavigationProperty Name="FORNECEDOR" Relationship="ERP_JurisModel.FK_FORNECEDOR_MENSAGEM_FORNECEDOR" FromRole="FORNECEDOR_MENSAGEM" ToRole="FORNECEDOR" />
+          <NavigationProperty Name="TIPO_MENSAGEM" Relationship="ERP_JurisModel.FK_FORNECEDOR_MENSAGEM_TIPO_MENSAGEM" FromRole="FORNECEDOR_MENSAGEM" ToRole="TIPO_MENSAGEM" />
+          <NavigationProperty Name="USUARIO" Relationship="ERP_JurisModel.FK_FORNECEDOR_MENSAGEM_USUARIO" FromRole="FORNECEDOR_MENSAGEM" ToRole="USUARIO" />
+        </EntityType>
+        <Association Name="FK_FORNECEDOR_MENSAGEM_FORNECEDOR">
+          <End Type="ERP_JurisModel.FORNECEDOR" Role="FORNECEDOR" Multiplicity="1" />
+          <End Type="ERP_JurisModel.FORNECEDOR_MENSAGEM" Role="FORNECEDOR_MENSAGEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORNECEDOR">
+              <PropertyRef Name="FORN_CD_ID" />
+            </Principal>
+            <Dependent Role="FORNECEDOR_MENSAGEM">
+              <PropertyRef Name="FORN_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORNECEDOR_MENSAGEM_TIPO_MENSAGEM">
+          <End Type="ERP_JurisModel.TIPO_MENSAGEM" Role="TIPO_MENSAGEM" Multiplicity="1" />
+          <End Type="ERP_JurisModel.FORNECEDOR_MENSAGEM" Role="FORNECEDOR_MENSAGEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_MENSAGEM">
+              <PropertyRef Name="TIME_CD_ID" />
+            </Principal>
+            <Dependent Role="FORNECEDOR_MENSAGEM">
+              <PropertyRef Name="TIME_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORNECEDOR_MENSAGEM_USUARIO">
+          <End Type="ERP_JurisModel.USUARIO" Role="USUARIO" Multiplicity="1" />
+          <End Type="ERP_JurisModel.FORNECEDOR_MENSAGEM" Role="FORNECEDOR_MENSAGEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="USUA_CD_ID" />
+            </Principal>
+            <Dependent Role="FORNECEDOR_MENSAGEM">
+              <PropertyRef Name="USUA_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3127,6 +3274,29 @@
                 <ScalarProperty Name="USFU_DT_CNH_VALIDADE" ColumnName="USFU_DT_CNH_VALIDADE" />
                 <ScalarProperty Name="USFU_NM_CNH_CATEGORIA" ColumnName="USFU_NM_CNH_CATEGORIA" />
                 <ScalarProperty Name="USFU_NR_CNS" ColumnName="USFU_NR_CNS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_MENSAGEM">
+            <EntityTypeMapping TypeName="ERP_JurisModel.TIPO_MENSAGEM">
+              <MappingFragment StoreEntitySet="TIPO_MENSAGEM">
+                <ScalarProperty Name="TIME_IN_ATIVO" ColumnName="TIME_IN_ATIVO" />
+                <ScalarProperty Name="TIME_NM_NOME" ColumnName="TIME_NM_NOME" />
+                <ScalarProperty Name="TIME_CD_ID" ColumnName="TIME_CD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FORNECEDOR_MENSAGEM">
+            <EntityTypeMapping TypeName="ERP_JurisModel.FORNECEDOR_MENSAGEM">
+              <MappingFragment StoreEntitySet="FORNECEDOR_MENSAGEM">
+                <ScalarProperty Name="FOME_IN_ENVIADO" ColumnName="FOME_IN_ENVIADO" />
+                <ScalarProperty Name="FOME_IN_ATIVO" ColumnName="FOME_IN_ATIVO" />
+                <ScalarProperty Name="FOME_DS_TEXTO" ColumnName="FOME_DS_TEXTO" />
+                <ScalarProperty Name="FOME_DT_ENVIO" ColumnName="FOME_DT_ENVIO" />
+                <ScalarProperty Name="TIME_CD_ID" ColumnName="TIME_CD_ID" />
+                <ScalarProperty Name="USUA_CD_ID" ColumnName="USUA_CD_ID" />
+                <ScalarProperty Name="FORN_CD_ID" ColumnName="FORN_CD_ID" />
+                <ScalarProperty Name="FOME_CD_ID" ColumnName="FOME_CD_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
