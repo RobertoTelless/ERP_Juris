@@ -179,18 +179,51 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AgendaAnexoRepository.cs" />
+    <Compile Include="Repositories\AgendaRepository.cs" />
+    <Compile Include="Repositories\AssinanteRepository.cs" />
+    <Compile Include="Repositories\CargoRepository.cs" />
+    <Compile Include="Repositories\CategoriaAgendaRepository.cs" />
+    <Compile Include="Repositories\CategoriaFornecedorRepository.cs" />
+    <Compile Include="Repositories\CategoriaNotificacaoRepository.cs" />
+    <Compile Include="Repositories\CategoriaUsuarioRepository.cs" />
+    <Compile Include="Repositories\ConfiguracaoRepository.cs" />
+    <Compile Include="Repositories\FornecedorAnexoRepository.cs" />
+    <Compile Include="Repositories\FornecedorCnpjRepository.cs" />
+    <Compile Include="Repositories\FornecedorContatoRepository.cs" />
+    <Compile Include="Repositories\FornecedorRepository.cs" />
+    <Compile Include="Repositories\LogRepository.cs" />
+    <Compile Include="Repositories\NoticiaComentarioRepository.cs" />
+    <Compile Include="Repositories\NoticiaRepository.cs" />
+    <Compile Include="Repositories\NotificacaoAnexoRepository.cs" />
+    <Compile Include="Repositories\NotificacaoRepository.cs" />
+    <Compile Include="Repositories\PerfilRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\TarefaAcompanhamentoRepository.cs" />
+    <Compile Include="Repositories\TarefaAnexoRepository.cs" />
+    <Compile Include="Repositories\TarefaNotificacaoRepository.cs" />
+    <Compile Include="Repositories\TarefaRepository.cs" />
+    <Compile Include="Repositories\TarefaVinculoRepository.cs" />
+    <Compile Include="Repositories\TemplateRepository.cs" />
+    <Compile Include="Repositories\TipoPessoaRepository.cs" />
+    <Compile Include="Repositories\TipoTarefaRepository.cs" />
+    <Compile Include="Repositories\UFRepository.cs" />
+    <Compile Include="Repositories\UsuarioAnexoRepository.cs" />
+    <Compile Include="Repositories\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CrossCutting\CrossCutting.csproj">
       <Project>{dd9871e6-79b5-4536-beb9-cec5ceeccdae}</Project>
       <Name>CrossCutting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntitiesServices\EntitiesServices.csproj">
+      <Project>{bdceb030-871a-4098-94bb-d6541ae74b5e}</Project>
+      <Name>EntitiesServices</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using EntitiesServices.Model;  
 using ModelServices.Interfaces.Repositories;
 using System.Linq;
-using EntitiesServices.Work_Classes;
 using System.Data.Entity;
 using CrossCutting;
 

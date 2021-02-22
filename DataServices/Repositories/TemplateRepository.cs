@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using EntitiesServices.Model;
 using ModelServices.Interfaces.Repositories;
-using EntitiesServices.Work_Classes;
 
 namespace DataServices.Repositories
 {

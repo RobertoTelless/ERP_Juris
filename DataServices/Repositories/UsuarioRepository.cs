@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using EntitiesServices.Model;  
 using ModelServices.Interfaces.Repositories;
 using System.Linq;
-using EntitiesServices.Work_Classes;
 using System.Data.Entity;
 using CrossCutting;
 
@@ -16,7 +15,6 @@ namespace DataServices.Repositories
             IQueryable<USUARIO> query = Db.USUARIO;
             query = query.Where(p => p.USUA_NM_NOME == item.USUA_NM_NOME);
             query = query.Where(p => p.ASSI_CD_ID == item.ASSI_CD_ID);
-            query = query.Where(p => p.UNID_CD_ID == item.UNID_CD_ID);
             return query.FirstOrDefault();
         }
 
@@ -45,26 +43,6 @@ namespace DataServices.Repositories
             query = query.Include(p => p.AGENDA);
             query = query.Include(p => p.LOG);
             query = query.Include(p => p.USUARIO_ANEXO);
-            return query.FirstOrDefault();
-        }
-
-        public USUARIO GetSindico(Int32 idAss)
-        {
-            IQueryable<USUARIO> query = Db.USUARIO.Where(p => p.USUA_IN_ATIVO == 1);
-            query = query.Where(p => p.PERFIL.PERF_SG_SIGLA == "SIN");
-            query = query.Include(p => p.ASSINANTE);
-            query = query.Include(p => p.PERFIL);
-            return query.FirstOrDefault();
-        }
-
-        public USUARIO GetResponsavel(USUARIO usu)
-        {
-            IQueryable<USUARIO> query = Db.USUARIO.Where(p => p.USUA_IN_ATIVO == 1);
-            query = query.Where(p => p.USUA_IN_RESPONSAVEL == 1);
-            query = query.Where(p => p.UNID_CD_ID == usu.UNID_CD_ID);
-            query = query.Where(p => p.USUA_NM_NOME == usu.USUA_NM_NOME);
-            query = query.Include(p => p.ASSINANTE);
-            query = query.Include(p => p.PERFIL);
             return query.FirstOrDefault();
         }
 
@@ -117,7 +95,7 @@ namespace DataServices.Repositories
             return query.ToList();
         }
 
-        public List<USUARIO> ExecuteFilter(Int32? causId, Int32? cargoId, Int32? unidId, String nome, String login, String email, String cpf, Int32 idAss)
+        public List<USUARIO> ExecuteFilter(Int32? causId, Int32? cargoId, String nome, String login, String email, String cpf, Int32 idAss)
         {
             List<USUARIO> lista = new List<USUARIO>();
             IQueryable<USUARIO> query = Db.USUARIO;
@@ -140,10 +118,6 @@ namespace DataServices.Repositories
             if (cargoId != null)
             {
                 query = query.Where(p => p.PERF_CD_ID == causId);
-            }
-            if (unidId != null)
-            {
-                query = query.Where(p => p.UNID_CD_ID == causId);
             }
             if (!String.IsNullOrEmpty(cpf))
             {

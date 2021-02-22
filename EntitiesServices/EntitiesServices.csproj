@@ -180,6 +180,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\Repositories\IAgendaAnexoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAgendaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAssinanteRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICargoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICategoriaAgendaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICategoriaFornecedorRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICategoriaNotificacaoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICategoriaUsuarioRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IConfiguracaoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IFornecedorAnexoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IFornecedorCnpjRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IFornecedorContatoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IFornecedorRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ILogRepository.cs" />
+    <Compile Include="Interfaces\Repositories\INoticiaComentarioRepository.cs" />
+    <Compile Include="Interfaces\Repositories\INoticiaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\INotificacaoAnexoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\INotificacaoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPerfilRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repositories\ITarefaAcompanhamentoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITarefaAnexoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITarefaNotificacaoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITarefaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITarefaVinculoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITemplateRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITipoPessoaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITipoTarefaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUFRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUsuarioAnexoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUsuarioRepository.cs" />
     <Compile Include="Model\AGENDA.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
@@ -309,7 +340,6 @@
     <Folder Include="EntitiesServices\" />
     <Folder Include="Interfaces\EntitiesServices\" />
     <Folder Include="Interfaces\ExternalServices\" />
-    <Folder Include="Interfaces\Repositories\" />
     <Folder Include="WorkClasses\" />
   </ItemGroup>
   <ItemGroup>
