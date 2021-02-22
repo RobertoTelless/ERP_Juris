@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fbbd1213107c415084a4f9bdf59ab1d2" Name="Diagram1">
+        <EntityTypeShape EntityType="ERP_JurisModel.AGENDA" Width="1.5" PointX="7.5" PointY="39.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.AGENDA_ANEXO" Width="1.5" PointX="9.75" PointY="51.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.ASSINANTE" Width="1.5" PointX="3" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.CARGO" Width="1.5" PointX="5.25" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.CATEGORIA_AGENDA" Width="1.5" PointX="5.25" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.CATEGORIA_FORNECEDOR" Width="1.5" PointX="6" PointY="32.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.CATEGORIA_NOTIFICACAO" Width="1.5" PointX="5.25" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.CATEGORIA_USUARIO" Width="1.5" PointX="5.25" PointY="44.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.CONFIGURACAO" Width="1.5" PointX="5.25" PointY="47.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.FORNECEDOR" Width="1.5" PointX="8.25" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.FORNECEDOR_ANEXO" Width="1.5" PointX="10.5" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.FORNECEDOR_COMENTARIO" Width="1.5" PointX="12.75" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.FORNECEDOR_CONTATO" Width="1.5" PointX="10.5" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.FORNECEDOR_QUADRO_SOCIETARIO" Width="1.5" PointX="10.5" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.LOG" Width="1.5" PointX="12.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.NOTICIA" Width="1.5" PointX="13.5" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.NOTICIA_COMENTARIO" Width="1.5" PointX="15.75" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.NOTIFICACAO" Width="1.5" PointX="15.75" PointY="44" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.NOTIFICACAO_ANEXO" Width="1.5" PointX="18" PointY="45" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.PERFIL" Width="1.5" PointX="8.25" PointY="45.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.TAREFA" Width="1.5" PointX="12.75" PointY="49.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.TAREFA_ACOMPANHAMENTO" Width="1.5" PointX="18" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.TAREFA_ANEXO" Width="1.5" PointX="15" PointY="53.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.TAREFA_NOTIFICACAO" Width="1.5" PointX="18" PointY="49" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.TAREFA_VINCULO" Width="1.5" PointX="15" PointY="50" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.TEMPLATE" Width="1.5" PointX="5.25" PointY="61.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.TIPO_PESSOA" Width="1.5" PointX="0.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.TIPO_TAREFA" Width="1.5" PointX="5.25" PointY="65.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.UF" Width="1.5" PointX="0.75" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.USUARIO" Width="1.5" PointX="10.5" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.USUARIO_ANEXO" Width="1.5" PointX="12.75" PointY="57.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_JurisModel.USUARIO_FUNCIONARIO" Width="1.5" PointX="12.75" PointY="60.375" IsExpanded="true" />
+        <AssociationConnector Association="ERP_JurisModel.FK_AGENDA_ANEXO_AGENDA" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_AGENDA_ASSINANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_AGENDA_CATEGORIA_AGENDA" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_AGENDA_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_AGENDA_USUARIO1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_ASSINANTE_TIPO_PESSOA" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_ASSINANTE_UF" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_CARGO_ASSINANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_CATEGORIA_AGENDA_ASSINANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_CATEGORIA_NOTIFICACAO_ASSINANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_CATEGORIA_USUARIO_ASSINANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_CONFIGURACAO_ASSINANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_FORNECEDOR_ASSINANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_LOG_ASSINANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_NOTIFICACAO_ASSINANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_TAREFA_ASSINANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_TEMPLATE_ASSINANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_TIPO_TAREFA_ASSINANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_ASSINANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_CARGO" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_FORNECEDOR_CATEGORIA_FORNECEDOR" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_NOTIFICACAO_CATEGORIA_NOTIFICACAO" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_CATEGORIA_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_FORNECEDOR_ANEXO_FORNECEDOR" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_FORNECEDOR_COMENTARIO_FORNECEDOR" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_FORNECEDOR_CONTATO_FORNECEDOR" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_FORNECEDOR_QUADRO_SOCIETARIO_FORNECEDOR" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_FORNECEDOR_TIPO_PESSOA" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_FORNECEDOR_UF" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_FORNECEDOR_COMENTARIO_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_LOG_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_NOTICIA_COMENTARIO_NOTICIA" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_NOTICIA_COMENTARIO_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_NOTIFICACAO_ANEXO_NOTIFICACAO" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_NOTIFICACAO_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_PERFIL" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_TAREFA_ACOMPANHAMENTO_TAREFA" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_TAREFA_ANEXO_TAREFA" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_TAREFA_NOTIFICACAO_TAREFA" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_TAREFA_TIPO_TAREFA" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_TAREFA_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_TAREFA_VINCULO_TAREFA" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_TAREFA_ACOMPANHAMENTO_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_TAREFA_NOTIFICACAO_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_TAREFA_VINCULO_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_ANEXO_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_USUARIO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
