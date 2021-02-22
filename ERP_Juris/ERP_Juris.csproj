@@ -978,7 +978,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Automapper\" />
+    <Folder Include="CodeTemplates\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Imagens\" />
+    <Folder Include="Images\" />
     <Folder Include="Models\" />
+    <Folder Include="PdfViewer\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -992,6 +1000,24 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApplicationServices\ApplicationServices.csproj">
+      <Project>{bc06a98b-3550-4e9b-b726-1d59b1ffa206}</Project>
+      <Name>ApplicationServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CrossCutting\CrossCutting.csproj">
+      <Project>{dd9871e6-79b5-4536-beb9-cec5ceeccdae}</Project>
+      <Name>CrossCutting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataServices\DataServices.csproj">
+      <Project>{e0c34c51-699b-4b86-835e-f06c5e5a2b4b}</Project>
+      <Name>DataServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntitiesServices\EntitiesServices.csproj">
+      <Project>{bdceb030-871a-4098-94bb-d6541ae74b5e}</Project>
+      <Name>EntitiesServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

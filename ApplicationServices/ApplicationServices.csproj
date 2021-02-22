@@ -184,5 +184,19 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CrossCutting\CrossCutting.csproj">
+      <Project>{dd9871e6-79b5-4536-beb9-cec5ceeccdae}</Project>
+      <Name>CrossCutting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntitiesServices\EntitiesServices.csproj">
+      <Project>{bdceb030-871a-4098-94bb-d6541ae74b5e}</Project>
+      <Name>EntitiesServices</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
