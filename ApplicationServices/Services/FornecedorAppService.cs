@@ -391,7 +391,7 @@ namespace ApplicationServices.Services
                     // Prepara dados do e-mail  
                     header = header.Replace("{Nome}", item.FORNECEDOR.FORN_NM_NOME);
                     body = body.Replace("{Texto}", item.FOME_DS_TEXTO);
-                    body = body.Replace("{Condominio}", item.USUARIO.ASSINANTE.ASSI_NM_NOME);
+                    body = body.Replace("{Empresa}", item.USUARIO.ASSINANTE.ASSI_NM_NOME);
                     data = data.Replace("{Data}", item.FOME_DT_ENVIO.ToLongDateString());
                     data = data.Replace("{Usuario}", item.USUARIO.USUA_NM_NOME);
 

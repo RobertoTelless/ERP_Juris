@@ -19,5 +19,6 @@ namespace ModelServices.Interfaces.Repositories
         List<USUARIO> GetAllItensAcessoHoje(Int32 idAss);
         List<USUARIO> GetAllUsuariosAdm(Int32 idAss);
         List<USUARIO> ExecuteFilter(Int32? causId, Int32? cargId, String nome, String login, String email, String cpf, Int32 idAss);
+        USUARIO GetAdministrador(Int32 idAss);
     }
 }

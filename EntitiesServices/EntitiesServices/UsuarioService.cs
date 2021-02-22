@@ -93,6 +93,11 @@ namespace ModelServices.EntitiesServices
             return _usuarioRepository.GetByEmail(email);
         }
 
+        public USUARIO GetAdministrador(Int32 idAss)
+        {
+            return _usuarioRepository.GetAdministrador(idAss);
+        }
+
         public USUARIO_ANEXO GetAnexoById(Int32 id)
         {
             return _anexoRepository.GetItemById(id);

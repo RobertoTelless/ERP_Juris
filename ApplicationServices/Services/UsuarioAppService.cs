@@ -48,18 +48,6 @@ namespace ApplicationServices.Services
             return lista;
         }
 
-        public List<TORRE> GetAllTorres(Int32 idAss)
-        {
-            List<TORRE> lista = _usuarioService.GetAllTorres(idAss);
-            return lista;
-        }
-
-        public List<UNIDADE> GetAllUnidades(Int32 idAss)
-        {
-            List<UNIDADE> lista = _usuarioService.GetAllUnidades(idAss);
-            return lista;
-        }
-
         public USUARIO GetByLogin(String login)
         {
             return _usuarioService.GetByLogin(login);
@@ -83,16 +71,6 @@ namespace ApplicationServices.Services
         public List<USUARIO> GetAllItens(Int32 idAss)
         {
             return _usuarioService.GetAllItens(idAss);
-        }
-
-        public USUARIO GetSindico(Int32 idAss)
-        {
-            return _usuarioService.GetSindico(idAss);
-        }
-
-        public USUARIO GetResponsavel(USUARIO usu)
-        {
-            return _usuarioService.GetResponsavel(usu);
         }
 
         public List<NOTIFICACAO> GetAllItensUser(Int32 id, Int32 idAss)
@@ -175,13 +153,6 @@ namespace ApplicationServices.Services
                         return 7;
                     }
                 }
-                if (usuario.USUA_IN_RESPONSAVEL == 1)
-                {
-                    if (_usuarioService.GetResponsavel(usuario) != null)
-                    {
-                        return 8;
-                    }
-                }
 
                 //Completa campos de usuários
                 String senha = Cryptography.GenerateRandomPassword(6);
@@ -242,7 +213,7 @@ namespace ApplicationServices.Services
 
                 // Prepara dados do e-mail  
                 data = data.Replace("{Nome}", usuario.USUA_NM_NOME);
-                data = data.Replace("{Unidade}", usuario.UNIDADE.UNID_NM_EXIBE);
+                data = data.Replace("{Cargo}", usuario.CARGO.CARG_NM_NOME);
                 data = data.Replace("{Perfil}", usuario.PERFIL.PERF_NM_NOME);
                 data = data.Replace("{Data}", usuario.USUA_DT_CADASTRO.Value.ToLongDateString());
                 data = data.Replace("{Login}", usuario.USUA_NM_LOGIN);
@@ -281,7 +252,7 @@ namespace ApplicationServices.Services
             try
             {
                 //Completa campos
-                USUARIO adm = _usuarioService.GetSindico(usuarioLogado.ASSI_CD_ID);
+                USUARIO adm = _usuarioService.GetAdministrador(usuarioLogado.ASSI_CD_ID);
                 noti.ASSI_CD_ID = usuarioLogado.ASSI_CD_ID;
                 noti.CANO_CD_ID = 1;
                 noti.NOTI_DT_EMISSAO = DateTime.Today.Date;
@@ -466,15 +437,6 @@ namespace ApplicationServices.Services
                     if (usuario.USUA_DS_MOTIVO_SAIDA == null)
                     {
                         return 6;
-                    }
-                }
-
-                // Verifica responsavel
-                if (usuario.USUA_IN_RESPONSAVEL == 1)
-                {
-                    if (_usuarioService.GetResponsavel(usuario) != null)
-                    {
-                        return 7;
                     }
                 }
 
@@ -884,7 +846,7 @@ namespace ApplicationServices.Services
             return 0;
         }
 
-        public Int32 ExecuteFilter(Int32? causId, Int32? cargo, Int32? unidade, String nome, String login, String email, String cpf, Int32 idAss, out List<USUARIO> objeto)
+        public Int32 ExecuteFilter(Int32? causId, Int32? cargo, String nome, String login, String email, String cpf, Int32 idAss, out List<USUARIO> objeto)
         {
             try
             {
@@ -892,7 +854,7 @@ namespace ApplicationServices.Services
                 Int32 volta = 0;
 
                 // Processa filtro
-                objeto = _usuarioService.ExecuteFilter(causId, cargo, unidade, nome, login, email, cpf, idAss);
+                objeto = _usuarioService.ExecuteFilter(causId, cargo, nome, login, email, cpf, idAss);
                 if (objeto.Count == 0)
                 {
                     volta = 1;

@@ -31,11 +31,6 @@ namespace ApplicationServices.Services
             return _baseService.GetAllItems();
         }
 
-        public List<CONFIGURACAO_ASSOCIACAO> GetAllAssociacoes(Int32 id)
-        {
-            return _baseService.GetAllAssociacoes(id);
-        }
-
         public Int32 ValidateEdit(CONFIGURACAO item, CONFIGURACAO itemAntes, USUARIO usuario)
         {
             try

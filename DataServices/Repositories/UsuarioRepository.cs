@@ -25,6 +25,14 @@ namespace DataServices.Repositories
             return query.FirstOrDefault();
         }
 
+        public USUARIO GetAdministrador(Int32 idAss)
+        {
+            IQueryable<USUARIO> query = Db.USUARIO.Where(p => p.USUA_IN_ATIVO == 1);
+            query = query.Where(p => p.ASSI_CD_ID == idAss);
+            query = query.Where(p => p.PERF_CD_ID == 1);
+            return query.FirstOrDefault();
+        }
+
         public USUARIO GetByLogin(String login)
         {
             IQueryable<USUARIO> query = Db.USUARIO.Where(p => p.USUA_IN_ATIVO == 1);

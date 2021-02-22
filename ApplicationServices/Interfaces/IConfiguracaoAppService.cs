@@ -13,6 +13,5 @@ namespace ApplicationServices.Interfaces
         CONFIGURACAO GetItemById(Int32 id);
         List<CONFIGURACAO> GetAllItems();
         Int32 ValidateCreate(CONFIGURACAO item);
-        List<CONFIGURACAO_ASSOCIACAO> GetAllAssociacoes(Int32 id);
     }
 }
