@@ -160,6 +160,24 @@ namespace ERP_Juris.App_Start {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Confirmação de senha inválida.
+        /// </summary>
+        internal static string M0012 {
+            get {
+                return ResourceManager.GetString("M0012", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a E-Mail inválido.
+        /// </summary>
+        internal static string M0013 {
+            get {
+                return ResourceManager.GetString("M0013", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Nenhum registro atendeu às condições do filtro especificado.
         /// </summary>
         internal static string M0016 {
@@ -205,6 +223,33 @@ namespace ERP_Juris.App_Start {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Formato de arquivo imagem não permitido.
+        /// </summary>
+        internal static string M0021 {
+            get {
+                return ResourceManager.GetString("M0021", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a E-Mail já cadastrado.
+        /// </summary>
+        internal static string M0022 {
+            get {
+                return ResourceManager.GetString("M0022", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Login já cadastrado.
+        /// </summary>
+        internal static string M0023 {
+            get {
+                return ResourceManager.GetString("M0023", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a O nome do arquivo não pode ter mais do que 100 caracteres.
         /// </summary>
         internal static string M0024 {
@@ -219,6 +264,33 @@ namespace ERP_Juris.App_Start {
         internal static string M0025 {
             get {
                 return ResourceManager.GetString("M0025", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Data de admissão maior que a data corrente.
+        /// </summary>
+        internal static string M0027 {
+            get {
+                return ResourceManager.GetString("M0027", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Data de demissão maior que a data corrente.
+        /// </summary>
+        internal static string M0028 {
+            get {
+                return ResourceManager.GetString("M0028", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Justificatica de demissão deve ser informada.
+        /// </summary>
+        internal static string M0029 {
+            get {
+                return ResourceManager.GetString("M0029", resourceCulture);
             }
         }
         
