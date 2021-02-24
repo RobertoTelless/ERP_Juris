@@ -142,11 +142,47 @@ namespace ERP_Juris.App_Start {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Apenas um Administador pode executar essa operação.
+        /// </summary>
+        internal static string M0010 {
+            get {
+                return ResourceManager.GetString("M0010", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Você não tem acesso a essa funcionalidade. Restrita a administradores.
         /// </summary>
         internal static string M0011 {
             get {
                 return ResourceManager.GetString("M0011", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Nenhum registro atendeu às condições do filtro especificado.
+        /// </summary>
+        internal static string M0016 {
+            get {
+                return ResourceManager.GetString("M0016", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Nenhum arquivo selecionado.
+        /// </summary>
+        internal static string M0019 {
+            get {
+                return ResourceManager.GetString("M0019", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O nome do arquivo não pode ter mais do que 100 caracteres.
+        /// </summary>
+        internal static string M0024 {
+            get {
+                return ResourceManager.GetString("M0024", resourceCulture);
             }
         }
         

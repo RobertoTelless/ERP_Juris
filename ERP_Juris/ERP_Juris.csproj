@@ -297,6 +297,7 @@
     <Compile Include="Controllers\BaseAdminController.cs" />
     <Compile Include="Controllers\ControleAcessoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NoticiaController.cs" />
     <Compile Include="Extensions\HMTLHelperExtensions.cs" />
     <Compile Include="Extensions\MVCButtonExtensions.cs" />
     <Compile Include="Extensions\WebMvcExtensions.cs" />
@@ -2885,6 +2886,14 @@
     <Content Include="Views\ControleAcesso\GerarSenha.cshtml" />
     <Content Include="Views\BaseAdmin\CarregarBase.cshtml" />
     <Content Include="Views\BaseAdmin\CarregarDesenvolvimento.cshtml" />
+    <Content Include="Views\Noticia\VerNoticia.cshtml" />
+    <Content Include="Views\Noticia\IncluirComentario.cshtml" />
+    <Content Include="Views\Noticia\MontarTelaUsuario.cshtml" />
+    <Content Include="Views\Noticia\MontarTelaNoticia.cshtml" />
+    <Content Include="Views\Noticia\IncluirNoticia.cshtml" />
+    <Content Include="Views\Noticia\EditarNoticia.cshtml" />
+    <Content Include="Views\Noticia\ExcluirNoticia.cshtml" />
+    <Content Include="Views\Noticia\ReativarNoticia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

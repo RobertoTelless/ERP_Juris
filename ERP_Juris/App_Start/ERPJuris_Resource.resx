@@ -144,8 +144,20 @@
   <data name="M0009" xml:space="preserve">
     <value>A nova senha não foi confirmada corretamente</value>
   </data>
+  <data name="M0010" xml:space="preserve">
+    <value>Apenas um Administador pode executar essa operação</value>
+  </data>
   <data name="M0011" xml:space="preserve">
     <value>Você não tem acesso a essa funcionalidade. Restrita a administradores</value>
+  </data>
+  <data name="M0016" xml:space="preserve">
+    <value>Nenhum registro atendeu às condições do filtro especificado</value>
+  </data>
+  <data name="M0019" xml:space="preserve">
+    <value>Nenhum arquivo selecionado</value>
+  </data>
+  <data name="M0024" xml:space="preserve">
+    <value>O nome do arquivo não pode ter mais do que 100 caracteres</value>
   </data>
   <data name="M0073" xml:space="preserve">
     <value>A Senha não pode ficar em branco</value>
