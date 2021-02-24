@@ -162,17 +162,29 @@
                                                                             <td>@cond.NOAN_DT_ANEXO.Value.ToShortDateString()</td>
                                                                             @if (cond.NOAN_IN_TIPO == 1)
 	                                                                        {
-                                                                                <td>Imagem/Video</td>
+                                                                                <td>Imagem</td>
+                                                                            }
+                                                                            else if (cond.NOAN_IN_TIPO == 2)
+	                                                                        {
+                                                                                <td>Vídeo</td>
                                                                             }
                                                                             else
                                                                             {
-                                                                                <td>Arquivo</td>
+                                                                                <td>PDF</td>
                                                                             }
                                                                             <td class="td-one-action">
-                                                                                @if (cond.NOAN_IN_TIPO == 1 || cond.NOAN_IN_TIPO == 2)
+                                                                                @if (cond.NOAN_IN_TIPO == 1)
 	                                                                            {
-                                                                                    @Html.TableLinkDetails(cond.NOAN_CD_ID, "VerAnexoNotificacaoGeral","fa-camera", "Visualizar")
-	                                                                            }
+                                                                                    @Html.TableLinkDetails(cond.NOAN_CD_ID, "VerAnexoNotificacao","fa-camera", "Visualizar")
+                                                                                }
+                                                                                else if (cond.NOAN_IN_TIPO == 2)
+	                                                                            {
+                                                                                    @Html.TableLinkDetails(cond.NOAN_CD_ID, "VerAnexoNotificacao","fa-video-camera", "Visualizar")
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    <a title="Visualizar" class="fa fa-file-text-o fa-lg" href="~/PdfViewer/web/viewer.html?file=@(cond.NOAN_AQ_ARQUIVO.Replace("~", ""))&ReturnUrl=@Request.Url.AbsolutePath"></a>
+                                                                                }
                                                                                 @Html.TableLinkDetails(cond.NOAN_CD_ID, "DownloadNotificacao","fa-download", "Download")
                                                                             </td>
                                                                         </tr>
