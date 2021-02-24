@@ -38,6 +38,7 @@ namespace ERP_Juris.ViewModels
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NOTICIA_COMENTARIO> NOTICIA_COMENTARIO { get; set; }
+        public virtual ASSINANTE ASSINANTE { get; set; }
 
     }
 }

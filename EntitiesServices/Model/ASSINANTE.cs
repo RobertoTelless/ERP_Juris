@@ -30,6 +30,7 @@ namespace EntitiesServices.Model
             this.TEMPLATE = new HashSet<TEMPLATE>();
             this.TIPO_TAREFA = new HashSet<TIPO_TAREFA>();
             this.USUARIO = new HashSet<USUARIO>();
+            this.NOTICIA = new HashSet<NOTICIA>();
         }
     
         public int ASSI_CD_ID { get; set; }
@@ -78,5 +79,7 @@ namespace EntitiesServices.Model
         public virtual ICollection<TIPO_TAREFA> TIPO_TAREFA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USUARIO> USUARIO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NOTICIA> NOTICIA { get; set; }
     }
 }

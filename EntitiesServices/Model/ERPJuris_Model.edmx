@@ -115,6 +115,8 @@
           <Property Name="CONF_NR_REFRESH_DASH" Type="int" />
           <Property Name="CONF_NM_ARQUIVO_ALARME" Type="varchar" MaxLength="50" />
           <Property Name="CONF_NR_REFRESH_NOTIFICACAO" Type="int" />
+          <Property Name="CONF_SG_LOGIN_SMS" Type="varchar" MaxLength="50" />
+          <Property Name="CONF_SG_SENHA_SMS" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="FORNECEDOR">
           <Key>
@@ -229,6 +231,7 @@
             <PropertyRef Name="NOTC_CD_ID" />
           </Key>
           <Property Name="NOTC_CD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ASSI_CD_ID" Type="int" />
           <Property Name="NOTC_DT_EMISSAO" Type="date" />
           <Property Name="NOTC_DT_VALIDADE" Type="date" />
           <Property Name="NOTC_NM_TITULO" Type="varchar" MaxLength="500" />
@@ -810,6 +813,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_NOTICIA_ASSINANTE">
+          <End Role="ASSINANTE" Type="Self.ASSINANTE" Multiplicity="0..1" />
+          <End Role="NOTICIA" Type="Self.NOTICIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSINANTE">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Principal>
+            <Dependent Role="NOTICIA">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_NOTICIA_COMENTARIO_NOTICIA">
           <End Role="NOTICIA" Type="Self.NOTICIA" Multiplicity="1" />
           <End Role="NOTICIA_COMENTARIO" Type="Self.NOTICIA_COMENTARIO" Multiplicity="*" />
@@ -1237,6 +1252,10 @@
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="LOG" EntitySet="LOG" />
           </AssociationSet>
+          <AssociationSet Name="FK_NOTICIA_ASSINANTE" Association="Self.FK_NOTICIA_ASSINANTE">
+            <End Role="ASSINANTE" EntitySet="ASSINANTE" />
+            <End Role="NOTICIA" EntitySet="NOTICIA" />
+          </AssociationSet>
           <AssociationSet Name="FK_NOTICIA_COMENTARIO_NOTICIA" Association="Self.FK_NOTICIA_COMENTARIO_NOTICIA">
             <End Role="NOTICIA" EntitySet="NOTICIA" />
             <End Role="NOTICIA_COMENTARIO" EntitySet="NOTICIA_COMENTARIO" />
@@ -1409,6 +1428,7 @@
           <NavigationProperty Name="TEMPLATE" Relationship="Self.FK_TEMPLATE_ASSINANTE" FromRole="ASSINANTE" ToRole="TEMPLATE" />
           <NavigationProperty Name="TIPO_TAREFA" Relationship="Self.FK_TIPO_TAREFA_ASSINANTE" FromRole="ASSINANTE" ToRole="TIPO_TAREFA" />
           <NavigationProperty Name="USUARIO" Relationship="Self.FK_USUARIO_ASSINANTE" FromRole="ASSINANTE" ToRole="USUARIO" />
+          <NavigationProperty Name="NOTICIA" Relationship="ERP_JurisModel.FK_NOTICIA_ASSINANTE" FromRole="ASSINANTE" ToRole="NOTICIA" />
         </EntityType>
         <EntityType Name="CARGO">
           <Key>
@@ -1479,6 +1499,8 @@
           <Property Name="CONF_NM_ARQUIVO_ALARME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CONF_NR_REFRESH_NOTIFICACAO" Type="Int32" />
           <NavigationProperty Name="ASSINANTE" Relationship="Self.FK_CONFIGURACAO_ASSINANTE" FromRole="CONFIGURACAO" ToRole="ASSINANTE" />
+          <Property Name="CONF_SG_LOGIN_SMS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONF_SG_SENHA_SMS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="FORNECEDOR">
           <Key>
@@ -1609,6 +1631,8 @@
           <Property Name="NOTC_AQ_FOTO" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
           <Property Name="NOTC_NM_ORIGEM" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="NOTICIA_COMENTARIO" Relationship="Self.FK_NOTICIA_COMENTARIO_NOTICIA" FromRole="NOTICIA" ToRole="NOTICIA_COMENTARIO" />
+          <Property Name="ASSI_CD_ID" Type="Int32" />
+          <NavigationProperty Name="ASSINANTE" Relationship="ERP_JurisModel.FK_NOTICIA_ASSINANTE" FromRole="NOTICIA" ToRole="ASSINANTE" />
         </EntityType>
         <EntityType Name="NOTICIA_COMENTARIO">
           <Key>
@@ -2705,6 +2729,10 @@
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="FORNECEDOR_MENSAGEM" EntitySet="FORNECEDOR_MENSAGEM" />
           </AssociationSet>
+          <AssociationSet Name="FK_NOTICIA_ASSINANTE" Association="ERP_JurisModel.FK_NOTICIA_ASSINANTE">
+            <End Role="ASSINANTE" EntitySet="ASSINANTE" />
+            <End Role="NOTICIA" EntitySet="NOTICIA" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="TIPO_MENSAGEM">
           <Key>
@@ -2764,6 +2792,18 @@
             </Principal>
             <Dependent Role="FORNECEDOR_MENSAGEM">
               <PropertyRef Name="USUA_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NOTICIA_ASSINANTE">
+          <End Type="ERP_JurisModel.ASSINANTE" Role="ASSINANTE" Multiplicity="0..1" />
+          <End Type="ERP_JurisModel.NOTICIA" Role="NOTICIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSINANTE">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Principal>
+            <Dependent Role="NOTICIA">
+              <PropertyRef Name="ASSI_CD_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2880,6 +2920,8 @@
           <EntitySetMapping Name="CONFIGURACAO">
             <EntityTypeMapping TypeName="ERP_JurisModel.CONFIGURACAO">
               <MappingFragment StoreEntitySet="CONFIGURACAO">
+                <ScalarProperty Name="CONF_SG_SENHA_SMS" ColumnName="CONF_SG_SENHA_SMS" />
+                <ScalarProperty Name="CONF_SG_LOGIN_SMS" ColumnName="CONF_SG_LOGIN_SMS" />
                 <ScalarProperty Name="CONF_CD_ID" ColumnName="CONF_CD_ID" />
                 <ScalarProperty Name="ASSI_CD_ID" ColumnName="ASSI_CD_ID" />
                 <ScalarProperty Name="CONF_NR_FALHAS_DIA" ColumnName="CONF_NR_FALHAS_DIA" />
@@ -2997,6 +3039,7 @@
           <EntitySetMapping Name="NOTICIA">
             <EntityTypeMapping TypeName="ERP_JurisModel.NOTICIA">
               <MappingFragment StoreEntitySet="NOTICIA">
+                <ScalarProperty Name="ASSI_CD_ID" ColumnName="ASSI_CD_ID" />
                 <ScalarProperty Name="NOTC_CD_ID" ColumnName="NOTC_CD_ID" />
                 <ScalarProperty Name="NOTC_DT_EMISSAO" ColumnName="NOTC_DT_EMISSAO" />
                 <ScalarProperty Name="NOTC_DT_VALIDADE" ColumnName="NOTC_DT_VALIDADE" />

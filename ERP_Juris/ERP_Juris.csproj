@@ -669,6 +669,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagens\1\Noticias\1\Fotos\p_big3.jpg" />
+    <Content Include="Imagens\1\Usuarios\1\Fotos\a4.jpg" />
     <Content Include="Imagens\Base\FotoBase.jpg" />
     <Content Include="Imagens\Base\FotoOficial.jpg" />
     <Content Include="Images\1.jpg" />
@@ -2936,10 +2938,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Imagens\1\Agenda\" />
     <Folder Include="Imagens\1\Fornecedores\" />
-    <Folder Include="Imagens\1\Noticias\" />
     <Folder Include="Imagens\1\Notificacao\" />
     <Folder Include="Imagens\1\Tarefas\" />
-    <Folder Include="Imagens\1\Usuarios\" />
+    <Folder Include="Imagens\1\Usuarios\1\Anexos\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

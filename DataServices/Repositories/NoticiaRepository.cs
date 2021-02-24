@@ -21,6 +21,7 @@ namespace DataServices.Repositories
         public List<NOTICIA> GetAllItens(Int32 idAss)
         {
             IQueryable<NOTICIA> query = Db.NOTICIA.Where(p => p.NOTC_IN_ATIVO == 1);
+            query = query.Where(p => p.ASSI_CD_ID == idAss);
             query = query.Include(p => p.NOTICIA_COMENTARIO);
             return query.ToList();
         }
@@ -28,6 +29,7 @@ namespace DataServices.Repositories
         public List<NOTICIA> GetAllItensAdm(Int32 idAss)
         {
             IQueryable<NOTICIA> query = Db.NOTICIA;
+            query = query.Where(p => p.ASSI_CD_ID == idAss);
             query = query.Include(p => p.NOTICIA_COMENTARIO);
             return query.ToList();
         }
@@ -35,6 +37,7 @@ namespace DataServices.Repositories
         public List<NOTICIA> GetAllItensValidos(Int32 idAss)
         {
             IQueryable<NOTICIA> query = Db.NOTICIA;
+            query = query.Where(p => p.ASSI_CD_ID == idAss);
             query = query.Where(p => DbFunctions.TruncateTime(p.NOTC_DT_VALIDADE) >= DbFunctions.TruncateTime(DateTime.Today));
             query = query.Include(p => p.NOTICIA_COMENTARIO);
             query = query.OrderByDescending(p => p.NOTC_DT_DATA_AUTOR);
@@ -67,6 +70,7 @@ namespace DataServices.Repositories
             }
             if (query != null)
             {
+                query = query.Where(p => p.ASSI_CD_ID == idAss);
                 query = query.OrderBy(a => a.NOTC_DT_EMISSAO);
                 lista = query.ToList<NOTICIA>();
             }

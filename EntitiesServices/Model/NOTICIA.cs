@@ -33,8 +33,10 @@ namespace EntitiesServices.Model
         public Nullable<int> NOTC_IN_ATIVO { get; set; }
         public string NOTC_AQ_FOTO { get; set; }
         public string NOTC_NM_ORIGEM { get; set; }
+        public Nullable<int> ASSI_CD_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NOTICIA_COMENTARIO> NOTICIA_COMENTARIO { get; set; }
+        public virtual ASSINANTE ASSINANTE { get; set; }
     }
 }
