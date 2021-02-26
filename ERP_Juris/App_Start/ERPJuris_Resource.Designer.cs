@@ -268,6 +268,15 @@ namespace ERP_Juris.App_Start {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Template já cadastrado.
+        /// </summary>
+        internal static string M0026 {
+            get {
+                return ResourceManager.GetString("M0026", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Data de admissão maior que a data corrente.
         /// </summary>
         internal static string M0027 {
