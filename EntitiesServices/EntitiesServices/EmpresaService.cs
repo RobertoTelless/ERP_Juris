@@ -20,12 +20,14 @@ namespace ModelServices.EntitiesServices
     {
         private readonly IEmpresaRepository _baseRepository;
         private readonly ILogRepository _logRepository;
+        private readonly IUFRepository _ufRepository;
         protected ERP_JurisEntities Db = new ERP_JurisEntities();
 
-        public EmpresaService(IEmpresaRepository baseRepository, ILogRepository logRepository) : base(baseRepository)
+        public EmpresaService(IEmpresaRepository baseRepository, ILogRepository logRepository, IUFRepository ufRepository) : base(baseRepository)
         {
             _baseRepository = baseRepository;
             _logRepository = logRepository;
+            _ufRepository = ufRepository;
         }
 
         public EMPRESA GetItemById(Int32 id)
@@ -34,9 +36,21 @@ namespace ModelServices.EntitiesServices
             return item;
         }
 
+        public UF GetItemBySigla(String sigla)
+        {
+            UF item = _ufRepository.GetItemBySigla(sigla);
+            return item;
+        }
+
         public List<EMPRESA> GetAllItems()
         {
             List<EMPRESA> item = _baseRepository.GetAllItems();
+            return item;
+        }
+
+        public List<UF> GetAllUF()
+        {
+            List<UF> item = _ufRepository.GetAllItens();
             return item;
         }
 

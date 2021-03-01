@@ -131,6 +131,8 @@
           <Property Name="EMPR_NM_NOME" Type="varchar" MaxLength="50" />
           <Property Name="EMPR_NM_RAZAO_SOCIAL" Type="varchar" MaxLength="50" />
           <Property Name="EMPR_NM_ENDERECO" Type="varchar" MaxLength="50" />
+          <Property Name="EMPR_NR_NUMERO" Type="varchar" MaxLength="50" />
+          <Property Name="EMPR_NR_COMPLEMENTO" Type="varchar" MaxLength="50" />
           <Property Name="EMPR_NM_BAIRRO" Type="varchar" MaxLength="50" />
           <Property Name="EMPR_NM_CIDADE" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="EMPR_NR_CEP" Type="varchar" MaxLength="50" />
@@ -2938,6 +2940,8 @@
           <NavigationProperty Name="TIPO_PESSOA" Relationship="ERP_JurisModel.FK_EMPRESA_TIPO_PESSOA" FromRole="EMPRESA" ToRole="TIPO_PESSOA" />
           <NavigationProperty Name="UF" Relationship="ERP_JurisModel.FK_EMPRESA_UF" FromRole="EMPRESA" ToRole="UF" />
           <NavigationProperty Name="USUARIO" Relationship="ERP_JurisModel.FK_EMPRESA_USUARIO" FromRole="EMPRESA" ToRole="USUARIO" />
+          <Property Name="EMPR_NR_NUMERO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMPR_NR_COMPLEMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_EMPRESA_ASSINANTE">
           <End Type="ERP_JurisModel.ASSINANTE" Role="ASSINANTE" Multiplicity="1" />
@@ -3526,6 +3530,8 @@
           <EntitySetMapping Name="EMPRESA">
             <EntityTypeMapping TypeName="ERP_JurisModel.EMPRESA">
               <MappingFragment StoreEntitySet="EMPRESA">
+                <ScalarProperty Name="EMPR_NR_COMPLEMENTO" ColumnName="EMPR_NR_COMPLEMENTO" />
+                <ScalarProperty Name="EMPR_NR_NUMERO" ColumnName="EMPR_NR_NUMERO" />
                 <ScalarProperty Name="EMPR_AQ_LOGO" ColumnName="EMPR_AQ_LOGO" />
                 <ScalarProperty Name="EMPR_NR_INSCRICAO_ESTADUAL" ColumnName="EMPR_NR_INSCRICAO_ESTADUAL" />
                 <ScalarProperty Name="EMPR_NR_INSCRICAO_MUNICIPAL" ColumnName="EMPR_NR_INSCRICAO_MUNICIPAL" />

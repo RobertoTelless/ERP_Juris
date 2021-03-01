@@ -134,6 +134,7 @@ namespace ERP_Juris.Controllers
                 Session["Cargo"] = usuario.CARGO.CARG_NM_NOME;
                 Session["Foto"] = usuario.USUA_AQ_FOTO;
                 Session["Perfil"] = usuario.PERFIL;
+                Session["PerfilSigla"] = usuario.PERFIL.PERF_SG_SIGLA;
                 Session["FlagInicial"] = 0;
                 Session["FiltroData"] = 1;
                 Session["FiltroStatus"] = 1;

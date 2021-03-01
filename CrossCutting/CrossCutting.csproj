@@ -34,8 +34,8 @@
     <Reference Include="antlr.runtime, Version=2.7.6.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Ical.Net.2.2.3\lib\net46\antlr.runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Canducci.Zip, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CanducciCep.4.0.0\lib\netstandard1.6\Canducci.Zip.dll</HintPath>
+    <Reference Include="Canducci.Zip, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CanducciCep.3.0.1\lib\net451\Canducci.Zip.dll</HintPath>
     </Reference>
     <Reference Include="Consulta.CNPJ, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Consulta.CNPJ.1.0.1\lib\netstandard2.0\Consulta.CNPJ.dll</HintPath>

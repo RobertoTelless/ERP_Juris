@@ -13,5 +13,7 @@ namespace ModelServices.Interfaces.EntitiesServices
         List<EMPRESA> GetAllItems();
         Int32 Edit(EMPRESA item, LOG log);
         Int32 Create(EMPRESA item);
+        UF GetItemBySigla(String sigla);
+        List<UF> GetAllUF();
     }
 }

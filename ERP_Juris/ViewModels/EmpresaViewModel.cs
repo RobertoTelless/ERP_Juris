@@ -15,6 +15,7 @@ namespace ERP_Juris.ViewModels
         public int ASSI_CD_ID { get; set; }
         [Required(ErrorMessage = "Campo TIPO DE PESSOA obrigatorio")]
         public Nullable<int> TIPE_CD_ID { get; set; }
+        [Required(ErrorMessage = "Campo USUÁRIO RESPONSÁVEL obrigatorio")]
         public Nullable<int> USUA_CD_ID { get; set; }
         [StringLength(20, ErrorMessage = "O CNPJ deve conter no máximo 20 caracteres.")]
         public string EMPR_NR_CNPJ { get; set; }
@@ -39,6 +40,10 @@ namespace ERP_Juris.ViewModels
         [StringLength(50, ErrorMessage = "A INSCRIÇÃO ESTADUAL deve conter no máximo 50 caracteres.")]
         public string EMPR_NR_INSCRICAO_ESTADUAL { get; set; }
         public string EMPR_AQ_LOGO { get; set; }
+        [StringLength(50, ErrorMessage = "O NÚMERO deve conter no máximo 50 caracteres.")]
+        public string EMPR_NR_NUMERO { get; set; }
+        [StringLength(50, ErrorMessage = "O COMPLEMENTO deve conter no máximo 50 caracteres.")]
+        public string EMPR_NR_COMPLEMENTO { get; set; }
 
         public virtual ASSINANTE ASSINANTE { get; set; }
         public virtual TIPO_PESSOA TIPO_PESSOA { get; set; }

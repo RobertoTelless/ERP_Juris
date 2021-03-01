@@ -26,9 +26,19 @@ namespace ApplicationServices.Services
             return _baseService.GetItemById(id);
         }
 
+        public UF GetItemBySigla(String sigla)
+        {
+            return _baseService.GetItemBySigla(sigla);
+        }
+
         public List<EMPRESA> GetAllItems()
         {
             return _baseService.GetAllItems();
+        }
+
+        public List<UF> GetAllUF()
+        {
+            return _baseService.GetAllUF();
         }
 
         public Int32 ValidateEdit(EMPRESA item, EMPRESA itemAntes, USUARIO usuario)

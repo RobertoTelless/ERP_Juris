@@ -13,5 +13,7 @@ namespace ApplicationServices.Interfaces
         EMPRESA GetItemById(Int32 id);
         List<EMPRESA> GetAllItems();
         Int32 ValidateCreate(EMPRESA item);
+        UF GetItemBySigla(String sigla);
+        List<UF> GetAllUF();
     }
 }
