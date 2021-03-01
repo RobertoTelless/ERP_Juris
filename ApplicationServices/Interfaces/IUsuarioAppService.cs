@@ -39,5 +39,6 @@ namespace ApplicationServices.Interfaces
         List<CATEGORIA_USUARIO> GetAllTipos(Int32 idAss);
         USUARIO CheckExist(USUARIO tarefa, Int32 idUsu);
         List<CARGO> GetAllCargos(Int32 idAss);
+        List<USUARIO> GetAllADM(Int32 idAss);
     }
 }

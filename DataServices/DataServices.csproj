@@ -187,6 +187,7 @@
     <Compile Include="Repositories\CategoriaFornecedorRepository.cs" />
     <Compile Include="Repositories\CategoriaNotificacaoRepository.cs" />
     <Compile Include="Repositories\CategoriaUsuarioRepository.cs" />
+    <Compile Include="Repositories\EmpresaRepository.cs" />
     <Compile Include="Repositories\ConfiguracaoRepository.cs" />
     <Compile Include="Repositories\FornecedorAnexoRepository.cs" />
     <Compile Include="Repositories\FornecedorCnpjRepository.cs" />

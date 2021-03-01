@@ -30,6 +30,7 @@ namespace EntitiesServices.Model
             this.USUARIO_ANEXO = new HashSet<USUARIO_ANEXO>();
             this.USUARIO_FUNCIONARIO = new HashSet<USUARIO_FUNCIONARIO>();
             this.FORNECEDOR_MENSAGEM = new HashSet<FORNECEDOR_MENSAGEM>();
+            this.EMPRESA = new HashSet<EMPRESA>();
         }
     
         public int USUA_CD_ID { get; set; }
@@ -99,5 +100,7 @@ namespace EntitiesServices.Model
         public virtual ICollection<USUARIO_FUNCIONARIO> USUARIO_FUNCIONARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FORNECEDOR_MENSAGEM> FORNECEDOR_MENSAGEM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EMPRESA> EMPRESA { get; set; }
     }
 }

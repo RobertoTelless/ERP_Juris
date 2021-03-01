@@ -118,6 +118,11 @@ namespace ModelServices.EntitiesServices
             return _usuarioRepository.GetAllUsuariosAdm(idAss);
         }
 
+        public List<USUARIO> GetAllADM(Int32 idAss)
+        {
+            return _usuarioRepository.GetAllADM(idAss);
+        }
+
         public List<USUARIO> GetAllUsuarios(Int32 idAss)
         {
             return _usuarioRepository.GetAllUsuarios(idAss);

@@ -40,5 +40,6 @@ namespace ModelServices.Interfaces.EntitiesServices
         List<CATEGORIA_USUARIO> GetAllTipos(Int32 idAss);
         List<CARGO> GetAllCargos(Int32 idAss);
         USUARIO GetAdministrador(Int32 idAss);
+        List<USUARIO> GetAllADM(Int32 idAss);
     }
 }

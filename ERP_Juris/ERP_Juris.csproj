@@ -299,6 +299,7 @@
     <Compile Include="Controllers\BaseAdminController.cs" />
     <Compile Include="Controllers\ConfiguracaoController.cs" />
     <Compile Include="Controllers\ControleAcessoController.cs" />
+    <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NoticiaController.cs" />
     <Compile Include="Controllers\NotificacaoController.cs" />
@@ -330,6 +331,7 @@
     <Compile Include="ViewModels\NotificacaoViewModel.cs" />
     <Compile Include="ViewModels\PerfilViewModel.cs" />
     <Compile Include="ViewModels\TarefaAcompanhamentoViewModel.cs" />
+    <Compile Include="ViewModels\EmpresaViewModel.cs" />
     <Compile Include="ViewModels\TarefaViewModel.cs" />
     <Compile Include="ViewModels\TemplateViewModel.cs" />
     <Compile Include="ViewModels\TipoPessoaViewModel.cs" />
@@ -2859,6 +2861,7 @@
     <Content Include="Scripts\plugins\video\responsible-video.js" />
     <Content Include="Scripts\plugins\wow\wow.min.js" />
     <Content Include="Scripts\UploadAnexo.js" />
+    <Content Include="Sounds\chimes.wav" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2938,10 +2941,12 @@
     <Content Include="Views\Template\MontarTelaTemplate.cshtml" />
     <Content Include="Views\Template\EditarTemplate.cshtml" />
     <Content Include="Views\Configuracao\MontarTelaConfiguracao.cshtml" />
+    <Content Include="Views\Empresa\MontarTelaEmpresa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Imagens\1\Agenda\" />
+    <Folder Include="Imagens\1\Empresa\" />
     <Folder Include="Imagens\1\Fornecedores\" />
     <Folder Include="Imagens\1\Notificacao\" />
     <Folder Include="Imagens\1\Tarefas\" />

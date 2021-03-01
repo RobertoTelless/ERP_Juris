@@ -192,6 +192,7 @@
     <Compile Include="EntitiesServices\CategoriaFornecedorService.cs" />
     <Compile Include="EntitiesServices\CategoriaNotificacaoService.cs" />
     <Compile Include="EntitiesServices\CategoriaUsuarioService.cs" />
+    <Compile Include="EntitiesServices\EmpresaService.cs" />
     <Compile Include="EntitiesServices\ConfiguracaoService.cs" />
     <Compile Include="EntitiesServices\FornecedorCnpjService.cs" />
     <Compile Include="EntitiesServices\FornecedorService.cs" />
@@ -211,6 +212,7 @@
     <Compile Include="Interfaces\EntitiesServices\ICategoriaFornecedorService.cs" />
     <Compile Include="Interfaces\EntitiesServices\ICategoriaNotificacaoService.cs" />
     <Compile Include="Interfaces\EntitiesServices\ICategoriaUsuarioService.cs" />
+    <Compile Include="Interfaces\EntitiesServices\IEmpresaService.cs" />
     <Compile Include="Interfaces\EntitiesServices\IConfiguracaoService.cs" />
     <Compile Include="Interfaces\EntitiesServices\IFornecedorCnpjService.cs" />
     <Compile Include="Interfaces\EntitiesServices\IFornecedorService.cs" />
@@ -232,6 +234,7 @@
     <Compile Include="Interfaces\Repositories\ICategoriaFornecedorRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICategoriaNotificacaoRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICategoriaUsuarioRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEmpresaRepository.cs" />
     <Compile Include="Interfaces\Repositories\IConfiguracaoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IFornecedoMensagemRepository.cs" />
     <Compile Include="Interfaces\Repositories\IFornecedorAnexoRepository.cs" />
@@ -282,6 +285,9 @@
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CONFIGURACAO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EMPRESA.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ERPJuris_Model.Context.cs">

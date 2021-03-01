@@ -90,6 +90,11 @@
         <AssociationConnector Association="ERP_JurisModel.FK_FORNECEDOR_MENSAGEM_TIPO_MENSAGEM" />
         <AssociationConnector Association="ERP_JurisModel.FK_FORNECEDOR_MENSAGEM_USUARIO" />
         <AssociationConnector Association="ERP_JurisModel.FK_NOTICIA_ASSINANTE" />
+        <EntityTypeShape EntityType="ERP_JurisModel.EMPRESA" Width="1.5" PointX="15.75" PointY="34" />
+        <AssociationConnector Association="ERP_JurisModel.FK_EMPRESA_ASSINANTE" />
+        <AssociationConnector Association="ERP_JurisModel.FK_EMPRESA_TIPO_PESSOA" />
+        <AssociationConnector Association="ERP_JurisModel.FK_EMPRESA_UF" />
+        <AssociationConnector Association="ERP_JurisModel.FK_EMPRESA_USUARIO" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

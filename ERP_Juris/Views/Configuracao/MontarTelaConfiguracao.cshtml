@@ -111,7 +111,7 @@
                                                 </div>
                                                 <div class="col-lg-3 col-md-3 col-xs-12">
                                                     Alarme Audio*
-                                                    @Html.TextBoxFor(m => m.CONF_NM_ARQUIVO_ALARME, new { @class = "form-control", autofocus = true })
+                                                    @Html.DropDownListFor(m => m.CONF_NM_ARQUIVO_ALARME, (SelectList)ViewBag.Lista, "Selecionar", new { @class = "form-control", autofocus = true })                            
                                                     @Html.ValidationMessageFor(m => m.CONF_NM_ARQUIVO_ALARME, "", new { @style = "color:red" })
                                                 </div>
                                             </div>

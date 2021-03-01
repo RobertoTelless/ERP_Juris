@@ -94,6 +94,14 @@ namespace ERP_Juris.Controllers
                 Session["Configuracao"] = objeto;
             }
             ViewBag.Title = "Configuracao";
+            string[] fileArray = Directory.GetFiles("/sounds");
+            List<String> lista =  fileArray.ToList();
+            List<SelectListItem> arq = new List<SelectListItem>();
+            foreach (String item in lista)
+            {
+                arq.Add(new SelectListItem() { Text = item.ToString(), Value = item.ToString() });
+            }
+            ViewBag.Lista = new SelectList(arq, "Value", "Text");
 
             // Mensagem
             if ((Int32)Session["MensConfiguracao"] == 1)
@@ -132,7 +140,7 @@ namespace ERP_Juris.Controllers
                     // Sucesso
                     Int32 idAss = (Int32)Session["IdAssinante"];
                     objeto = baseApp.GetItemById(idAss);
-                    Session["Configuracao"] = objeto;
+                    Session["Configuracao"] = null;
                     Session["MensConfiguracao"] = 0;
                     return RedirectToAction("MontarTelaConfiguracao");
                 }

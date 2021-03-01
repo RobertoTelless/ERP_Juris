@@ -59,5 +59,6 @@ namespace EntitiesServices.Model
         public virtual DbSet<USUARIO_FUNCIONARIO> USUARIO_FUNCIONARIO { get; set; }
         public virtual DbSet<TIPO_MENSAGEM> TIPO_MENSAGEM { get; set; }
         public virtual DbSet<FORNECEDOR_MENSAGEM> FORNECEDOR_MENSAGEM { get; set; }
+        public virtual DbSet<EMPRESA> EMPRESA { get; set; }
     }
 }

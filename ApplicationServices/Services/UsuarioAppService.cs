@@ -58,6 +58,11 @@ namespace ApplicationServices.Services
             return _usuarioService.GetAllUsuariosAdm(idAss);
         }
 
+        public List<USUARIO> GetAllADM(Int32 idAss)
+        {
+            return _usuarioService.GetAllADM(idAss);
+        }
+
         public USUARIO GetItemById(Int32 id)
         {
             return _usuarioService.GetItemById(id);

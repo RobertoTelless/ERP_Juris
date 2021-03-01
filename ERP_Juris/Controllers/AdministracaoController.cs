@@ -368,11 +368,26 @@ namespace ERP_Juris.Controllers
             prop[0].Selected = true;
             ViewBag.Prop = new SelectList(prop, "Value", "Text");
 
+            // Mensagem
+            if ((Int32)Session["MensUsuario"] == 3)
+            {
+                ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0019", CultureInfo.CurrentCulture));
+            }
+            if ((Int32)Session["MensUsuario"] == 4)
+            {
+                ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0024", CultureInfo.CurrentCulture));
+            }
+            if ((Int32)Session["MensUsuario"] == 5)
+            {
+                ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0021", CultureInfo.CurrentCulture));
+            }
+
             USUARIO item = baseApp.GetItemById(id);
             objetoAntes = item;
             Session["Usuario"] = item;
             Session["IdUsuario"] = id;
             Session["ModoUsuario"] = 2;
+            Session["MensUsuario"] = 0;
             UsuarioViewModel vm = Mapper.Map<USUARIO, UsuarioViewModel>(item);
             return View(vm);
         }
@@ -679,6 +694,7 @@ namespace ERP_Juris.Controllers
             if (file == null)
             {
                 ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0019", CultureInfo.CurrentCulture));
+                Session["MensUsuario"] = 3;
                 return RedirectToAction("VoltarAnexoUsuario");
             }
 
@@ -691,6 +707,7 @@ namespace ERP_Juris.Controllers
             if (fileName.Length > 100)
             {
                 ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0024", CultureInfo.CurrentCulture));
+                Session["MensUsuario"] = 4;
                 return RedirectToAction("VoltarAnexoUsuario");
             }
 
@@ -740,6 +757,7 @@ namespace ERP_Juris.Controllers
             if (file == null)
             {
                 ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0019", CultureInfo.CurrentCulture));
+                Session["MensUsuario"] = 3;
                 return RedirectToAction("VoltarAnexoUsuario");
             }
 
@@ -753,6 +771,7 @@ namespace ERP_Juris.Controllers
             if (fileName.Length > 100)
             {
                 ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0024", CultureInfo.CurrentCulture));
+                Session["MensUsuario"] = 4;
                 return RedirectToAction("VoltarAnexoUsuario");
             }
             String caminho = "/Imagens/" + item.ASSI_CD_ID.ToString() + "/Usuarios/" + item.USUA_CD_ID.ToString() + "/Fotos/";
@@ -776,6 +795,7 @@ namespace ERP_Juris.Controllers
             else
             {
                 ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0021", CultureInfo.CurrentCulture));
+                Session["MensUsuario"] = 5;
             }
             return RedirectToAction("VoltarAnexoUsuario");
         }
