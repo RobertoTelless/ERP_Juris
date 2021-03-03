@@ -12,22 +12,27 @@ namespace EntitiesServices.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class TIPO_MENSAGEM
+    public partial class SECAO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TIPO_MENSAGEM()
+        public SECAO()
         {
-            this.FORNECEDOR_MENSAGEM = new HashSet<FORNECEDOR_MENSAGEM>();
-            this.CLIENTE_MENSAGEM = new HashSet<CLIENTE_MENSAGEM>();
+            this.PROCESSO = new HashSet<PROCESSO>();
+            this.SUBSECAO = new HashSet<SUBSECAO>();
         }
     
-        public int TIME_CD_ID { get; set; }
-        public string TIME_NM_NOME { get; set; }
-        public Nullable<int> TIME_IN_ATIVO { get; set; }
+        public int SECA_CD_ID { get; set; }
+        public int ASSI_CD_ID { get; set; }
+        public int REJU_CD_ID { get; set; }
+        public string SECA_NM_NOME { get; set; }
+        public string SECA_DS_DESCRICAO { get; set; }
+        public Nullable<int> SECA_IN_ATIVO { get; set; }
     
+        public virtual ASSINANTE ASSINANTE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FORNECEDOR_MENSAGEM> FORNECEDOR_MENSAGEM { get; set; }
+        public virtual ICollection<PROCESSO> PROCESSO { get; set; }
+        public virtual REGIAO_JUSTICA REGIAO_JUSTICA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CLIENTE_MENSAGEM> CLIENTE_MENSAGEM { get; set; }
+        public virtual ICollection<SUBSECAO> SUBSECAO { get; set; }
     }
 }

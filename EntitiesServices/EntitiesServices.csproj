@@ -260,6 +260,15 @@
     <Compile Include="Interfaces\Repositories\IUFRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUsuarioAnexoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUsuarioRepository.cs" />
+    <Compile Include="Model\ADVOGADO_CONTRARIO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ADVOGADO_CONTRARIO_ANEXO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ADVOGADO_CONTRARIO_COMENTARIO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\AGENDA.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
@@ -269,10 +278,16 @@
     <Compile Include="Model\ASSINANTE.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\BANCO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\CARGO.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CATEGORIA_AGENDA.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CATEGORIA_CLIENTE.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CATEGORIA_FORNECEDOR.cs">
@@ -284,7 +299,52 @@
     <Compile Include="Model\CATEGORIA_USUARIO.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\CIDADE_COMARCA.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CLASSE.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CLIENTE.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CLIENTE_ANEXO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CLIENTE_COMENTARIO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CLIENTE_CONTATO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CLIENTE_DEPENDENTE.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CLIENTE_MENSAGEM.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CLIENTE_QUADRO_SOCIETARIO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CONDICAO_PROCESSUAL.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\CONFIGURACAO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CONTA_BANCO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CONTA_BANCO_CONTATO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CONTA_BANCO_LANCAMENTO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DOCUMENTO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DOCUMENTO_METADADO.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EMPRESA.cs">
@@ -305,6 +365,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ERPJuris_Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\ESCOLARIDADE.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ESTADO_CIVIL.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\FORNECEDOR.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
@@ -323,7 +389,25 @@
     <Compile Include="Model\FORNECEDOR_QUADRO_SOCIETARIO.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\FORO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GRAU_PARENTESCO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GRUPO_DOCUMENTO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\LOG.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\METADADO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MODELO_DOCUMENTO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\NIVEL_SEGURANCA.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\NOTICIA.cs">
@@ -338,7 +422,43 @@
     <Compile Include="Model\NOTIFICACAO_ANEXO.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\ORGAO_CLASSE.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PARTE_CONTRARIA.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\PERFIL.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PROCESSO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PROCESSO_ANDAMENTO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PROCESSO_COMENTARIO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PROCESSO_PROFISSIONAL_ALOCADO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PROFISSAO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\REGIAO_JUSTICA.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SECAO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SEXO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SITUACAO_PROCESSO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SUBSECAO.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TAREFA.cs">
@@ -359,7 +479,25 @@
     <Compile Include="Model\TEMPLATE.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\TIPO_ACAO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TIPO_ANDAMENTO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TIPO_CONTA.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TIPO_DESLIGAMENTO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TIPO_JUSTICA.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\TIPO_MENSAGEM.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TIPO_METADADO.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TIPO_PESSOA.cs">
@@ -378,6 +516,9 @@
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\USUARIO_FUNCIONARIO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\VARA.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

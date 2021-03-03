@@ -12,17 +12,16 @@ namespace EntitiesServices.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class FORNECEDOR_CONTATO
+    public partial class MODELO_DOCUMENTO
     {
-        public int FOCO_CD_ID { get; set; }
-        public int FORN_CD_ID { get; set; }
-        public string FOCO_NM_NOME { get; set; }
-        public string FOCO_NM_CARGO { get; set; }
-        public string FOCO_NM_EMAIL { get; set; }
-        public string FOCO_NR_TELEFONES { get; set; }
-        public int FOCO_IN_ATIVO { get; set; }
-        public string FOCO_TX_OBSERVACAO { get; set; }
+        public int MODO_CD_ID { get; set; }
+        public int ASSI_CD_ID { get; set; }
+        public string MODO_NM_NOME { get; set; }
+        public string MODO_DS_DESCRICAO { get; set; }
+        public string MODO_AQ_ARQUIVO { get; set; }
+        public string MODO_TX_TEXTO { get; set; }
+        public Nullable<int> MODO_IN_ATIVO { get; set; }
     
-        public virtual FORNECEDOR FORNECEDOR { get; set; }
+        public virtual ASSINANTE ASSINANTE { get; set; }
     }
 }

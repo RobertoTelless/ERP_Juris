@@ -31,6 +31,10 @@ namespace EntitiesServices.Model
             this.USUARIO_FUNCIONARIO = new HashSet<USUARIO_FUNCIONARIO>();
             this.FORNECEDOR_MENSAGEM = new HashSet<FORNECEDOR_MENSAGEM>();
             this.EMPRESA = new HashSet<EMPRESA>();
+            this.ADVOGADO_CONTRARIO_COMENTARIO = new HashSet<ADVOGADO_CONTRARIO_COMENTARIO>();
+            this.CLIENTE = new HashSet<CLIENTE>();
+            this.CLIENTE_COMENTARIO = new HashSet<CLIENTE_COMENTARIO>();
+            this.CLIENTE_MENSAGEM = new HashSet<CLIENTE_MENSAGEM>();
         }
     
         public int USUA_CD_ID { get; set; }
@@ -102,5 +106,13 @@ namespace EntitiesServices.Model
         public virtual ICollection<FORNECEDOR_MENSAGEM> FORNECEDOR_MENSAGEM { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EMPRESA> EMPRESA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ADVOGADO_CONTRARIO_COMENTARIO> ADVOGADO_CONTRARIO_COMENTARIO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CLIENTE> CLIENTE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CLIENTE_COMENTARIO> CLIENTE_COMENTARIO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CLIENTE_MENSAGEM> CLIENTE_MENSAGEM { get; set; }
     }
 }

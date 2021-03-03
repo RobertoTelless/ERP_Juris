@@ -12,22 +12,20 @@ namespace EntitiesServices.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class TIPO_MENSAGEM
+    public partial class GRUPO_DOCUMENTO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TIPO_MENSAGEM()
+        public GRUPO_DOCUMENTO()
         {
-            this.FORNECEDOR_MENSAGEM = new HashSet<FORNECEDOR_MENSAGEM>();
-            this.CLIENTE_MENSAGEM = new HashSet<CLIENTE_MENSAGEM>();
+            this.CLASSE = new HashSet<CLASSE>();
         }
     
-        public int TIME_CD_ID { get; set; }
-        public string TIME_NM_NOME { get; set; }
-        public Nullable<int> TIME_IN_ATIVO { get; set; }
+        public int GRDO_CD_ID { get; set; }
+        public int ASSI_CD_ID { get; set; }
+        public string GRDO_NM_NOME { get; set; }
+        public int GRDO_IN_ATIVO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FORNECEDOR_MENSAGEM> FORNECEDOR_MENSAGEM { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CLIENTE_MENSAGEM> CLIENTE_MENSAGEM { get; set; }
+        public virtual ICollection<CLASSE> CLASSE { get; set; }
     }
 }

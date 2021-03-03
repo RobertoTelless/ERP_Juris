@@ -32,6 +32,24 @@ namespace EntitiesServices.Model
             this.USUARIO = new HashSet<USUARIO>();
             this.NOTICIA = new HashSet<NOTICIA>();
             this.EMPRESA = new HashSet<EMPRESA>();
+            this.ADVOGADO_CONTRARIO = new HashSet<ADVOGADO_CONTRARIO>();
+            this.BANCO = new HashSet<BANCO>();
+            this.CIDADE_COMARCA = new HashSet<CIDADE_COMARCA>();
+            this.CLASSE = new HashSet<CLASSE>();
+            this.CLIENTE = new HashSet<CLIENTE>();
+            this.CONTA_BANCO = new HashSet<CONTA_BANCO>();
+            this.DOCUMENTO = new HashSet<DOCUMENTO>();
+            this.FORO = new HashSet<FORO>();
+            this.METADADO = new HashSet<METADADO>();
+            this.MODELO_DOCUMENTO = new HashSet<MODELO_DOCUMENTO>();
+            this.PARTE_CONTRARIA = new HashSet<PARTE_CONTRARIA>();
+            this.PROCESSO = new HashSet<PROCESSO>();
+            this.REGIAO_JUSTICA = new HashSet<REGIAO_JUSTICA>();
+            this.SECAO = new HashSet<SECAO>();
+            this.SUBSECAO = new HashSet<SUBSECAO>();
+            this.TIPO_ACAO = new HashSet<TIPO_ACAO>();
+            this.TIPO_JUSTICA = new HashSet<TIPO_JUSTICA>();
+            this.VARA = new HashSet<VARA>();
         }
     
         public int ASSI_CD_ID { get; set; }
@@ -84,5 +102,41 @@ namespace EntitiesServices.Model
         public virtual ICollection<NOTICIA> NOTICIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EMPRESA> EMPRESA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ADVOGADO_CONTRARIO> ADVOGADO_CONTRARIO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BANCO> BANCO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CIDADE_COMARCA> CIDADE_COMARCA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CLASSE> CLASSE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CLIENTE> CLIENTE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CONTA_BANCO> CONTA_BANCO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DOCUMENTO> DOCUMENTO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FORO> FORO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<METADADO> METADADO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MODELO_DOCUMENTO> MODELO_DOCUMENTO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PARTE_CONTRARIA> PARTE_CONTRARIA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PROCESSO> PROCESSO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<REGIAO_JUSTICA> REGIAO_JUSTICA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SECAO> SECAO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SUBSECAO> SUBSECAO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TIPO_ACAO> TIPO_ACAO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TIPO_JUSTICA> TIPO_JUSTICA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VARA> VARA { get; set; }
     }
 }

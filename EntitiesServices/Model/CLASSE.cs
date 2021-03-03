@@ -12,22 +12,30 @@ namespace EntitiesServices.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class TIPO_MENSAGEM
+    public partial class CLASSE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TIPO_MENSAGEM()
+        public CLASSE()
         {
-            this.FORNECEDOR_MENSAGEM = new HashSet<FORNECEDOR_MENSAGEM>();
-            this.CLIENTE_MENSAGEM = new HashSet<CLIENTE_MENSAGEM>();
+            this.DOCUMENTO = new HashSet<DOCUMENTO>();
+            this.METADADO = new HashSet<METADADO>();
         }
     
-        public int TIME_CD_ID { get; set; }
-        public string TIME_NM_NOME { get; set; }
-        public Nullable<int> TIME_IN_ATIVO { get; set; }
+        public int CLAS_CD_ID { get; set; }
+        public int ASSI_CD_ID { get; set; }
+        public int GRDO_CD_ID { get; set; }
+        public string CLAS_NM_NOME { get; set; }
+        public string CLAS_DS_DESCRICAO { get; set; }
+        public string CLAS_SG_SIGLA { get; set; }
+        public Nullable<int> NISE_CD_ID { get; set; }
+        public int CLAS_IN_ATIVO { get; set; }
     
+        public virtual ASSINANTE ASSINANTE { get; set; }
+        public virtual GRUPO_DOCUMENTO GRUPO_DOCUMENTO { get; set; }
+        public virtual NIVEL_SEGURANCA NIVEL_SEGURANCA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FORNECEDOR_MENSAGEM> FORNECEDOR_MENSAGEM { get; set; }
+        public virtual ICollection<DOCUMENTO> DOCUMENTO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CLIENTE_MENSAGEM> CLIENTE_MENSAGEM { get; set; }
+        public virtual ICollection<METADADO> METADADO { get; set; }
     }
 }

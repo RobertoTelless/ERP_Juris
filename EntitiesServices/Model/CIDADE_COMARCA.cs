@@ -12,22 +12,26 @@ namespace EntitiesServices.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class TIPO_MENSAGEM
+    public partial class CIDADE_COMARCA
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TIPO_MENSAGEM()
+        public CIDADE_COMARCA()
         {
-            this.FORNECEDOR_MENSAGEM = new HashSet<FORNECEDOR_MENSAGEM>();
-            this.CLIENTE_MENSAGEM = new HashSet<CLIENTE_MENSAGEM>();
+            this.FORO = new HashSet<FORO>();
+            this.PROCESSO = new HashSet<PROCESSO>();
         }
     
-        public int TIME_CD_ID { get; set; }
-        public string TIME_NM_NOME { get; set; }
-        public Nullable<int> TIME_IN_ATIVO { get; set; }
+        public int CICO_CD_ID { get; set; }
+        public int ASSI_CD_ID { get; set; }
+        public string CICO_NM_NOME { get; set; }
+        public Nullable<int> UF_CD_ID { get; set; }
+        public string CICO_IN_ATIVO { get; set; }
     
+        public virtual ASSINANTE ASSINANTE { get; set; }
+        public virtual UF UF { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FORNECEDOR_MENSAGEM> FORNECEDOR_MENSAGEM { get; set; }
+        public virtual ICollection<FORO> FORO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CLIENTE_MENSAGEM> CLIENTE_MENSAGEM { get; set; }
+        public virtual ICollection<PROCESSO> PROCESSO { get; set; }
     }
 }

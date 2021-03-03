@@ -60,5 +60,52 @@ namespace EntitiesServices.Model
         public virtual DbSet<TIPO_MENSAGEM> TIPO_MENSAGEM { get; set; }
         public virtual DbSet<FORNECEDOR_MENSAGEM> FORNECEDOR_MENSAGEM { get; set; }
         public virtual DbSet<EMPRESA> EMPRESA { get; set; }
+        public virtual DbSet<ADVOGADO_CONTRARIO> ADVOGADO_CONTRARIO { get; set; }
+        public virtual DbSet<ADVOGADO_CONTRARIO_ANEXO> ADVOGADO_CONTRARIO_ANEXO { get; set; }
+        public virtual DbSet<ADVOGADO_CONTRARIO_COMENTARIO> ADVOGADO_CONTRARIO_COMENTARIO { get; set; }
+        public virtual DbSet<BANCO> BANCO { get; set; }
+        public virtual DbSet<CATEGORIA_CLIENTE> CATEGORIA_CLIENTE { get; set; }
+        public virtual DbSet<CIDADE_COMARCA> CIDADE_COMARCA { get; set; }
+        public virtual DbSet<CLASSE> CLASSE { get; set; }
+        public virtual DbSet<CLIENTE> CLIENTE { get; set; }
+        public virtual DbSet<CLIENTE_ANEXO> CLIENTE_ANEXO { get; set; }
+        public virtual DbSet<CLIENTE_COMENTARIO> CLIENTE_COMENTARIO { get; set; }
+        public virtual DbSet<CLIENTE_CONTATO> CLIENTE_CONTATO { get; set; }
+        public virtual DbSet<CLIENTE_DEPENDENTE> CLIENTE_DEPENDENTE { get; set; }
+        public virtual DbSet<CLIENTE_MENSAGEM> CLIENTE_MENSAGEM { get; set; }
+        public virtual DbSet<CLIENTE_QUADRO_SOCIETARIO> CLIENTE_QUADRO_SOCIETARIO { get; set; }
+        public virtual DbSet<CONDICAO_PROCESSUAL> CONDICAO_PROCESSUAL { get; set; }
+        public virtual DbSet<CONTA_BANCO> CONTA_BANCO { get; set; }
+        public virtual DbSet<CONTA_BANCO_CONTATO> CONTA_BANCO_CONTATO { get; set; }
+        public virtual DbSet<CONTA_BANCO_LANCAMENTO> CONTA_BANCO_LANCAMENTO { get; set; }
+        public virtual DbSet<DOCUMENTO> DOCUMENTO { get; set; }
+        public virtual DbSet<DOCUMENTO_METADADO> DOCUMENTO_METADADO { get; set; }
+        public virtual DbSet<ESCOLARIDADE> ESCOLARIDADE { get; set; }
+        public virtual DbSet<ESTADO_CIVIL> ESTADO_CIVIL { get; set; }
+        public virtual DbSet<FORO> FORO { get; set; }
+        public virtual DbSet<GRAU_PARENTESCO> GRAU_PARENTESCO { get; set; }
+        public virtual DbSet<GRUPO_DOCUMENTO> GRUPO_DOCUMENTO { get; set; }
+        public virtual DbSet<METADADO> METADADO { get; set; }
+        public virtual DbSet<MODELO_DOCUMENTO> MODELO_DOCUMENTO { get; set; }
+        public virtual DbSet<NIVEL_SEGURANCA> NIVEL_SEGURANCA { get; set; }
+        public virtual DbSet<ORGAO_CLASSE> ORGAO_CLASSE { get; set; }
+        public virtual DbSet<PARTE_CONTRARIA> PARTE_CONTRARIA { get; set; }
+        public virtual DbSet<PROCESSO> PROCESSO { get; set; }
+        public virtual DbSet<PROCESSO_ANDAMENTO> PROCESSO_ANDAMENTO { get; set; }
+        public virtual DbSet<PROCESSO_COMENTARIO> PROCESSO_COMENTARIO { get; set; }
+        public virtual DbSet<PROCESSO_PROFISSIONAL_ALOCADO> PROCESSO_PROFISSIONAL_ALOCADO { get; set; }
+        public virtual DbSet<PROFISSAO> PROFISSAO { get; set; }
+        public virtual DbSet<REGIAO_JUSTICA> REGIAO_JUSTICA { get; set; }
+        public virtual DbSet<SECAO> SECAO { get; set; }
+        public virtual DbSet<SEXO> SEXO { get; set; }
+        public virtual DbSet<SITUACAO_PROCESSO> SITUACAO_PROCESSO { get; set; }
+        public virtual DbSet<SUBSECAO> SUBSECAO { get; set; }
+        public virtual DbSet<TIPO_ACAO> TIPO_ACAO { get; set; }
+        public virtual DbSet<TIPO_ANDAMENTO> TIPO_ANDAMENTO { get; set; }
+        public virtual DbSet<TIPO_CONTA> TIPO_CONTA { get; set; }
+        public virtual DbSet<TIPO_DESLIGAMENTO> TIPO_DESLIGAMENTO { get; set; }
+        public virtual DbSet<TIPO_JUSTICA> TIPO_JUSTICA { get; set; }
+        public virtual DbSet<TIPO_METADADO> TIPO_METADADO { get; set; }
+        public virtual DbSet<VARA> VARA { get; set; }
     }
 }

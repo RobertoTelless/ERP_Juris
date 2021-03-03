@@ -12,22 +12,19 @@ namespace EntitiesServices.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class TIPO_MENSAGEM
+    public partial class SEXO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TIPO_MENSAGEM()
+        public SEXO()
         {
-            this.FORNECEDOR_MENSAGEM = new HashSet<FORNECEDOR_MENSAGEM>();
-            this.CLIENTE_MENSAGEM = new HashSet<CLIENTE_MENSAGEM>();
+            this.CLIENTE = new HashSet<CLIENTE>();
         }
     
-        public int TIME_CD_ID { get; set; }
-        public string TIME_NM_NOME { get; set; }
-        public Nullable<int> TIME_IN_ATIVO { get; set; }
+        public int SEXO_CD_ID { get; set; }
+        public string SEXO_NM_NOME { get; set; }
+        public int SEXO_IN_ATIVO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FORNECEDOR_MENSAGEM> FORNECEDOR_MENSAGEM { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CLIENTE_MENSAGEM> CLIENTE_MENSAGEM { get; set; }
+        public virtual ICollection<CLIENTE> CLIENTE { get; set; }
     }
 }
