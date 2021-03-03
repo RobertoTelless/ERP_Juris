@@ -200,6 +200,8 @@
     <Compile Include="Repositories\NotificacaoAnexoRepository.cs" />
     <Compile Include="Repositories\NotificacaoRepository.cs" />
     <Compile Include="Repositories\PerfilRepository.cs" />
+    <Compile Include="Repositories\SubsecaoRepository.cs" />
+    <Compile Include="Repositories\SecaoRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\TarefaAcompanhamentoRepository.cs" />
     <Compile Include="Repositories\TarefaAnexoRepository.cs" />
@@ -207,8 +209,10 @@
     <Compile Include="Repositories\TarefaRepository.cs" />
     <Compile Include="Repositories\TarefaVinculoRepository.cs" />
     <Compile Include="Repositories\TemplateRepository.cs" />
+    <Compile Include="Repositories\RegiaoJusticaRepository.cs" />
     <Compile Include="Repositories\TipoMensagemRepository.cs" />
     <Compile Include="Repositories\TipoPessoaRepository.cs" />
+    <Compile Include="Repositories\TipoJusticaRepository.cs" />
     <Compile Include="Repositories\TipoTarefaRepository.cs" />
     <Compile Include="Repositories\UFRepository.cs" />
     <Compile Include="Repositories\UsuarioAnexoRepository.cs" />

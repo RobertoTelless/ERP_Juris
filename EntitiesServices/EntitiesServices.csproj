@@ -188,6 +188,10 @@
     <Compile Include="EntitiesServices\AgendaService.cs" />
     <Compile Include="EntitiesServices\AssinanteService.cs" />
     <Compile Include="EntitiesServices\CargoService.cs" />
+    <Compile Include="EntitiesServices\SubsecaoService.cs" />
+    <Compile Include="EntitiesServices\SecaoService.cs" />
+    <Compile Include="EntitiesServices\RegiaoJusticaService.cs" />
+    <Compile Include="EntitiesServices\TipoJusticaService.cs" />
     <Compile Include="EntitiesServices\CategoriaAgendaService.cs" />
     <Compile Include="EntitiesServices\CategoriaFornecedorService.cs" />
     <Compile Include="EntitiesServices\CategoriaNotificacaoService.cs" />
@@ -220,10 +224,14 @@
     <Compile Include="Interfaces\EntitiesServices\INoticiaService.cs" />
     <Compile Include="Interfaces\EntitiesServices\INotificacaoService.cs" />
     <Compile Include="Interfaces\EntitiesServices\IPerfilService.cs" />
+    <Compile Include="Interfaces\EntitiesServices\ISubsecaoService.cs" />
+    <Compile Include="Interfaces\EntitiesServices\ISecaoService.cs" />
     <Compile Include="Interfaces\EntitiesServices\IServiceBase.cs" />
     <Compile Include="Interfaces\EntitiesServices\ITarefaService.cs" />
     <Compile Include="Interfaces\EntitiesServices\ITemplateService.cs" />
+    <Compile Include="Interfaces\EntitiesServices\IRegiaoJusticaService.cs" />
     <Compile Include="Interfaces\EntitiesServices\ITipoPessoaService.cs" />
+    <Compile Include="Interfaces\EntitiesServices\ITipoJusticaService.cs" />
     <Compile Include="Interfaces\EntitiesServices\ITipoTarefaService.cs" />
     <Compile Include="Interfaces\EntitiesServices\IUsuarioService.cs" />
     <Compile Include="Interfaces\Repositories\IAgendaAnexoRepository.cs" />
@@ -247,6 +255,8 @@
     <Compile Include="Interfaces\Repositories\INotificacaoAnexoRepository.cs" />
     <Compile Include="Interfaces\Repositories\INotificacaoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IPerfilRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ISubsecaoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ISecaoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repositories\ITarefaAcompanhamentoRepository.cs" />
     <Compile Include="Interfaces\Repositories\ITarefaAnexoRepository.cs" />
@@ -254,8 +264,10 @@
     <Compile Include="Interfaces\Repositories\ITarefaRepository.cs" />
     <Compile Include="Interfaces\Repositories\ITarefaVinculoRepository.cs" />
     <Compile Include="Interfaces\Repositories\ITemplateRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRegiaoJusticaRepository.cs" />
     <Compile Include="Interfaces\Repositories\ITipoMensagemRepository.cs" />
     <Compile Include="Interfaces\Repositories\ITipoPessoaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITipoJusticaRepository.cs" />
     <Compile Include="Interfaces\Repositories\ITipoTarefaRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUFRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUsuarioAnexoRepository.cs" />

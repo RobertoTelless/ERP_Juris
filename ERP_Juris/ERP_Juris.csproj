@@ -330,10 +330,14 @@
     <Compile Include="ViewModels\NotificacaoAnexoViewModel.cs" />
     <Compile Include="ViewModels\NotificacaoViewModel.cs" />
     <Compile Include="ViewModels\PerfilViewModel.cs" />
+    <Compile Include="ViewModels\SubsecaoViewModel.cs" />
+    <Compile Include="ViewModels\SecaoViewModel.cs" />
     <Compile Include="ViewModels\TarefaAcompanhamentoViewModel.cs" />
     <Compile Include="ViewModels\EmpresaViewModel.cs" />
     <Compile Include="ViewModels\TarefaViewModel.cs" />
     <Compile Include="ViewModels\TemplateViewModel.cs" />
+    <Compile Include="ViewModels\RegiaoJusticaViewModel.cs" />
+    <Compile Include="ViewModels\TipoJusticaViewModel.cs" />
     <Compile Include="ViewModels\TipoPessoaViewModel.cs" />
     <Compile Include="ViewModels\TipoTarefaViewModel.cs" />
     <Compile Include="ViewModels\UFViewModel.cs" />

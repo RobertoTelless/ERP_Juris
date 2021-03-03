@@ -35,6 +35,11 @@ namespace MvcMapping.Mappers
             CreateMap<FornecedorComentarioViewModel, FORNECEDOR_COMENTARIO>();
             CreateMap<FornecedorMensagemViewModel, FORNECEDOR_MENSAGEM>();
             CreateMap<EmpresaViewModel, EMPRESA>();
+            CreateMap<TipoJusticaViewModel, TIPO_JUSTICA>();
+            CreateMap<RegiaoJusticaViewModel, REGIAO_JUSTICA>();
+            CreateMap<SecaoViewModel, SECAO>();
+            CreateMap<SubsecaoViewModel, SUBSECAO>();
+
         }
     }
 }
