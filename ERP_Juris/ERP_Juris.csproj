@@ -301,11 +301,11 @@
     <Compile Include="Controllers\ControleAcessoController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\JusticaController.cs" />
     <Compile Include="Controllers\NoticiaController.cs" />
     <Compile Include="Controllers\NotificacaoController.cs" />
     <Compile Include="Controllers\TarefaController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
+    <Compile Include="Controllers\TipoAcaoController.cs" />
     <Compile Include="Extensions\HMTLHelperExtensions.cs" />
     <Compile Include="Extensions\MVCButtonExtensions.cs" />
     <Compile Include="Extensions\WebMvcExtensions.cs" />
@@ -2948,12 +2948,10 @@
     <Content Include="Views\Template\EditarTemplate.cshtml" />
     <Content Include="Views\Configuracao\MontarTelaConfiguracao.cshtml" />
     <Content Include="Views\Empresa\MontarTelaEmpresa.cshtml" />
-    <Content Include="Views\Justica\MontarTelaTipoAcao.cshtml" />
-    <Content Include="Views\Justica\IncluirTipoAcao.cshtml" />
-    <Content Include="Views\Justica\EditarTipoAcao.cshtml" />
-    <Content Include="Views\Justica\MontarTelaTipoJustica.cshtml" />
-    <Content Include="Views\Justica\IncluirTipoJustica.cshtml" />
-    <Content Include="Views\Justica\EditarTipoJustica.cshtml" />
+    <Content Include="Views\Home\LandingPage.cshtml" />
+    <Content Include="Views\TipoAcao\MontarTelaTipoAcao.cshtml" />
+    <Content Include="Views\TipoAcao\IncluirTipoAcao.cshtml" />
+    <Content Include="Views\TipoAcao\EditarTipoAcao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
