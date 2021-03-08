@@ -84,6 +84,11 @@ namespace Presentation.Start
             kernel.Bind<IFornecedorAppService>().To<FornecedorAppService>();
             kernel.Bind<IFornecedorCnpjAppService>().To<FornecedorCnpjAppService>();
             kernel.Bind<IEmpresaAppService>().To<EmpresaAppService>();
+            kernel.Bind<ITipoAcaoAppService>().To<TipoAcaoAppService>();
+            kernel.Bind<ITipoJusticaAppService>().To<TipoJusticaAppService>();
+            kernel.Bind<IRegiaoJusticaAppService>().To<RegiaoJusticaAppService>();
+            kernel.Bind<ISecaoAppService>().To<SecaoAppService>();
+            kernel.Bind<ISubsecaoAppService>().To<SubsecaoAppService>();
 
             kernel.Bind(typeof(IServiceBase<>)).To(typeof(ServiceBase<>));
             kernel.Bind<IUsuarioService>().To<UsuarioService>();
@@ -101,6 +106,11 @@ namespace Presentation.Start
             kernel.Bind<IFornecedorService>().To<FornecedorService>();
             kernel.Bind<IFornecedorCnpjService>().To<FornecedorCnpjService>();
             kernel.Bind<IEmpresaService>().To<EmpresaService>();
+            kernel.Bind<ITipoAcaoService>().To<TipoAcaoService>();
+            kernel.Bind<ITipoJusticaService>().To<TipoJusticaService>();
+            kernel.Bind<IRegiaoJusticaService>().To<RegiaoJusticaService>();
+            kernel.Bind<ISecaoService>().To<SecaoService>();
+            kernel.Bind<ISubsecaoService>().To<SubSecaoService>();
 
             kernel.Bind(typeof(IRepositoryBase<>)).To(typeof(RepositoryBase<>));
             kernel.Bind<IConfiguracaoRepository>().To<ConfiguracaoRepository>();
@@ -133,6 +143,12 @@ namespace Presentation.Start
             kernel.Bind<IFornecedorMensagemRepository>().To<FornecedorMensagemRepository>();
             kernel.Bind<ITipoMensagemRepository>().To<TipoMensagemRepository>();
             kernel.Bind<IEmpresaRepository>().To<EmpresaRepository>();
+            kernel.Bind<ITipoAcaoRepository>().To<TipoAcaoRepository>();
+            kernel.Bind<ITipoJusticaRepository>().To<TipoJusticaRepository>();
+            kernel.Bind<IRegiaoJusticaRepository>().To<RegiaoJusticaRepository>();
+            kernel.Bind<ISecaoRepository>().To<SecaoRepository>();
+            kernel.Bind<ISubsecaoRepository>().To<SubsecaoRepository>();
+
         }
     }
 }

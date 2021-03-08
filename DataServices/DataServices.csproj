@@ -210,6 +210,7 @@
     <Compile Include="Repositories\TarefaVinculoRepository.cs" />
     <Compile Include="Repositories\TemplateRepository.cs" />
     <Compile Include="Repositories\RegiaoJusticaRepository.cs" />
+    <Compile Include="Repositories\TipoAcaoRepository.cs" />
     <Compile Include="Repositories\TipoMensagemRepository.cs" />
     <Compile Include="Repositories\TipoPessoaRepository.cs" />
     <Compile Include="Repositories\TipoJusticaRepository.cs" />

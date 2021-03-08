@@ -39,7 +39,7 @@ namespace MvcMapping.Mappers
             CreateMap<REGIAO_JUSTICA, RegiaoJusticaViewModel>();
             CreateMap<SECAO, SecaoViewModel>();
             CreateMap<SUBSECAO, SubsecaoViewModel>();
-
+            CreateMap<TIPO_ACAO, TipoAcaoViewModel>();
         }
     }
 }

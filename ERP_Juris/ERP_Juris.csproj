@@ -301,6 +301,7 @@
     <Compile Include="Controllers\ControleAcessoController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JusticaController.cs" />
     <Compile Include="Controllers\NoticiaController.cs" />
     <Compile Include="Controllers\NotificacaoController.cs" />
     <Compile Include="Controllers\TarefaController.cs" />
@@ -337,6 +338,7 @@
     <Compile Include="ViewModels\TarefaViewModel.cs" />
     <Compile Include="ViewModels\TemplateViewModel.cs" />
     <Compile Include="ViewModels\RegiaoJusticaViewModel.cs" />
+    <Compile Include="ViewModels\TipoAcaoViewModel.cs" />
     <Compile Include="ViewModels\TipoJusticaViewModel.cs" />
     <Compile Include="ViewModels\TipoPessoaViewModel.cs" />
     <Compile Include="ViewModels\TipoTarefaViewModel.cs" />
@@ -2946,6 +2948,12 @@
     <Content Include="Views\Template\EditarTemplate.cshtml" />
     <Content Include="Views\Configuracao\MontarTelaConfiguracao.cshtml" />
     <Content Include="Views\Empresa\MontarTelaEmpresa.cshtml" />
+    <Content Include="Views\Justica\MontarTelaTipoAcao.cshtml" />
+    <Content Include="Views\Justica\IncluirTipoAcao.cshtml" />
+    <Content Include="Views\Justica\EditarTipoAcao.cshtml" />
+    <Content Include="Views\Justica\MontarTelaTipoJustica.cshtml" />
+    <Content Include="Views\Justica\IncluirTipoJustica.cshtml" />
+    <Content Include="Views\Justica\EditarTipoJustica.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

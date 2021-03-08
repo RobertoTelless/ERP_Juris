@@ -304,6 +304,42 @@ namespace ERP_Juris.App_Start {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Tipo de ação já cadastrado.
+        /// </summary>
+        internal static string M0030 {
+            get {
+                return ResourceManager.GetString("M0030", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Impossível excluir esse tipo de ação. Existem registros vinculados a ele..
+        /// </summary>
+        internal static string M0031 {
+            get {
+                return ResourceManager.GetString("M0031", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Impossível excluir esse tipo de justiça. Existem registros vinculados a ele..
+        /// </summary>
+        internal static string M0032 {
+            get {
+                return ResourceManager.GetString("M0032", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Tipo de justiça já cadastrado.
+        /// </summary>
+        internal static string M0033 {
+            get {
+                return ResourceManager.GetString("M0033", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a A Senha não pode ficar em branco.
         /// </summary>
         internal static string M0073 {

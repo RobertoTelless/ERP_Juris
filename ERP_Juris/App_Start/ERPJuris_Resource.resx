@@ -198,6 +198,18 @@
   <data name="M0029" xml:space="preserve">
     <value>Justificatica de demissão deve ser informada</value>
   </data>
+  <data name="M0030" xml:space="preserve">
+    <value>Tipo de ação já cadastrado</value>
+  </data>
+  <data name="M0031" xml:space="preserve">
+    <value>Impossível excluir esse tipo de ação. Existem registros vinculados a ele.</value>
+  </data>
+  <data name="M0032" xml:space="preserve">
+    <value>Impossível excluir esse tipo de justiça. Existem registros vinculados a ele.</value>
+  </data>
+  <data name="M0033" xml:space="preserve">
+    <value>Tipo de justiça já cadastrado</value>
+  </data>
   <data name="M0073" xml:space="preserve">
     <value>A Senha não pode ficar em branco</value>
   </data>

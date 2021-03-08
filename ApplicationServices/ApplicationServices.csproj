@@ -182,6 +182,11 @@
     <Compile Include="Interfaces\IAppServiceBase.cs" />
     <Compile Include="Interfaces\IAssinanteAppService.cs" />
     <Compile Include="Interfaces\ICargoAppService.cs" />
+    <Compile Include="Interfaces\ISubsecaoAppService.cs" />
+    <Compile Include="Interfaces\ISecaoAppService.cs" />
+    <Compile Include="Interfaces\IRegiaoJusticaAppService.cs" />
+    <Compile Include="Interfaces\ITipoJusticaAppService.cs" />
+    <Compile Include="Interfaces\ITipoAcaoAppService.cs" />
     <Compile Include="Interfaces\ICategoriaAgendaAppService.cs" />
     <Compile Include="Interfaces\ICategoriaFornecedorAppService.cs" />
     <Compile Include="Interfaces\ICategoriaNotificacaoAppService.cs" />
@@ -204,6 +209,11 @@
     <Compile Include="Services\AssinanteAppService.cs" />
     <Compile Include="Services\CargoAppService.cs" />
     <Compile Include="Services\CategoriaAgendaAppService.cs" />
+    <Compile Include="Services\SubsecaoAppService.cs" />
+    <Compile Include="Services\SecaoAppService.cs" />
+    <Compile Include="Services\RegiaoJusticaAppService.cs" />
+    <Compile Include="Services\TipoJusticaAppService.cs" />
+    <Compile Include="Services\TipoAcaoAppService.cs" />
     <Compile Include="Services\CategoriaFornecedorAppService.cs" />
     <Compile Include="Services\CategoriaNotificacaoAppService.cs" />
     <Compile Include="Services\CategoriaUsuarioAppService.cs" />
