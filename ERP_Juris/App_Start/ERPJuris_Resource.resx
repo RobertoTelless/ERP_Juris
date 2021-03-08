@@ -210,6 +210,24 @@
   <data name="M0033" xml:space="preserve">
     <value>Tipo de justiça já cadastrado</value>
   </data>
+  <data name="M0034" xml:space="preserve">
+    <value>Impossível excluir essa região. Existem registros vinculados a ele.</value>
+  </data>
+  <data name="M0035" xml:space="preserve">
+    <value>Região já cadastrada</value>
+  </data>
+  <data name="M0036" xml:space="preserve">
+    <value>Impossível excluir essa seção. Existem registros vinculados a ele.</value>
+  </data>
+  <data name="M0037" xml:space="preserve">
+    <value>Seção já cadastrada nesta região</value>
+  </data>
+  <data name="M0038" xml:space="preserve">
+    <value>Impossível excluir essa subseção. Existem registros vinculados a ele.</value>
+  </data>
+  <data name="M0039" xml:space="preserve">
+    <value>Subseção já incluída nesta seção</value>
+  </data>
   <data name="M0073" xml:space="preserve">
     <value>A Senha não pode ficar em branco</value>
   </data>

@@ -21,21 +21,21 @@ namespace ApplicationServices.Services
             _baseService = baseService;
         }
 
-        public List<SECAO> GetAllItens(Int32? idAss)
+        public List<SECAO> GetAllItens(Int32 idAss)
         {
-            List<SECAO> lista = _baseService.GetAllItens(idAss.Value);
+            List<SECAO> lista = _baseService.GetAllItens(idAss);
             return lista;
         }
 
-        public List<SECAO> GetAllItensAdm(Int32? idAss)
+        public List<SECAO> GetAllItensAdm(Int32 idAss)
         {
-            List<SECAO> lista = _baseService.GetAllItensAdm(idAss.Value);
+            List<SECAO> lista = _baseService.GetAllItensAdm(idAss);
             return lista;
         }
 
-        public List<SECAO> GetByRegiao(Int32? idRegiao)
+        public List<SECAO> GetByRegiao(Int32 idRegiao)
         {
-            List<SECAO> lista = _baseService.GetByRegiao(idRegiao.Value);
+            List<SECAO> lista = _baseService.GetByRegiao(idRegiao);
             return lista;
         }
 

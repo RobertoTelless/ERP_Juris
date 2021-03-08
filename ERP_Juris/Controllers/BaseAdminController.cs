@@ -120,6 +120,9 @@ namespace ERP_Juris.Controllers
             Session["MensEmpresa"] = 0;
             Session["MensTipoAcao"] = 0;
             Session["MensTipoJustica"] = 0;
+            Session["MensRegiaoJustica"] = 0;
+            Session["MensSecao"] = 0;
+            Session["MensSubsecao"] = 0;
 
             USUARIO usu = (USUARIO)Session["Usuario"];
             UsuarioViewModel vm = Mapper.Map<USUARIO, UsuarioViewModel>(usu);
@@ -217,6 +220,18 @@ namespace ERP_Juris.Controllers
                 ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0011", CultureInfo.CurrentCulture));
             }
             if ((Int32)Session["MensTipoJustica"] == 2)
+            {
+                ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0011", CultureInfo.CurrentCulture));
+            }
+            if ((Int32)Session["MensRegiaoJustica"] == 2)
+            {
+                ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0011", CultureInfo.CurrentCulture));
+            }
+            if ((Int32)Session["MensSecao"] == 2)
+            {
+                ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0011", CultureInfo.CurrentCulture));
+            }
+            if ((Int32)Session["MensSubsecao"] == 2)
             {
                 ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0011", CultureInfo.CurrentCulture));
             }

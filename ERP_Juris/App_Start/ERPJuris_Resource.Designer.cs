@@ -340,6 +340,60 @@ namespace ERP_Juris.App_Start {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Impossível excluir essa região. Existem registros vinculados a ele..
+        /// </summary>
+        internal static string M0034 {
+            get {
+                return ResourceManager.GetString("M0034", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Região já cadastrada.
+        /// </summary>
+        internal static string M0035 {
+            get {
+                return ResourceManager.GetString("M0035", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Impossível excluir essa seção. Existem registros vinculados a ele..
+        /// </summary>
+        internal static string M0036 {
+            get {
+                return ResourceManager.GetString("M0036", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Seção já cadastrada nesta região.
+        /// </summary>
+        internal static string M0037 {
+            get {
+                return ResourceManager.GetString("M0037", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Impossível excluir essa subseção. Existem registros vinculados a ele..
+        /// </summary>
+        internal static string M0038 {
+            get {
+                return ResourceManager.GetString("M0038", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Subseção já incluída nesta seção.
+        /// </summary>
+        internal static string M0039 {
+            get {
+                return ResourceManager.GetString("M0039", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a A Senha não pode ficar em branco.
         /// </summary>
         internal static string M0073 {

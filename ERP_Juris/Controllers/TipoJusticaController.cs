@@ -17,18 +17,18 @@ using iTextSharp.text.pdf;
 
 namespace ERP_Juris.Controllers
 {
-    public class TipoAcaoController : Controller
+    public class TipoJusticaController : Controller
     {
-        private readonly ITipoAcaoAppService baseApp;
+        private readonly ITipoJusticaAppService baseApp;
 
         private String msg;
         private Exception exception;
-        TIPO_ACAO objeto = new TIPO_ACAO();
-        TIPO_ACAO objetoAntes = new TIPO_ACAO();
-        List<TIPO_ACAO> listaMaster = new List<TIPO_ACAO>();
+        TIPO_JUSTICA objeto = new TIPO_JUSTICA();
+        TIPO_JUSTICA objetoAntes = new TIPO_JUSTICA();
+        List<TIPO_JUSTICA> listaMaster = new List<TIPO_JUSTICA>();
         String extensao;
 
-        public TipoAcaoController(ITipoAcaoAppService baseApps)
+        public TipoJusticaController(ITipoJusticaAppService baseApps)
         {
             baseApp = baseApps;
         }
@@ -67,7 +67,7 @@ namespace ERP_Juris.Controllers
         }
 
         [HttpGet]
-        public ActionResult MontarTelaTipoAcao()
+        public ActionResult MontarTelaTipoJustica()
         {
             // Verifica se tem usuario logado
             USUARIO usuario = new USUARIO();
@@ -89,53 +89,53 @@ namespace ERP_Juris.Controllers
 
 
             // Carrega listas
-            if ((List<TIPO_ACAO>)Session["ListaTipoAcao"] == null)
+            if ((List<TIPO_JUSTICA>)Session["ListaTipoJustica"] == null)
             {
                 listaMaster = baseApp.GetAllItens(idAss);
-                Session["ListaTipoAcao"] = listaMaster;
+                Session["ListaTipoJustica"] = listaMaster;
             }
 
             ViewBag.Listas = listaMaster;
-            ViewBag.Title = "Tipos de Ação";
+            ViewBag.Title = "Tipos de Justiça";
             //ViewBag.Cats = new SelectList(fornApp.GetAllCategorias(idAss), "CAFO_CD_ID", "CAFO_NM_NOME");
             ViewBag.Perfil = usuario.PERFIL.PERF_SG_SIGLA;
 
             // Indicadores
-            ViewBag.TiposAcao = listaMaster.Count;
+            ViewBag.TiposJustica = listaMaster.Count;
             
             // Mensagem
-            if ((Int32)Session["MensTipoAcao"] == 1)
+            if ((Int32)Session["MensTipoJustica"] == 1)
             {
                 ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0016", CultureInfo.CurrentCulture));
             }
-            if ((Int32)Session["MensTipoAcao"] == 2)
+            if ((Int32)Session["MensTipoJustica"] == 2)
             {
                 ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0010", CultureInfo.CurrentCulture));
             }
-            if ((Int32)Session["MensTipoAcao"] == 3)
+            if ((Int32)Session["MensTipoJustica"] == 3)
             {
-                ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0031", CultureInfo.CurrentCulture));
+                ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0032", CultureInfo.CurrentCulture));
             }
 
             // Abre view
-            Session["MensTipoAcao"] = 0;
-            objeto = new TIPO_ACAO();
-            Session["VoltaTa"] = 1;
+            Session["MensTipoJustica"] = 0;
+            objeto = new TIPO_JUSTICA();
+            Session["Volta"] = 1;
             return View(objeto);
         }
 
-        public ActionResult RetirarFiltroTipoAcao()
+        public ActionResult RetirarFiltroTipoJustica()
         {
             if ((String)Session["Ativa"] == null)
             {
                 return RedirectToAction("Login", "ControleAcesso");
             }
-            Session["ListaTipoAcao"] = null;
-            Session["FiltroTipoAcao"] = null;
-            return RedirectToAction("MontarTelaTipoAcao");
+            Session["ListaTipoJustica"] = null;
+            Session["FiltroTipoJustica"] = null;
+            return RedirectToAction("MontarTelaTipoJustica");
         }
 
-        public ActionResult MostrarTudoTipoAcao()
+        public ActionResult MostrarTudoTipoJustica()
         {
             if ((String)Session["Ativa"] == null)
             {
@@ -143,13 +143,13 @@ namespace ERP_Juris.Controllers
             }
             Int32 idAss = (Int32)Session["IdAssinante"];
             listaMaster = baseApp.GetAllItensAdm(idAss);
-            Session["FiltroTipoAcao"] = null;
-            Session["ListaTipoAcao"] = listaMaster;
-            return RedirectToAction("MontarTelaTipoAcao");
+            Session["FiltroTipoJustica"] = null;
+            Session["ListaTipoJustica"] = listaMaster;
+            return RedirectToAction("MontarTelaTipoJustica");
         }
 
         [HttpPost]
-        public ActionResult FiltrarTipoAcao(TIPO_ACAO item)
+        public ActionResult FiltrarTipoJustica(TIPO_JUSTICA item)
         {
             // Verificar login
             if ((String)Session["Ativa"] == null)
@@ -162,42 +162,42 @@ namespace ERP_Juris.Controllers
             {
                 // Executa a operação
                 Int32 idAss = (Int32)Session["IdAssinante"];
-                List<TIPO_ACAO> listaObj = new List<TIPO_ACAO>();
-                Session["FiltroTipoAcao"] = item;
-                Int32 volta = baseApp.ExecuteFilter(item.TIAC_NM_NOME, item.TIAC_DS_DESCRICAO, idAss, out listaObj);
+                List<TIPO_JUSTICA> listaObj = new List<TIPO_JUSTICA>();
+                Session["FiltroTipoJustica"] = item;
+                Int32 volta = baseApp.ExecuteFilter(item.TIJU_NM_NOME, item.TIJU_DS_DESCRICAO, idAss, out listaObj);
 
                 // Verifica retorno
                 if (volta == 1)
                 {
-                    Session["MensTipoAcao"] = 1;
+                    Session["MensTipoJustica"] = 1;
                     ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0016", CultureInfo.CurrentCulture));
                 }
 
                 // Sucesso
-                Session["MensTipoAcao"] = 0;
+                Session["MensTipoJustica"] = 0;
                 listaMaster = listaObj;
-                Session["ListaTipoAcao"] = listaObj;
-                return RedirectToAction("MontarTelaTipoAcao");
+                Session["ListaTipoJustica"] = listaObj;
+                return RedirectToAction("MontarTelaTipoJustica");
             }
             catch (Exception ex)
             {
                 ViewBag.Message = ex.Message;
-                return RedirectToAction("MontarTelaTipoAcao");
+                return RedirectToAction("MontarTelaTipoJustica");
             }
         }
 
-        public ActionResult VoltarBaseTipoAcao()
+        public ActionResult VoltarBaseTipoJustica()
         {
             // Verificar login
             if ((String)Session["Ativa"] == null)
             {
                 return RedirectToAction("Login", "ControleAcesso");
             }
-            return RedirectToAction("MontarTelaTipoAcao");
+            return RedirectToAction("MontarTelaTipoJustica");
         }
 
         [HttpGet]
-        public ActionResult IncluirTipoAcao()
+        public ActionResult IncluirTipoJustica()
         {
             USUARIO usuario = new USUARIO();
             if ((String)Session["Ativa"] == null)
@@ -211,7 +211,7 @@ namespace ERP_Juris.Controllers
                 // Verfifica permissão
                 if (usuario.PERFIL.PERF_SG_SIGLA != "ADM")
                 {
-                    Session["MensTipoAcao"] = 2;
+                    Session["MensTipoJustica"] = 2;
                     return RedirectToAction("CarregarBase", "BaseAdmin");
                 }
             }
@@ -226,40 +226,39 @@ namespace ERP_Juris.Controllers
             ViewBag.Perfil = usuario.PERFIL.PERF_SG_SIGLA;
 
             // Prepara view
-            TIPO_ACAO item = new TIPO_ACAO();
-            TipoAcaoViewModel vm = Mapper.Map<TIPO_ACAO, TipoAcaoViewModel>(item);
-            vm.TIAC_IN_ATIVO = 1;
+            TIPO_JUSTICA item = new TIPO_JUSTICA();
+            TipoJusticaViewModel vm = Mapper.Map<TIPO_JUSTICA, TipoJusticaViewModel>(item);
+            vm.TIJU_IN_ATIVO = 1;
             vm.ASSI_CD_ID = idAss;
             return View(vm);
         }
 
         [HttpPost]
-        public ActionResult IncluirTipoAcao(TipoAcaoViewModel vm)
+        public ActionResult IncluirTipoJustica(TipoJusticaViewModel vm)
         {
             var result = new Hashtable();
-
             Int32 idAss = (Int32)Session["IdAssinante"];
             if (ModelState.IsValid)
             {
                 try
                 {
                     // Executa a operação
-                    TIPO_ACAO item = Mapper.Map<TipoAcaoViewModel, TIPO_ACAO>(vm);
+                    TIPO_JUSTICA item = Mapper.Map<TipoJusticaViewModel, TIPO_JUSTICA>(vm);
                     USUARIO usuario = (USUARIO)Session["UserCredentials"];
                     Int32 volta = baseApp.ValidateCreate(item, usuario);
 
                     // Verifica retorno
                     if (volta == 1)
                     {
-                        ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0030", CultureInfo.CurrentCulture));
+                        ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0033", CultureInfo.CurrentCulture));
                         return View(vm);
                     }
 
                     // Sucesso
-                    listaMaster = new List<TIPO_ACAO>();
-                    Session["ListaTipoAcao"] = null;
-                    Session["TiposAcao"] = baseApp.GetAllItens(idAss);
-                    return RedirectToAction("MontarTelaTipoAcao");
+                    listaMaster = new List<TIPO_JUSTICA>();
+                    Session["ListaTipoJustica"] = null;
+                    Session["TiposJustica"] = baseApp.GetAllItens(idAss);
+                    return RedirectToAction("MontarTelaTipoJustica");
                 }
                 catch (Exception ex)
                 {
@@ -275,7 +274,7 @@ namespace ERP_Juris.Controllers
         }
 
         [HttpGet]
-        public ActionResult EditarTipoAcao(Int32 id)
+        public ActionResult EditarTipoJustica(Int32 id)
         {
             USUARIO usuario = new USUARIO();
             if ((String)Session["Ativa"] == null)
@@ -289,7 +288,7 @@ namespace ERP_Juris.Controllers
                 // Verfifica permissão
                 if (usuario.PERFIL.PERF_SG_SIGLA != "ADM")
                 {
-                    Session["MensTipoAcao"] = 2;
+                    Session["MensTipoJustica"] = 2;
                     return RedirectToAction("CarregarBase", "BaseAdmin");
                 }
             }
@@ -305,22 +304,22 @@ namespace ERP_Juris.Controllers
             ViewBag.Perfil = usuario.PERFIL.PERF_SG_SIGLA;
 
             // Mensagem
-            if ((Int32)Session["MensTipoAcao"] == 2)
+            if ((Int32)Session["MensTipoJustica"] == 2)
             {
                 ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0011", CultureInfo.CurrentCulture));
             }
 
-            TIPO_ACAO item = baseApp.GetItemById(id);
+            TIPO_JUSTICA item = baseApp.GetItemById(id);
             objetoAntes = item;
-            Session["TipoAcao"] = item;
+            Session["TipoJustica"] = item;
             Session["IdVolta"] = id;
-            TipoAcaoViewModel vm = Mapper.Map<TIPO_ACAO, TipoAcaoViewModel>(item);
+            TipoJusticaViewModel vm = Mapper.Map<TIPO_JUSTICA, TipoJusticaViewModel>(item);
             return View(vm);
         }
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult EditarTipoAcao(TipoAcaoViewModel vm)
+        public ActionResult EditarTipoJustica(TipoJusticaViewModel vm)
         {
             Int32 idAss = (Int32)Session["IdAssinante"];
             if (ModelState.IsValid)
@@ -329,21 +328,21 @@ namespace ERP_Juris.Controllers
                 {
                     // Executa a operação
                     USUARIO usuario = (USUARIO)Session["UserCredentials"];
-                    TIPO_ACAO item = Mapper.Map<TipoAcaoViewModel, TIPO_ACAO>(vm);
+                    TIPO_JUSTICA item = Mapper.Map<TipoJusticaViewModel, TIPO_JUSTICA>(vm);
                     Int32 volta = baseApp.ValidateEdit(item, objetoAntes, usuario);
 
                     // Verifica retorno
                     if (volta == 1)
                     {
-                        ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0030", CultureInfo.CurrentCulture));
+                        ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0033", CultureInfo.CurrentCulture));
                         return View(vm);
                     }
 
                     // Sucesso
-                    listaMaster = new List<TIPO_ACAO>();
-                    Session["ListaTipoAcao"] = null;
-                    Session["MensTipoAcao"] = 0;
-                    return RedirectToAction("MontarTelaTipoAcao");
+                    listaMaster = new List<TIPO_JUSTICA>();
+                    Session["ListaTipoJustica"] = null;
+                    Session["MensTipoJustica"] = 0;
+                    return RedirectToAction("MontarTelaTipoJustica");
                 }
                 catch (Exception ex)
                 {
@@ -358,7 +357,7 @@ namespace ERP_Juris.Controllers
         }
 
         [HttpGet]
-        public ActionResult ExcluirTipoAcao(Int32 id)
+        public ActionResult ExcluirTipoJustica(Int32 id)
         {
             // Verifica se tem usuario logado
             if ((String)Session["Ativa"] == null)
@@ -373,8 +372,8 @@ namespace ERP_Juris.Controllers
                 // Verfifica permissão
                 if (usuario.PERFIL.PERF_SG_SIGLA != "ADM")
                 {
-                    Session["MensTipoAcao"] = 2;
-                    return RedirectToAction("MontarTelaTipoAcao", "TipoAcao");
+                    Session["MensTipoJustica"] = 2;
+                    return RedirectToAction("MontarTelaTipoJustica", "TipoJustica");
                 }
             }
             else
@@ -383,25 +382,25 @@ namespace ERP_Juris.Controllers
             }
 
             // Executar
-            TIPO_ACAO item = baseApp.GetItemById(id);
-            objetoAntes = (TIPO_ACAO)Session["TipoAcao"];
-            item.TIAC_IN_ATIVO = 0;
+            TIPO_JUSTICA item = baseApp.GetItemById(id);
+            objetoAntes = (TIPO_JUSTICA)Session["TipoJustica"];
+            item.TIJU_IN_ATIVO = 0;
             Int32 volta = baseApp.ValidateDelete(item, usuario);
             // Verifica retorno
             if (volta == 1)
             {
-                ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0031", CultureInfo.CurrentCulture));
-                Session["MensTipoAcao"] = 3;
-                return RedirectToAction("MontarTelaTipoAcao", "TipoAcao");
+                ModelState.AddModelError("", ERPJuris_Resource.ResourceManager.GetString("M0032", CultureInfo.CurrentCulture));
+                Session["MensTipoJustica"] = 3;
+                return RedirectToAction("MontarTelaTipoJustica", "TipoJustica");
             }
-            listaMaster = new List<TIPO_ACAO>();
-            Session["ListaTipoAcao"] = null;
-            return RedirectToAction("MontarTelaTipoAcao");
+            listaMaster = new List<TIPO_JUSTICA>();
+            Session["ListaTipoJustica"] = null;
+            return RedirectToAction("MontarTelaTipoJustica");
         }
 
 
         [HttpGet]
-        public ActionResult ReativarTipoAcao(Int32 id)
+        public ActionResult ReativarTipoJustica(Int32 id)
         {
             // Verifica se tem usuario logado
             if ((String)Session["Ativa"] == null)
@@ -416,8 +415,8 @@ namespace ERP_Juris.Controllers
                 // Verfifica permissão
                 if (usuario.PERFIL.PERF_SG_SIGLA != "ADM")
                 {
-                    Session["MensTipoAcao"] = 2;
-                    return RedirectToAction("MontarTelaTipoAcao", "TipoAcao");
+                    Session["MensTipoJustica"] = 2;
+                    return RedirectToAction("MontarTelaTipoJustica", "TipoJustica");
                 }
             }
             else
@@ -426,13 +425,13 @@ namespace ERP_Juris.Controllers
             }
 
             // Executar
-            TIPO_ACAO item = baseApp.GetItemById(id);
-            objetoAntes = (TIPO_ACAO)Session["TipoAcao"];
-            item.TIAC_IN_ATIVO = 1;
+            TIPO_JUSTICA item = baseApp.GetItemById(id);
+            objetoAntes = (TIPO_JUSTICA)Session["TipoJustica"];
+            item.TIJU_IN_ATIVO = 1;
             Int32 volta = baseApp.ValidateReativar(item, usuario);
-            listaMaster = new List<TIPO_ACAO>();
-            Session["ListaTipoAcao"] = null;
-            return RedirectToAction("MontarTelaTipoAcao");
+            listaMaster = new List<TIPO_JUSTICA>();
+            Session["ListaTipoJustica"] = null;
+            return RedirectToAction("MontarTelaTipoJustica");
         }
     }
 }

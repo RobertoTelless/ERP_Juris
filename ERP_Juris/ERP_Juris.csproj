@@ -303,9 +303,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NoticiaController.cs" />
     <Compile Include="Controllers\NotificacaoController.cs" />
+    <Compile Include="Controllers\RegiaoJusticaController.cs" />
+    <Compile Include="Controllers\SecaoController.cs" />
+    <Compile Include="Controllers\SubsecaoController.cs" />
     <Compile Include="Controllers\TarefaController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
     <Compile Include="Controllers\TipoAcaoController.cs" />
+    <Compile Include="Controllers\TipoJusticaController.cs" />
     <Compile Include="Extensions\HMTLHelperExtensions.cs" />
     <Compile Include="Extensions\MVCButtonExtensions.cs" />
     <Compile Include="Extensions\WebMvcExtensions.cs" />
@@ -2952,6 +2956,18 @@
     <Content Include="Views\TipoAcao\MontarTelaTipoAcao.cshtml" />
     <Content Include="Views\TipoAcao\IncluirTipoAcao.cshtml" />
     <Content Include="Views\TipoAcao\EditarTipoAcao.cshtml" />
+    <Content Include="Views\TipoJustica\MontarTelaTipoJustica.cshtml" />
+    <Content Include="Views\TipoJustica\IncluirTipoJustica.cshtml" />
+    <Content Include="Views\TipoJustica\EditarTipoJustica.cshtml" />
+    <Content Include="Views\RegiaoJustica\MontarTelaRegiaoJustica.cshtml" />
+    <Content Include="Views\RegiaoJustica\IncluirRegiaoJustica.cshtml" />
+    <Content Include="Views\RegiaoJustica\EditarRegiaoJustica.cshtml" />
+    <Content Include="Views\Secao\MontarTelaSecao.cshtml" />
+    <Content Include="Views\Secao\IncluirSecao.cshtml" />
+    <Content Include="Views\Secao\EditarSecao.cshtml" />
+    <Content Include="Views\Subsecao\MontarTelaSubsecao.cshtml" />
+    <Content Include="Views\Subsecao\IncluirSubsecao.cshtml" />
+    <Content Include="Views\Subsecao\EditarSubsecao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
