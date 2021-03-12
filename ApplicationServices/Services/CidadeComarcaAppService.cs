@@ -50,7 +50,7 @@ namespace ApplicationServices.Services
             return _baseService.GetAllUF();
         }
 
-        public Int32 ExecuteFilter(String nome, Int32 uf, Int32 idAss, out List<CIDADE_COMARCA> objeto)
+        public Int32 ExecuteFilter(String nome, Int32 uf, Int32 tipo, Int32 idAss, out List<CIDADE_COMARCA> objeto)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace ApplicationServices.Services
                 Int32 volta = 0;
 
                 // Processa filtro
-                objeto = _baseService.ExecuteFilter(nome, uf, idAss);
+                objeto = _baseService.ExecuteFilter(nome, uf, tipo, idAss);
                 if (objeto.Count == 0)
                 {
                     volta = 1;

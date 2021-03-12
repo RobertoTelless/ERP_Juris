@@ -13,6 +13,6 @@ namespace ModelServices.Interfaces.Repositories
         List<CIDADE_COMARCA> GetAllItens(Int32 idAss);
         List<CIDADE_COMARCA> GetAllItensAdm(Int32 idAss);
         CIDADE_COMARCA GetItemById(Int32 id);
-        List<CIDADE_COMARCA> ExecuteFilter(String nome, Int32 uf, Int32 idAss);
+        List<CIDADE_COMARCA> ExecuteFilter(String nome, Int32 uf, Int32 tipo, Int32 idAss);
     }
 }

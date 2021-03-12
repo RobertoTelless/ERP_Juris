@@ -20,6 +20,6 @@ namespace ModelServices.Interfaces.EntitiesServices
         List<CIDADE_COMARCA> GetAllItensAdm(Int32 idAss);
         List<UF> GetAllUF();
         CIDADE_COMARCA GetItemById(Int32 id);
-        List<CIDADE_COMARCA> ExecuteFilter(String nome, Int32 uf, Int32 idAss);
+        List<CIDADE_COMARCA> ExecuteFilter(String nome, Int32 uf, Int32 tipo, Int32 idAss);
     }
 }

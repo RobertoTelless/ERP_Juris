@@ -57,9 +57,9 @@ namespace ModelServices.EntitiesServices
             return _baseRepository.GetAllItensAdm(id);
         }
 
-        public List<CIDADE_COMARCA> ExecuteFilter(String nome, Int32 uf, Int32 idAss)
+        public List<CIDADE_COMARCA> ExecuteFilter(String nome, Int32 uf, Int32 tipo, Int32 idAss)
         {
-            List<CIDADE_COMARCA> lista = _baseRepository.ExecuteFilter(nome, uf, idAss);
+            List<CIDADE_COMARCA> lista = _baseRepository.ExecuteFilter(nome, uf, tipo, idAss);
             return lista;
         }
 

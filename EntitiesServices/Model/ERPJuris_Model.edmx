@@ -175,6 +175,7 @@
           <Property Name="ASSI_CD_ID" Type="int" Nullable="false" />
           <Property Name="CICO_NM_NOME" Type="varchar" MaxLength="50" />
           <Property Name="UF_CD_ID" Type="int" />
+          <Property Name="CICO_IN_TIPO" Type="int" />
           <Property Name="CICO_IN_ATIVO" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="CLASSE">
@@ -5382,6 +5383,7 @@
           <NavigationProperty Name="UF" Relationship="ERP_JurisModel.FK_CIDADE_COMARCA_UF" FromRole="CIDADE_COMARCA" ToRole="UF" />
           <NavigationProperty Name="FORO" Relationship="ERP_JurisModel.FK_FORO_CIDADE_COMARCA" FromRole="CIDADE_COMARCA" ToRole="FORO" />
           <NavigationProperty Name="PROCESSO" Relationship="ERP_JurisModel.FK_PROCESSO_CIDADE_COMARCA" FromRole="CIDADE_COMARCA" ToRole="PROCESSO" />
+          <Property Name="CICO_IN_TIPO" Type="Int32" />
         </EntityType>
         <EntityType Name="CLASSE">
           <Key>
@@ -7602,6 +7604,7 @@
           <EntitySetMapping Name="CIDADE_COMARCA">
             <EntityTypeMapping TypeName="ERP_JurisModel.CIDADE_COMARCA">
               <MappingFragment StoreEntitySet="CIDADE_COMARCA">
+                <ScalarProperty Name="CICO_IN_TIPO" ColumnName="CICO_IN_TIPO" />
                 <ScalarProperty Name="CICO_IN_ATIVO" ColumnName="CICO_IN_ATIVO" />
                 <ScalarProperty Name="UF_CD_ID" ColumnName="UF_CD_ID" />
                 <ScalarProperty Name="CICO_NM_NOME" ColumnName="CICO_NM_NOME" />

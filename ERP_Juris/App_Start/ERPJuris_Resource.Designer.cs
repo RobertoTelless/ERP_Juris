@@ -394,6 +394,24 @@ namespace ERP_Juris.App_Start {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Impossível excluir essa cidade/comarca. Existem registros vinculados a ele..
+        /// </summary>
+        internal static string M0040 {
+            get {
+                return ResourceManager.GetString("M0040", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Cidade/Comarca já cadastrada.
+        /// </summary>
+        internal static string M0041 {
+            get {
+                return ResourceManager.GetString("M0041", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a A Senha não pode ficar em branco.
         /// </summary>
         internal static string M0073 {

@@ -19,6 +19,8 @@ namespace ERP_Juris.ViewModels
         [Required(ErrorMessage = "Campo UF obrigatorio")]
         public Nullable<int> UF_CD_ID { get; set; }
         public string CICO_IN_ATIVO { get; set; }
+        [Required(ErrorMessage = "Campo TIPO obrigatorio")]
+        public Nullable<int> CICO_IN_TIPO { get; set; }
 
         public virtual ASSINANTE ASSINANTE { get; set; }
         public virtual UF UF { get; set; }

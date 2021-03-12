@@ -38,7 +38,7 @@ namespace DataServices.Repositories
             return query.ToList();
         }
 
-        public List<CIDADE_COMARCA> ExecuteFilter(String nome, Int32 uf, Int32 idAss)
+        public List<CIDADE_COMARCA> ExecuteFilter(String nome, Int32 uf, Int32 tipo, Int32 idAss)
         {
             List<CIDADE_COMARCA> lista = new List<CIDADE_COMARCA>();
             IQueryable<CIDADE_COMARCA> query = Db.CIDADE_COMARCA;
@@ -49,6 +49,14 @@ namespace DataServices.Repositories
             if (uf != 0)
             {
                 query = query.Where(p => p.UF_CD_ID == uf);
+            }
+            if (uf != 0)
+            {
+                query = query.Where(p => p.UF_CD_ID == uf);
+            }
+            if (tipo != 0)
+            {
+                query = query.Where(p => p.CICO_IN_TIPO == tipo);
             }
             if (query != null)
             {
