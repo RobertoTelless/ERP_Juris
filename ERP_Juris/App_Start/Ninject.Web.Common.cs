@@ -89,6 +89,9 @@ namespace Presentation.Start
             kernel.Bind<IRegiaoJusticaAppService>().To<RegiaoJusticaAppService>();
             kernel.Bind<ISecaoAppService>().To<SecaoAppService>();
             kernel.Bind<ISubsecaoAppService>().To<SubsecaoAppService>();
+            kernel.Bind<ICidadeComarcaAppService>().To<CidadeComarcaAppService>();
+            kernel.Bind<IForoAppService>().To<ForoAppService>();
+            kernel.Bind<IVaraAppService>().To<VaraAppService>();
 
             kernel.Bind(typeof(IServiceBase<>)).To(typeof(ServiceBase<>));
             kernel.Bind<IUsuarioService>().To<UsuarioService>();
@@ -111,6 +114,9 @@ namespace Presentation.Start
             kernel.Bind<IRegiaoJusticaService>().To<RegiaoJusticaService>();
             kernel.Bind<ISecaoService>().To<SecaoService>();
             kernel.Bind<ISubsecaoService>().To<SubSecaoService>();
+            kernel.Bind<ICidadeComarcaService>().To<CidadeComarcaService>();
+            kernel.Bind<IForoService>().To<ForoService>();
+            kernel.Bind<IVaraService>().To<VaraService>();
 
             kernel.Bind(typeof(IRepositoryBase<>)).To(typeof(RepositoryBase<>));
             kernel.Bind<IConfiguracaoRepository>().To<ConfiguracaoRepository>();
@@ -148,6 +154,9 @@ namespace Presentation.Start
             kernel.Bind<IRegiaoJusticaRepository>().To<RegiaoJusticaRepository>();
             kernel.Bind<ISecaoRepository>().To<SecaoRepository>();
             kernel.Bind<ISubsecaoRepository>().To<SubsecaoRepository>();
+            kernel.Bind<ICidadeComarcaRepository>().To<CidadeComarcaRepository>();
+            kernel.Bind<IForoRepository>().To<ForoRepository>();
+            kernel.Bind<IVaraRepository>().To<VaraRepository>();
 
         }
     }

@@ -194,12 +194,14 @@
     <Compile Include="Repositories\FornecedorContatoRepository.cs" />
     <Compile Include="Repositories\FornecedorMensagemRepository.cs" />
     <Compile Include="Repositories\FornecedorRepository.cs" />
+    <Compile Include="Repositories\VaraRepository.cs" />
     <Compile Include="Repositories\LogRepository.cs" />
     <Compile Include="Repositories\NoticiaComentarioRepository.cs" />
     <Compile Include="Repositories\NoticiaRepository.cs" />
     <Compile Include="Repositories\NotificacaoAnexoRepository.cs" />
     <Compile Include="Repositories\NotificacaoRepository.cs" />
     <Compile Include="Repositories\PerfilRepository.cs" />
+    <Compile Include="Repositories\ForoRepository.cs" />
     <Compile Include="Repositories\SubsecaoRepository.cs" />
     <Compile Include="Repositories\SecaoRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
@@ -210,6 +212,7 @@
     <Compile Include="Repositories\TarefaVinculoRepository.cs" />
     <Compile Include="Repositories\TemplateRepository.cs" />
     <Compile Include="Repositories\RegiaoJusticaRepository.cs" />
+    <Compile Include="Repositories\CidadeComarcaRepository.cs" />
     <Compile Include="Repositories\TipoAcaoRepository.cs" />
     <Compile Include="Repositories\TipoMensagemRepository.cs" />
     <Compile Include="Repositories\TipoPessoaRepository.cs" />

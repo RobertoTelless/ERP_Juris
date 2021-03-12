@@ -40,6 +40,9 @@ namespace MvcMapping.Mappers
             CreateMap<SECAO, SecaoViewModel>();
             CreateMap<SUBSECAO, SubsecaoViewModel>();
             CreateMap<TIPO_ACAO, TipoAcaoViewModel>();
+            CreateMap<CIDADE_COMARCA, CidadeComarcaViewModel>();
+            CreateMap<FORO, ForoViewModel>();
+            CreateMap<VARA, VaraViewModel>();
         }
     }
 }
