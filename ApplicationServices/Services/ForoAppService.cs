@@ -50,6 +50,12 @@ namespace ApplicationServices.Services
             return item;
         }
 
+        public UF GetUFBySigla(String sigla)
+        {
+            UF item = _baseService.GetUFBySigla(sigla);
+            return item;
+        }
+
         public FORO CheckExist(FORO ag, Int32? idAss)
         {
             FORO item = _baseService.CheckExist(ag, idAss);

@@ -301,6 +301,7 @@
     <Compile Include="Controllers\ConfiguracaoController.cs" />
     <Compile Include="Controllers\ControleAcessoController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
+    <Compile Include="Controllers\ForoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NoticiaController.cs" />
     <Compile Include="Controllers\NotificacaoController.cs" />
@@ -2975,6 +2976,9 @@
     <Content Include="Views\CidadeComarca\MontarTelaCidadeComarca.cshtml" />
     <Content Include="Views\CidadeComarca\IncluirCidadeComarca.cshtml" />
     <Content Include="Views\CidadeComarca\EditarCidadeComarca.cshtml" />
+    <Content Include="Views\Foro\MontarTelaForo.cshtml" />
+    <Content Include="Views\Foro\IncluirForo.cshtml" />
+    <Content Include="Views\Foro\EditarForo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,6 +21,7 @@ namespace ModelServices.Interfaces.EntitiesServices
         List<UF> GetAllUF();
         List<FORO> GetByCidade(Int32 idCidade);
         FORO GetItemById(Int32 id);
+        UF GetUFBySigla(String sigla);
         List<FORO> ExecuteFilter(Int32 idCidade, String nome, String descricao, String Bairro, Int32 uf, Int32 idAss);
     }
 }

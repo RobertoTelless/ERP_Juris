@@ -412,6 +412,24 @@ namespace ERP_Juris.App_Start {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Impossível excluir esse foro. Existem registros vinculados a ele..
+        /// </summary>
+        internal static string M0042 {
+            get {
+                return ResourceManager.GetString("M0042", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Foro já cadastrado.
+        /// </summary>
+        internal static string M0043 {
+            get {
+                return ResourceManager.GetString("M0043", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a A Senha não pode ficar em branco.
         /// </summary>
         internal static string M0073 {

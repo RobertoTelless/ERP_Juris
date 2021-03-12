@@ -36,6 +36,12 @@ namespace ModelServices.EntitiesServices
             return item;
         }
 
+        public UF GetUFBySigla(String sigla)
+        {
+            UF item = _ufRepository.GetItemBySigla(sigla);
+            return item;
+        }
+
         public FORO CheckExist(FORO item, Int32? idAss)
         {
             FORO volta = _baseRepository.CheckExist(item, idAss);
