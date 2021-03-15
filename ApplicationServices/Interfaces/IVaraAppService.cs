@@ -21,6 +21,7 @@ namespace ApplicationServices.Interfaces
         List<UF> GetAllUF();
         List<VARA> GetByForo(Int32 idForo);
         VARA GetItemById(Int32 id);
+        UF GetUFBySigla(String sigla);
         Int32 ExecuteFilter(Int32 idForo, String nome, String descricao, String juiz, String cidade, String Bairro, Int32 uf, Int32 idAss, out List<VARA> objeto);
     }
 }

@@ -52,6 +52,12 @@ namespace ModelServices.EntitiesServices
             return _ufRepository.GetAllItens();
         }
 
+        public UF GetUFBySigla(String sigla)
+        {
+            UF item = _ufRepository.GetItemBySigla(sigla);
+            return item;
+        }
+
         public List<VARA> GetByForo(Int32 idForo)
         {
             return _baseRepository.GetByForo(idForo);

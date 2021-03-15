@@ -312,6 +312,7 @@
     <Compile Include="Controllers\TemplateController.cs" />
     <Compile Include="Controllers\TipoAcaoController.cs" />
     <Compile Include="Controllers\TipoJusticaController.cs" />
+    <Compile Include="Controllers\VaraController.cs" />
     <Compile Include="Extensions\HMTLHelperExtensions.cs" />
     <Compile Include="Extensions\MVCButtonExtensions.cs" />
     <Compile Include="Extensions\WebMvcExtensions.cs" />
@@ -2979,6 +2980,9 @@
     <Content Include="Views\Foro\MontarTelaForo.cshtml" />
     <Content Include="Views\Foro\IncluirForo.cshtml" />
     <Content Include="Views\Foro\EditarForo.cshtml" />
+    <Content Include="Views\Vara\MontarTelaVara.cshtml" />
+    <Content Include="Views\Vara\IncluirVara.cshtml" />
+    <Content Include="Views\Vara\EditarVara.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

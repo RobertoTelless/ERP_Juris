@@ -1,21 +1,21 @@
 ﻿@using Presentation.Extensions
-@model ERP_Juris.ViewModels.ForoViewModel
+@model ERP_Juris.ViewModels.VaraViewModel
 @{
     Layout = "~/Views/Shared/_Layout_Admin.cshtml";
 }
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="page-title"> 
-        <h3 class="title">Foros</h3> 
+        <h3 class="title">Varas</h3> 
         <br />
         <ol class="breadcrumb">
             <li>
                 <a href="@Url.Action("CarregarBase", "BaseAdmin")">Dashboard</a>
             </li>
             <li>
-                <a href="@Url.Action("MontarTelaForo", "Foro")">Foros</a>
+                <a href="@Url.Action("MontarTelaVara", "Vara")">Varas</a>
             </li>
             <li class="active">
-                <strong>Foros - Edição</strong>
+                <strong>Varas - Inclusão</strong>
             </li>
         </ol>
         <br />
@@ -24,7 +24,7 @@
         <div class="col-lg-12 col-md-12 col-xs-12">
             <div class="col-lg-12 col-md-12 col-xs-12 ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>Foros - Edição</h5>
+                    <h5>Varas - Inclusão</h5>
                     <div class="ibox-tools">
                         <a class="collaps e-link">
                             <i class="fa fa-chevron-up"></i>
@@ -45,7 +45,7 @@
                         </a>
                     </div>
                 </div>
-                @using (Html.BeginForm("EditarForo", "Foro", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", @id="pwd-container1" }))
+                @using (Html.BeginForm("IncluirVara", "Vara", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", @id="pwd-container1" }))
                 {
                     <div class="ibox-content">
                         @Html.AntiForgeryToken()
@@ -60,53 +60,64 @@
                             <div class="form-group" style=" margin-left: -15px; margin-right: -15px;">                
                                 <div class="col-lg-3 col-md-3 col-xs-12">
                                     @Html.HiddenFor(m => m.ASSI_CD_ID)
-                                    @Html.HiddenFor(m => m.FORO_IN_ATIVO)
-                                    @Html.HiddenFor(m => m.FORO_CD_ID)
-                                    Cidade/Comarca*
-                                    @Html.DropDownListFor(m => m.CICO_CD_ID, (SelectList)ViewBag.Cidades, "Selecionar", new { @class = "form-control", autofocus = true })                            
-                                    @Html.ValidationMessageFor(m => m.CICO_CD_ID, "",new { @style="color:red" })
+                                    @Html.HiddenFor(m => m.VARA_IN_ATIVO)
+                                    Foro*
+                                    @Html.DropDownListFor(m => m.FORO_CD_ID, (SelectList)ViewBag.Foros, "Selecionar", new { @class = "form-control", autofocus = true })                            
+                                    @Html.ValidationMessageFor(m => m.FORO_CD_ID, "",new { @style="color:red" })
                                 </div>                               
-                                <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="col-lg-4 col-md-4 col-xs-12">
                                     Nome*
-                                    @Html.TextBoxFor(m => m.FORO_NM_NOME, new { @class = "form-control", autofocus = true })
-                                    @Html.ValidationMessageFor(m => m.FORO_NM_NOME, "",new { @style="color:red" })
+                                    @Html.TextBoxFor(m => m.VARA_NM_NOME, new { @class = "form-control", autofocus = true })
+                                    @Html.ValidationMessageFor(m => m.VARA_NM_NOME, "",new { @style="color:red" })
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-xs-12">
+                                <div class="col-lg-5 col-md-5 col-xs-12">
+                                    Nome do Juiz
+                                    @Html.TextBoxFor(m => m.VARA_NM_NOME, new { @class = "form-control", autofocus = true })
+                                    @Html.ValidationMessageFor(m => m.VARA_NM_NOME, "",new { @style="color:red" })
+                                </div>
+                            </div>
+                            <div class="form-group" style=" margin-left: -15px; margin-right: -15px;">               
+                                <div class="col-lg-12 col-md-12 col-xs-12">
                                     Descrição
-                                    @Html.TextBoxFor(m => m.FORO_DS_DESCRICAO, new { @class = "form-control", autofocus = true })
-                                    @Html.ValidationMessageFor(m => m.FORO_DS_DESCRICAO, "",new { @style="color:red" })
+                                    @Html.TextBoxFor(m => m.VARA_DS_DESCRICAO, new { @class = "form-control", autofocus = true })
+                                    @Html.ValidationMessageFor(m => m.VARA_DS_DESCRICAO, "",new { @style="color:red" })
                                 </div>
                             </div>
                             <div class="form-group" style="margin: 0 -15px 0 -15px;" id="containerCep">
                                 <div class="col-lg-2 col-md-2 col-xs-12">
                                     CEP
-                                    @Html.TextBoxFor(m => m.FORO_NR_CEP, new { @class = "form-control", autofocus = true, @id = "cep" })
-                                    @Html.ValidationMessageFor(m => m.FORO_NR_CEP, "", new { @style = "color:red" })
+                                    @Html.TextBoxFor(m => m.VARA_NR_CEP, new { @class = "form-control", autofocus = true, @id = "cep" })
+                                    @Html.ValidationMessageFor(m => m.VARA_NR_CEP, "", new { @style = "color:red" })
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-xs-12">
                                     <span class="btn btn-warning btn-sm" style="margin-bottom: -45px;" id="btnBuscaCep" onclick="PesquisaCep($('#cep').val(), $(this), 1)">Buscar CEP</span>
                                 </div>
                             </div>
                             <div class="form-group" style="margin: 30px -15px 0 -15px;" id="containerEnd">
-                                <div class="col-lg-4 col-md-4 col-xs-12">
+                                <div class="col-lg-3 col-md-3 col-xs-12">
                                     Endereço
-                                    @Html.TextBoxFor(m => m.FORO_NM_ENDERECO, new { @class = "form-control", autofocus = true, @id = "endereco" })
-                                    @Html.ValidationMessageFor(m => m.FORO_NM_ENDERECO, "", new { @style = "color:red" })
+                                    @Html.TextBoxFor(m => m.VARA_NM_ENDERECO, new { @class = "form-control", autofocus = true, @id = "endereco" })
+                                    @Html.ValidationMessageFor(m => m.VARA_NM_ENDERECO, "", new { @style = "color:red" })
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-xs-12">
+                                <div class="col-lg-1 col-md-1 col-xs-12">
                                     Número
-                                    @Html.TextBoxFor(m => m.FORO_NR_NUMERO, new { @class = "form-control", autofocus = true, @id = "numero" })
-                                    @Html.ValidationMessageFor(m => m.FORO_NR_NUMERO, "", new { @style = "color:red" })
+                                    @Html.TextBoxFor(m => m.VARA_NR_NUMERO, new { @class = "form-control", autofocus = true, @id = "numero" })
+                                    @Html.ValidationMessageFor(m => m.VARA_NR_NUMERO, "", new { @style = "color:red" })
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-xs-12">
                                     Complemento
-                                    @Html.TextBoxFor(m => m.FORO_NR_COMPLEMENTO, new { @class = "form-control", autofocus = true })
-                                    @Html.ValidationMessageFor(m => m.FORO_NR_COMPLEMENTO, "", new { @style = "color:red" })
+                                    @Html.TextBoxFor(m => m.VARA_NR_COMPLEMENTO, new { @class = "form-control", autofocus = true })
+                                    @Html.ValidationMessageFor(m => m.VARA_NR_COMPLEMENTO, "", new { @style = "color:red" })
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-xs-12">
                                     Bairro
-                                    @Html.TextBoxFor(m => m.FORO_NM_BAIRRO, new { @class = "form-control", autofocus = true, @id = "bairro" })
-                                    @Html.ValidationMessageFor(m => m.FORO_NM_BAIRRO, "", new { @style = "color:red" })
+                                    @Html.TextBoxFor(m => m.VARA_NM_BAIRRO, new { @class = "form-control", autofocus = true, @id = "bairro" })
+                                    @Html.ValidationMessageFor(m => m.VARA_NM_BAIRRO, "", new { @style = "color:red" })
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-xs-12">
+                                    Cidade
+                                    @Html.TextBoxFor(m => m.VARA_NM_CIDADE, new { @class = "form-control", autofocus = true, @id = "bairro" })
+                                    @Html.ValidationMessageFor(m => m.VARA_NM_CIDADE, "", new { @style = "color:red" })
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-xs-12">
                                     UF
@@ -116,8 +127,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.ButtonActionSubmit(text: "Confirma Edição de Foro", htmlAttributes: new { id = "basictoast" })
-                            @Html.ButtonLinkIndex(text: "Cancelar", action: "VoltarBaseForo", controller: "Foro")
+                            @Html.ButtonActionSubmit(text: "Confirma Inclusão de Vara", htmlAttributes: new { id = "basictoast" })
+                            @Html.ButtonLinkIndex(text: "Cancelar", action: "VoltarBaseVara", controller: "Vara")
                         </div>
                     </div>
                 }
@@ -172,7 +183,7 @@
 
             $('#basictoast').click(function () {
                 // Display a success toast, with a title
-                toastr.success('Edição em andamento!')
+                toastr.success('Inclusão em andamento!')
             });
             $('#showtoast').click(function () {
                 var shortCutFunction = $("#toastTypeGroup input:radio:checked").val();
@@ -271,13 +282,13 @@
             $('#btnBuscaCep').attr("disabled", "disabled");
 
             $.ajax({
-                url: '../Foro/PesquisaCEP_Javascript'
+                url: '../Vara/PesquisaCEP_Javascript'
                 , type: 'POST'
                 , data: data
                 , success: function (r) {
-                    $('#endereco').val(r.FORO_NM_ENDERECO);
-                    $('#numero').val(r.FORO_NR_NUMERO);
-                    $('#bairro').val(r.FORO_NM_BAIRRO);
+                    $('#endereco').val(r.VARA_NM_ENDERECO);
+                    $('#numero').val(r.VARA_NR_NUMERO);
+                    $('#bairro').val(r.VARA_NM_BAIRRO);
                     $('#uf option[value="' + r.UF_CD_ID + '"]').attr("selected", "selected");
                     $('#btnBuscaCep').removeAttr("disabled");
                 }
@@ -295,3 +306,4 @@
         </script>
     }
 }
+

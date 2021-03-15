@@ -44,6 +44,12 @@ namespace ApplicationServices.Services
             return _baseService.GetAllUF();
         }
 
+        public UF GetUFBySigla(String sigla)
+        {
+            UF item = _baseService.GetUFBySigla(sigla);
+            return item;
+        }
+
         public VARA GetItemById(Int32 id)
         {
             VARA item = _baseService.GetItemById(id);
