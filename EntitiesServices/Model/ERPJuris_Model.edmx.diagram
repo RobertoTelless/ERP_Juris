@@ -220,6 +220,18 @@
         <AssociationConnector Association="ERP_JurisModel.FK_SECAO_REGIAO_JUSTICA" />
         <AssociationConnector Association="ERP_JurisModel.FK_SUBSECAO_SECAO" />
         <AssociationConnector Association="ERP_JurisModel.FK_VARA_UF" />
+        <EntityTypeShape EntityType="ERP_JurisModel.ESPECIALIDADE" Width="1.5" PointX="5.25" PointY="25.625" />
+        <AssociationConnector Association="ERP_JurisModel.FK_ESPECIALIDADE_ASSINANTE" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_ESCOLARIDADE" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_ESPECIALIDADE" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_ESTADO_CIVIL" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_PROFISSAO" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_TIPO_DESLIGAMENTO" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF1" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF2" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF3" />
+        <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF4" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

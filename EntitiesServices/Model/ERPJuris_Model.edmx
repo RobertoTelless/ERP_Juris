@@ -465,6 +465,15 @@
           <Property Name="ESCO_NM_NOME" Type="varchar" MaxLength="50" />
           <Property Name="ESCO_IN_ATIVO" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="ESPECIALIDADE">
+          <Key>
+            <PropertyRef Name="ESPE_CD_ID" />
+          </Key>
+          <Property Name="ESPE_CD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ASSI_CD_ID" Type="int" Nullable="false" />
+          <Property Name="ESPE_NM_NOME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ESPE_IN_ATIVO" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="ESTADO_CIVIL">
           <Key>
             <PropertyRef Name="ESCI_CD_ID" />
@@ -1035,6 +1044,8 @@
           <Property Name="PERF_CD_ID" Type="int" Nullable="false" />
           <Property Name="CAUS_CD_ID" Type="int" />
           <Property Name="CARG_CD_ID" Type="int" />
+          <Property Name="ESPE_CD_ID" Type="int" />
+          <Property Name="TIDE_CD_ID" Type="int" />
           <Property Name="USUA_NM_NOME" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="USUA_NM_LOGIN" Type="varchar" MaxLength="50" />
           <Property Name="USUA_NM_EMAIL" Type="varchar" MaxLength="150" />
@@ -1062,6 +1073,8 @@
           <Property Name="USUA_IN_LOGADO" Type="int" />
           <Property Name="USUA_NR_CPF" Type="varchar" MaxLength="50" />
           <Property Name="USUA_NR_RG" Type="varchar" MaxLength="50" />
+          <Property Name="USUA_NR_OAB" Type="varchar" MaxLength="50" />
+          <Property Name="USUA_DT_OAB" Type="date" />
           <Property Name="USUA_DT_ENTRADA" Type="date" />
           <Property Name="USUA_DT_SAIDA" Type="date" />
           <Property Name="USUA_DS_MOTIVO_SAIDA" Type="varchar" MaxLength="500" />
@@ -1085,6 +1098,9 @@
           </Key>
           <Property Name="USFU_CD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="USUA_CD_ID" Type="int" Nullable="false" />
+          <Property Name="ESCO_CD_ID" Type="int" />
+          <Property Name="ESCI_CD_ID" Type="int" />
+          <Property Name="PROF_CD_ID" Type="int" />
           <Property Name="USFU_DT_NASCIMENTO" Type="date" />
           <Property Name="USFU_NM_PAI" Type="varchar" MaxLength="50" />
           <Property Name="USFU_NM_MAE" Type="varchar" MaxLength="50" />
@@ -1119,6 +1135,17 @@
           <Property Name="USFU_DT_CNH_VALIDADE" Type="date" />
           <Property Name="USFU_NM_CNH_CATEGORIA" Type="varchar" MaxLength="50" />
           <Property Name="USFU_NR_CNS" Type="varchar" MaxLength="50" />
+          <Property Name="USFU_NM_ENDERECO" Type="varchar" MaxLength="50" />
+          <Property Name="USFU_NR_NUMERO" Type="varchar" MaxLength="50" />
+          <Property Name="USFU_NR_COMPLEMENTO" Type="varchar" MaxLength="50" />
+          <Property Name="USFU_NM_BAIRRO" Type="varchar" MaxLength="50" />
+          <Property Name="USFU_NM_CIDADE" Type="varchar" MaxLength="50" />
+          <Property Name="USFU_SG_UF" Type="int" />
+          <Property Name="USFU_NR_CEP" Type="varchar" MaxLength="50" />
+          <Property Name="USFU_SG_NATUR_UF" Type="int" />
+          <Property Name="USFU_SG_RG_UF" Type="int" />
+          <Property Name="USFU_SG_TITULO_UF" Type="int" />
+          <Property Name="USFU_SG_CARTTRAB_UF" Type="int" />
         </EntityType>
         <EntityType Name="VARA">
           <Key>
@@ -1869,6 +1896,18 @@
             </Principal>
             <Dependent Role="EMPRESA">
               <PropertyRef Name="USUA_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESPECIALIDADE_ASSINANTE">
+          <End Role="ASSINANTE" Type="Self.ASSINANTE" Multiplicity="1" />
+          <End Role="ESPECIALIDADE" Type="Self.ESPECIALIDADE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSINANTE">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Principal>
+            <Dependent Role="ESPECIALIDADE">
+              <PropertyRef Name="ASSI_CD_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2676,6 +2715,114 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_USUARIO_ESPECIALIDADE">
+          <End Role="ESPECIALIDADE" Type="Self.ESPECIALIDADE" Multiplicity="0..1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESPECIALIDADE">
+              <PropertyRef Name="ESPE_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ESPE_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_ESCOLARIDADE">
+          <End Role="ESCOLARIDADE" Type="Self.ESCOLARIDADE" Multiplicity="0..1" />
+          <End Role="USUARIO_FUNCIONARIO" Type="Self.USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESCOLARIDADE">
+              <PropertyRef Name="ESCO_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="ESCO_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_ESTADO_CIVIL">
+          <End Role="ESTADO_CIVIL" Type="Self.ESTADO_CIVIL" Multiplicity="0..1" />
+          <End Role="USUARIO_FUNCIONARIO" Type="Self.USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO_CIVIL">
+              <PropertyRef Name="ESCI_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="ESCI_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_PROFISSAO">
+          <End Role="PROFISSAO" Type="Self.PROFISSAO" Multiplicity="0..1" />
+          <End Role="USUARIO_FUNCIONARIO" Type="Self.USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFISSAO">
+              <PropertyRef Name="PROF_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="PROF_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_UF">
+          <End Role="UF" Type="Self.UF" Multiplicity="0..1" />
+          <End Role="USUARIO_FUNCIONARIO" Type="Self.USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UF">
+              <PropertyRef Name="UF_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="USFU_SG_UF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_UF1">
+          <End Role="UF" Type="Self.UF" Multiplicity="0..1" />
+          <End Role="USUARIO_FUNCIONARIO" Type="Self.USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UF">
+              <PropertyRef Name="UF_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="USFU_SG_NATUR_UF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_UF2">
+          <End Role="UF" Type="Self.UF" Multiplicity="0..1" />
+          <End Role="USUARIO_FUNCIONARIO" Type="Self.USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UF">
+              <PropertyRef Name="UF_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="USFU_SG_RG_UF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_UF3">
+          <End Role="UF" Type="Self.UF" Multiplicity="0..1" />
+          <End Role="USUARIO_FUNCIONARIO" Type="Self.USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UF">
+              <PropertyRef Name="UF_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="USFU_SG_TITULO_UF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_UF4">
+          <End Role="UF" Type="Self.UF" Multiplicity="0..1" />
+          <End Role="USUARIO_FUNCIONARIO" Type="Self.USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UF">
+              <PropertyRef Name="UF_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="USFU_SG_CARTTRAB_UF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_USUARIO_FUNCIONARIO_USUARIO">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="USUARIO_FUNCIONARIO" Type="Self.USUARIO_FUNCIONARIO" Multiplicity="*" />
@@ -2697,6 +2844,18 @@
             </Principal>
             <Dependent Role="USUARIO">
               <PropertyRef Name="PERF_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_TIPO_DESLIGAMENTO">
+          <End Role="TIPO_DESLIGAMENTO" Type="Self.TIPO_DESLIGAMENTO" Multiplicity="0..1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_DESLIGAMENTO">
+              <PropertyRef Name="TIDE_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="TIDE_CD_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2768,6 +2927,7 @@
           <EntitySet Name="DOCUMENTO_METADADO" EntityType="Self.DOCUMENTO_METADADO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ESCOLARIDADE" EntityType="Self.ESCOLARIDADE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESPECIALIDADE" EntityType="Self.ESPECIALIDADE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ESTADO_CIVIL" EntityType="Self.ESTADO_CIVIL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FORNECEDOR" EntityType="Self.FORNECEDOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FORNECEDOR_ANEXO" EntityType="Self.FORNECEDOR_ANEXO" Schema="dbo" store:Type="Tables" />
@@ -3063,6 +3223,10 @@
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="EMPRESA" EntitySet="EMPRESA" />
           </AssociationSet>
+          <AssociationSet Name="FK_ESPECIALIDADE_ASSINANTE" Association="Self.FK_ESPECIALIDADE_ASSINANTE">
+            <End Role="ASSINANTE" EntitySet="ASSINANTE" />
+            <End Role="ESPECIALIDADE" EntitySet="ESPECIALIDADE" />
+          </AssociationSet>
           <AssociationSet Name="FK_FORNECEDOR_ANEXO_FORNECEDOR" Association="Self.FK_FORNECEDOR_ANEXO_FORNECEDOR">
             <End Role="FORNECEDOR" EntitySet="FORNECEDOR" />
             <End Role="FORNECEDOR_ANEXO" EntitySet="FORNECEDOR_ANEXO" />
@@ -3331,12 +3495,52 @@
             <End Role="CATEGORIA_USUARIO" EntitySet="CATEGORIA_USUARIO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_ESPECIALIDADE" Association="Self.FK_USUARIO_ESPECIALIDADE">
+            <End Role="ESPECIALIDADE" EntitySet="ESPECIALIDADE" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_ESCOLARIDADE" Association="Self.FK_USUARIO_FUNCIONARIO_ESCOLARIDADE">
+            <End Role="ESCOLARIDADE" EntitySet="ESCOLARIDADE" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_ESTADO_CIVIL" Association="Self.FK_USUARIO_FUNCIONARIO_ESTADO_CIVIL">
+            <End Role="ESTADO_CIVIL" EntitySet="ESTADO_CIVIL" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_PROFISSAO" Association="Self.FK_USUARIO_FUNCIONARIO_PROFISSAO">
+            <End Role="PROFISSAO" EntitySet="PROFISSAO" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_UF" Association="Self.FK_USUARIO_FUNCIONARIO_UF">
+            <End Role="UF" EntitySet="UF" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_UF1" Association="Self.FK_USUARIO_FUNCIONARIO_UF1">
+            <End Role="UF" EntitySet="UF" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_UF2" Association="Self.FK_USUARIO_FUNCIONARIO_UF2">
+            <End Role="UF" EntitySet="UF" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_UF3" Association="Self.FK_USUARIO_FUNCIONARIO_UF3">
+            <End Role="UF" EntitySet="UF" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_UF4" Association="Self.FK_USUARIO_FUNCIONARIO_UF4">
+            <End Role="UF" EntitySet="UF" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
           <AssociationSet Name="FK_USUARIO_FUNCIONARIO_USUARIO" Association="Self.FK_USUARIO_FUNCIONARIO_USUARIO">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
           </AssociationSet>
           <AssociationSet Name="FK_USUARIO_PERFIL" Association="Self.FK_USUARIO_PERFIL">
             <End Role="PERFIL" EntitySet="PERFIL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_TIPO_DESLIGAMENTO" Association="Self.FK_USUARIO_TIPO_DESLIGAMENTO">
+            <End Role="TIPO_DESLIGAMENTO" EntitySet="TIPO_DESLIGAMENTO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
           <AssociationSet Name="FK_VARA_ASSINANTE" Association="Self.FK_VARA_ASSINANTE">
@@ -3447,6 +3651,7 @@
           <NavigationProperty Name="TIPO_ACAO" Relationship="ERP_JurisModel.FK_TIPO_ACAO_ASSINANTE" FromRole="ASSINANTE" ToRole="TIPO_ACAO" />
           <NavigationProperty Name="TIPO_JUSTICA" Relationship="ERP_JurisModel.FK_TIPO_JUSTICA_ASSINANTE" FromRole="ASSINANTE" ToRole="TIPO_JUSTICA" />
           <NavigationProperty Name="VARA" Relationship="ERP_JurisModel.FK_VARA_ASSINANTE" FromRole="ASSINANTE" ToRole="VARA" />
+          <NavigationProperty Name="ESPECIALIDADE" Relationship="ERP_JurisModel.FK_ESPECIALIDADE_ASSINANTE" FromRole="ASSINANTE" ToRole="ESPECIALIDADE" />
         </EntityType>
         <EntityType Name="CARGO">
           <Key>
@@ -3845,6 +4050,11 @@
           <NavigationProperty Name="CLIENTE2" Relationship="ERP_JurisModel.FK_CLIENTE_UF2" FromRole="UF" ToRole="CLIENTE" />
           <NavigationProperty Name="FORO" Relationship="ERP_JurisModel.FK_FORO_UF" FromRole="UF" ToRole="FORO" />
           <NavigationProperty Name="VARA" Relationship="ERP_JurisModel.FK_VARA_UF" FromRole="UF" ToRole="VARA" />
+          <NavigationProperty Name="USUARIO_FUNCIONARIO" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF" FromRole="UF" ToRole="USUARIO_FUNCIONARIO" />
+          <NavigationProperty Name="USUARIO_FUNCIONARIO1" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF1" FromRole="UF" ToRole="USUARIO_FUNCIONARIO" />
+          <NavigationProperty Name="USUARIO_FUNCIONARIO2" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF2" FromRole="UF" ToRole="USUARIO_FUNCIONARIO" />
+          <NavigationProperty Name="USUARIO_FUNCIONARIO3" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF3" FromRole="UF" ToRole="USUARIO_FUNCIONARIO" />
+          <NavigationProperty Name="USUARIO_FUNCIONARIO4" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF4" FromRole="UF" ToRole="USUARIO_FUNCIONARIO" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
@@ -3908,6 +4118,12 @@
           <NavigationProperty Name="CLIENTE" Relationship="ERP_JurisModel.FK_CLIENTE_USUARIO" FromRole="USUARIO" ToRole="CLIENTE" />
           <NavigationProperty Name="CLIENTE_COMENTARIO" Relationship="ERP_JurisModel.FK_CLIENTE_COMENTARIO_USUARIO" FromRole="USUARIO" ToRole="CLIENTE_COMENTARIO" />
           <NavigationProperty Name="CLIENTE_MENSAGEM" Relationship="ERP_JurisModel.FK_CLIENTE_MENSAGEM_USUARIO" FromRole="USUARIO" ToRole="CLIENTE_MENSAGEM" />
+          <Property Name="ESPE_CD_ID" Type="Int32" />
+          <Property Name="TIDE_CD_ID" Type="Int32" />
+          <Property Name="USUA_NR_OAB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USUA_DT_OAB" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ESPECIALIDADE" Relationship="ERP_JurisModel.FK_USUARIO_ESPECIALIDADE" FromRole="USUARIO" ToRole="ESPECIALIDADE" />
+          <NavigationProperty Name="TIPO_DESLIGAMENTO" Relationship="ERP_JurisModel.FK_USUARIO_TIPO_DESLIGAMENTO" FromRole="USUARIO" ToRole="TIPO_DESLIGAMENTO" />
         </EntityType>
         <EntityType Name="USUARIO_ANEXO">
           <Key>
@@ -3963,6 +4179,28 @@
           <Property Name="USFU_NM_CNH_CATEGORIA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="USFU_NR_CNS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="USUARIO" Relationship="Self.FK_USUARIO_FUNCIONARIO_USUARIO" FromRole="USUARIO_FUNCIONARIO" ToRole="USUARIO" />
+          <Property Name="ESCO_CD_ID" Type="Int32" />
+          <Property Name="ESCI_CD_ID" Type="Int32" />
+          <Property Name="PROF_CD_ID" Type="Int32" />
+          <Property Name="USFU_NM_ENDERECO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USFU_NR_NUMERO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USFU_NR_COMPLEMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USFU_NM_BAIRRO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USFU_NM_CIDADE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USFU_SG_UF" Type="Int32" />
+          <Property Name="USFU_NR_CEP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USFU_SG_NATUR_UF" Type="Int32" />
+          <Property Name="USFU_SG_RG_UF" Type="Int32" />
+          <Property Name="USFU_SG_TITULO_UF" Type="Int32" />
+          <Property Name="USFU_SG_CARTTRAB_UF" Type="Int32" />
+          <NavigationProperty Name="ESCOLARIDADE" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_ESCOLARIDADE" FromRole="USUARIO_FUNCIONARIO" ToRole="ESCOLARIDADE" />
+          <NavigationProperty Name="ESTADO_CIVIL" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_ESTADO_CIVIL" FromRole="USUARIO_FUNCIONARIO" ToRole="ESTADO_CIVIL" />
+          <NavigationProperty Name="PROFISSAO" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_PROFISSAO" FromRole="USUARIO_FUNCIONARIO" ToRole="PROFISSAO" />
+          <NavigationProperty Name="UF" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF" FromRole="USUARIO_FUNCIONARIO" ToRole="UF" />
+          <NavigationProperty Name="UF1" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF1" FromRole="USUARIO_FUNCIONARIO" ToRole="UF" />
+          <NavigationProperty Name="UF2" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF2" FromRole="USUARIO_FUNCIONARIO" ToRole="UF" />
+          <NavigationProperty Name="UF3" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF3" FromRole="USUARIO_FUNCIONARIO" ToRole="UF" />
+          <NavigationProperty Name="UF4" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF4" FromRole="USUARIO_FUNCIONARIO" ToRole="UF" />
         </EntityType>
         <Association Name="FK_AGENDA_ANEXO_AGENDA">
           <End Role="AGENDA" Type="Self.AGENDA" Multiplicity="1" />
@@ -5143,6 +5381,51 @@
             <End Role="UF" EntitySet="UF" />
             <End Role="VARA" EntitySet="VARA" />
           </AssociationSet>
+          <EntitySet Name="ESPECIALIDADE" EntityType="ERP_JurisModel.ESPECIALIDADE" />
+          <AssociationSet Name="FK_ESPECIALIDADE_ASSINANTE" Association="ERP_JurisModel.FK_ESPECIALIDADE_ASSINANTE">
+            <End Role="ASSINANTE" EntitySet="ASSINANTE" />
+            <End Role="ESPECIALIDADE" EntitySet="ESPECIALIDADE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_ESCOLARIDADE" Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_ESCOLARIDADE">
+            <End Role="ESCOLARIDADE" EntitySet="ESCOLARIDADE" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_ESPECIALIDADE" Association="ERP_JurisModel.FK_USUARIO_ESPECIALIDADE">
+            <End Role="ESPECIALIDADE" EntitySet="ESPECIALIDADE" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_ESTADO_CIVIL" Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_ESTADO_CIVIL">
+            <End Role="ESTADO_CIVIL" EntitySet="ESTADO_CIVIL" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_PROFISSAO" Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_PROFISSAO">
+            <End Role="PROFISSAO" EntitySet="PROFISSAO" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_TIPO_DESLIGAMENTO" Association="ERP_JurisModel.FK_USUARIO_TIPO_DESLIGAMENTO">
+            <End Role="TIPO_DESLIGAMENTO" EntitySet="TIPO_DESLIGAMENTO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_UF" Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF">
+            <End Role="UF" EntitySet="UF" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_UF1" Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF1">
+            <End Role="UF" EntitySet="UF" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_UF2" Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF2">
+            <End Role="UF" EntitySet="UF" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_UF3" Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF3">
+            <End Role="UF" EntitySet="UF" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_FUNCIONARIO_UF4" Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF4">
+            <End Role="UF" EntitySet="UF" />
+            <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="TIPO_MENSAGEM">
           <Key>
@@ -5683,6 +5966,7 @@
           <Property Name="ESCO_NM_NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ESCO_IN_ATIVO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CLIENTE" Relationship="ERP_JurisModel.FK_CLIENTE_ESCOLARIDADE" FromRole="ESCOLARIDADE" ToRole="CLIENTE" />
+          <NavigationProperty Name="USUARIO_FUNCIONARIO" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_ESCOLARIDADE" FromRole="ESCOLARIDADE" ToRole="USUARIO_FUNCIONARIO" />
         </EntityType>
         <EntityType Name="ESTADO_CIVIL">
           <Key>
@@ -5692,6 +5976,7 @@
           <Property Name="ESCI_NM_NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ESCI_IN_ATIVO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CLIENTE" Relationship="ERP_JurisModel.FK_CLIENTE_ESTADO_CIVIL" FromRole="ESTADO_CIVIL" ToRole="CLIENTE" />
+          <NavigationProperty Name="USUARIO_FUNCIONARIO" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_ESTADO_CIVIL" FromRole="ESTADO_CIVIL" ToRole="USUARIO_FUNCIONARIO" />
         </EntityType>
         <EntityType Name="FORO">
           <Key>
@@ -5885,6 +6170,7 @@
           <Property Name="PROF_NM_NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PROF_IN_ATIVO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CLIENTE" Relationship="ERP_JurisModel.FK_CLIENTE_PROFISSAO" FromRole="PROFISSAO" ToRole="CLIENTE" />
+          <NavigationProperty Name="USUARIO_FUNCIONARIO" Relationship="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_PROFISSAO" FromRole="PROFISSAO" ToRole="USUARIO_FUNCIONARIO" />
         </EntityType>
         <EntityType Name="REGIAO_JUSTICA">
           <Key>
@@ -5986,6 +6272,7 @@
           <Property Name="TIDE_NM_NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TIDE_IN_ATIVO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CLIENTE" Relationship="ERP_JurisModel.FK_CLIENTE_TIPO_DESLIGAMENTO" FromRole="TIPO_DESLIGAMENTO" ToRole="CLIENTE" />
+          <NavigationProperty Name="USUARIO" Relationship="ERP_JurisModel.FK_USUARIO_TIPO_DESLIGAMENTO" FromRole="TIPO_DESLIGAMENTO" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="TIPO_JUSTICA">
           <Key>
@@ -6969,6 +7256,149 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ESPECIALIDADE">
+          <Key>
+            <PropertyRef Name="ESPE_CD_ID" />
+          </Key>
+          <Property Name="ESPE_CD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ASSI_CD_ID" Type="Int32" Nullable="false" />
+          <Property Name="ESPE_NM_NOME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ESPE_IN_ATIVO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ASSINANTE" Relationship="ERP_JurisModel.FK_ESPECIALIDADE_ASSINANTE" FromRole="ESPECIALIDADE" ToRole="ASSINANTE" />
+          <NavigationProperty Name="USUARIO" Relationship="ERP_JurisModel.FK_USUARIO_ESPECIALIDADE" FromRole="ESPECIALIDADE" ToRole="USUARIO" />
+        </EntityType>
+        <Association Name="FK_ESPECIALIDADE_ASSINANTE">
+          <End Type="ERP_JurisModel.ASSINANTE" Role="ASSINANTE" Multiplicity="1" />
+          <End Type="ERP_JurisModel.ESPECIALIDADE" Role="ESPECIALIDADE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSINANTE">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Principal>
+            <Dependent Role="ESPECIALIDADE">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_ESCOLARIDADE">
+          <End Type="ERP_JurisModel.ESCOLARIDADE" Role="ESCOLARIDADE" Multiplicity="0..1" />
+          <End Type="ERP_JurisModel.USUARIO_FUNCIONARIO" Role="USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESCOLARIDADE">
+              <PropertyRef Name="ESCO_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="ESCO_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_ESPECIALIDADE">
+          <End Type="ERP_JurisModel.ESPECIALIDADE" Role="ESPECIALIDADE" Multiplicity="0..1" />
+          <End Type="ERP_JurisModel.USUARIO" Role="USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESPECIALIDADE">
+              <PropertyRef Name="ESPE_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ESPE_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_ESTADO_CIVIL">
+          <End Type="ERP_JurisModel.ESTADO_CIVIL" Role="ESTADO_CIVIL" Multiplicity="0..1" />
+          <End Type="ERP_JurisModel.USUARIO_FUNCIONARIO" Role="USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO_CIVIL">
+              <PropertyRef Name="ESCI_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="ESCI_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_PROFISSAO">
+          <End Type="ERP_JurisModel.PROFISSAO" Role="PROFISSAO" Multiplicity="0..1" />
+          <End Type="ERP_JurisModel.USUARIO_FUNCIONARIO" Role="USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFISSAO">
+              <PropertyRef Name="PROF_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="PROF_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_TIPO_DESLIGAMENTO">
+          <End Type="ERP_JurisModel.TIPO_DESLIGAMENTO" Role="TIPO_DESLIGAMENTO" Multiplicity="0..1" />
+          <End Type="ERP_JurisModel.USUARIO" Role="USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_DESLIGAMENTO">
+              <PropertyRef Name="TIDE_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="TIDE_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_UF">
+          <End Type="ERP_JurisModel.UF" Role="UF" Multiplicity="0..1" />
+          <End Type="ERP_JurisModel.USUARIO_FUNCIONARIO" Role="USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UF">
+              <PropertyRef Name="UF_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="USFU_SG_UF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_UF1">
+          <End Type="ERP_JurisModel.UF" Role="UF" Multiplicity="0..1" />
+          <End Type="ERP_JurisModel.USUARIO_FUNCIONARIO" Role="USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UF">
+              <PropertyRef Name="UF_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="USFU_SG_NATUR_UF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_UF2">
+          <End Type="ERP_JurisModel.UF" Role="UF" Multiplicity="0..1" />
+          <End Type="ERP_JurisModel.USUARIO_FUNCIONARIO" Role="USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UF">
+              <PropertyRef Name="UF_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="USFU_SG_RG_UF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_UF3">
+          <End Type="ERP_JurisModel.UF" Role="UF" Multiplicity="0..1" />
+          <End Type="ERP_JurisModel.USUARIO_FUNCIONARIO" Role="USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UF">
+              <PropertyRef Name="UF_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="USFU_SG_TITULO_UF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_FUNCIONARIO_UF4">
+          <End Type="ERP_JurisModel.UF" Role="UF" Multiplicity="0..1" />
+          <End Type="ERP_JurisModel.USUARIO_FUNCIONARIO" Role="USUARIO_FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UF">
+              <PropertyRef Name="UF_CD_ID" />
+            </Principal>
+            <Dependent Role="USUARIO_FUNCIONARIO">
+              <PropertyRef Name="USFU_SG_CARTTRAB_UF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7389,6 +7819,10 @@
           <EntitySetMapping Name="USUARIO">
             <EntityTypeMapping TypeName="ERP_JurisModel.USUARIO">
               <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="USUA_DT_OAB" ColumnName="USUA_DT_OAB" />
+                <ScalarProperty Name="USUA_NR_OAB" ColumnName="USUA_NR_OAB" />
+                <ScalarProperty Name="TIDE_CD_ID" ColumnName="TIDE_CD_ID" />
+                <ScalarProperty Name="ESPE_CD_ID" ColumnName="ESPE_CD_ID" />
                 <ScalarProperty Name="USUA_CD_ID" ColumnName="USUA_CD_ID" />
                 <ScalarProperty Name="ASSI_CD_ID" ColumnName="ASSI_CD_ID" />
                 <ScalarProperty Name="PERF_CD_ID" ColumnName="PERF_CD_ID" />
@@ -7444,6 +7878,20 @@
           <EntitySetMapping Name="USUARIO_FUNCIONARIO">
             <EntityTypeMapping TypeName="ERP_JurisModel.USUARIO_FUNCIONARIO">
               <MappingFragment StoreEntitySet="USUARIO_FUNCIONARIO">
+                <ScalarProperty Name="USFU_SG_CARTTRAB_UF" ColumnName="USFU_SG_CARTTRAB_UF" />
+                <ScalarProperty Name="USFU_SG_TITULO_UF" ColumnName="USFU_SG_TITULO_UF" />
+                <ScalarProperty Name="USFU_SG_RG_UF" ColumnName="USFU_SG_RG_UF" />
+                <ScalarProperty Name="USFU_SG_NATUR_UF" ColumnName="USFU_SG_NATUR_UF" />
+                <ScalarProperty Name="USFU_NR_CEP" ColumnName="USFU_NR_CEP" />
+                <ScalarProperty Name="USFU_SG_UF" ColumnName="USFU_SG_UF" />
+                <ScalarProperty Name="USFU_NM_CIDADE" ColumnName="USFU_NM_CIDADE" />
+                <ScalarProperty Name="USFU_NM_BAIRRO" ColumnName="USFU_NM_BAIRRO" />
+                <ScalarProperty Name="USFU_NR_COMPLEMENTO" ColumnName="USFU_NR_COMPLEMENTO" />
+                <ScalarProperty Name="USFU_NR_NUMERO" ColumnName="USFU_NR_NUMERO" />
+                <ScalarProperty Name="USFU_NM_ENDERECO" ColumnName="USFU_NM_ENDERECO" />
+                <ScalarProperty Name="PROF_CD_ID" ColumnName="PROF_CD_ID" />
+                <ScalarProperty Name="ESCI_CD_ID" ColumnName="ESCI_CD_ID" />
+                <ScalarProperty Name="ESCO_CD_ID" ColumnName="ESCO_CD_ID" />
                 <ScalarProperty Name="USFU_CD_ID" ColumnName="USFU_CD_ID" />
                 <ScalarProperty Name="USUA_CD_ID" ColumnName="USUA_CD_ID" />
                 <ScalarProperty Name="USFU_DT_NASCIMENTO" ColumnName="USFU_DT_NASCIMENTO" />
@@ -8189,6 +8637,16 @@
                 <ScalarProperty Name="FORO_CD_ID" ColumnName="FORO_CD_ID" />
                 <ScalarProperty Name="ASSI_CD_ID" ColumnName="ASSI_CD_ID" />
                 <ScalarProperty Name="VARA_CD_ID" ColumnName="VARA_CD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESPECIALIDADE">
+            <EntityTypeMapping TypeName="ERP_JurisModel.ESPECIALIDADE">
+              <MappingFragment StoreEntitySet="ESPECIALIDADE">
+                <ScalarProperty Name="ESPE_IN_ATIVO" ColumnName="ESPE_IN_ATIVO" />
+                <ScalarProperty Name="ESPE_NM_NOME" ColumnName="ESPE_NM_NOME" />
+                <ScalarProperty Name="ASSI_CD_ID" ColumnName="ASSI_CD_ID" />
+                <ScalarProperty Name="ESPE_CD_ID" ColumnName="ESPE_CD_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

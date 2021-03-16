@@ -73,6 +73,10 @@ namespace EntitiesServices.Model
         public Nullable<System.DateTime> USUA_DT_SAIDA { get; set; }
         public string USUA_DS_MOTIVO_SAIDA { get; set; }
         public string USUA_DS_JUSTIFICATIVA { get; set; }
+        public Nullable<int> ESPE_CD_ID { get; set; }
+        public Nullable<int> TIDE_CD_ID { get; set; }
+        public string USUA_NR_OAB { get; set; }
+        public Nullable<System.DateTime> USUA_DT_OAB { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AGENDA> AGENDA { get; set; }
@@ -114,5 +118,7 @@ namespace EntitiesServices.Model
         public virtual ICollection<CLIENTE_COMENTARIO> CLIENTE_COMENTARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CLIENTE_MENSAGEM> CLIENTE_MENSAGEM { get; set; }
+        public virtual ESPECIALIDADE ESPECIALIDADE { get; set; }
+        public virtual TIPO_DESLIGAMENTO TIPO_DESLIGAMENTO { get; set; }
     }
 }

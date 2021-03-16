@@ -392,6 +392,9 @@
     <Compile Include="Model\ESCOLARIDADE.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\ESPECIALIDADE.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ESTADO_CIVIL.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>

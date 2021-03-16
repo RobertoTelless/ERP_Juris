@@ -324,6 +324,7 @@
     <Compile Include="ViewModels\AgendaViewModel.cs" />
     <Compile Include="ViewModels\AssinanteViewModel.cs" />
     <Compile Include="ViewModels\CargoViewModel.cs" />
+    <Compile Include="ViewModels\UsuarioFuncionarioViewModel.cs" />
     <Compile Include="ViewModels\VaraViewModel.cs" />
     <Compile Include="ViewModels\ForoViewModel.cs" />
     <Compile Include="ViewModels\CidadeComarcaViewModel.cs" />

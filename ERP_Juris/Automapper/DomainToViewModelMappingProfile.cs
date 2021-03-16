@@ -43,6 +43,7 @@ namespace MvcMapping.Mappers
             CreateMap<CIDADE_COMARCA, CidadeComarcaViewModel>();
             CreateMap<FORO, ForoViewModel>();
             CreateMap<VARA, VaraViewModel>();
+            CreateMap<USUARIO_FUNCIONARIO, UsuariofuncionarioViewModel>();
         }
     }
 }

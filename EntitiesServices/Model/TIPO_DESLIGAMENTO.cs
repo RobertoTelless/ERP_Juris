@@ -18,6 +18,7 @@ namespace EntitiesServices.Model
         public TIPO_DESLIGAMENTO()
         {
             this.CLIENTE = new HashSet<CLIENTE>();
+            this.USUARIO = new HashSet<USUARIO>();
         }
     
         public int TIDE_CD_ID { get; set; }
@@ -26,5 +27,7 @@ namespace EntitiesServices.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CLIENTE> CLIENTE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<USUARIO> USUARIO { get; set; }
     }
 }

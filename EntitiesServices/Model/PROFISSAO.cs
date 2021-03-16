@@ -18,6 +18,7 @@ namespace EntitiesServices.Model
         public PROFISSAO()
         {
             this.CLIENTE = new HashSet<CLIENTE>();
+            this.USUARIO_FUNCIONARIO = new HashSet<USUARIO_FUNCIONARIO>();
         }
     
         public int PROF_CD_ID { get; set; }
@@ -26,5 +27,7 @@ namespace EntitiesServices.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CLIENTE> CLIENTE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<USUARIO_FUNCIONARIO> USUARIO_FUNCIONARIO { get; set; }
     }
 }

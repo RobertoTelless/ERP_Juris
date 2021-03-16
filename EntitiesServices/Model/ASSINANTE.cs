@@ -50,6 +50,7 @@ namespace EntitiesServices.Model
             this.TIPO_ACAO = new HashSet<TIPO_ACAO>();
             this.TIPO_JUSTICA = new HashSet<TIPO_JUSTICA>();
             this.VARA = new HashSet<VARA>();
+            this.ESPECIALIDADE = new HashSet<ESPECIALIDADE>();
         }
     
         public int ASSI_CD_ID { get; set; }
@@ -138,5 +139,7 @@ namespace EntitiesServices.Model
         public virtual ICollection<TIPO_JUSTICA> TIPO_JUSTICA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VARA> VARA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ESPECIALIDADE> ESPECIALIDADE { get; set; }
     }
 }

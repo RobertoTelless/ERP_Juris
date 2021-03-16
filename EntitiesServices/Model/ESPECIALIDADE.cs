@@ -12,22 +12,21 @@ namespace EntitiesServices.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class ESTADO_CIVIL
+    public partial class ESPECIALIDADE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ESTADO_CIVIL()
+        public ESPECIALIDADE()
         {
-            this.CLIENTE = new HashSet<CLIENTE>();
-            this.USUARIO_FUNCIONARIO = new HashSet<USUARIO_FUNCIONARIO>();
+            this.USUARIO = new HashSet<USUARIO>();
         }
     
-        public int ESCI_CD_ID { get; set; }
-        public string ESCI_NM_NOME { get; set; }
-        public int ESCI_IN_ATIVO { get; set; }
+        public int ESPE_CD_ID { get; set; }
+        public int ASSI_CD_ID { get; set; }
+        public string ESPE_NM_NOME { get; set; }
+        public int ESPE_IN_ATIVO { get; set; }
     
+        public virtual ASSINANTE ASSINANTE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CLIENTE> CLIENTE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<USUARIO_FUNCIONARIO> USUARIO_FUNCIONARIO { get; set; }
+        public virtual ICollection<USUARIO> USUARIO { get; set; }
     }
 }
