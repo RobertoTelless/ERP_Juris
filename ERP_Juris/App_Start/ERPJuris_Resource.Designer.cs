@@ -448,6 +448,42 @@ namespace ERP_Juris.App_Start {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Impossível excluir esse banco. Existem registros vinculados a ele..
+        /// </summary>
+        internal static string M0046 {
+            get {
+                return ResourceManager.GetString("M0046", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Banco já cadastrado.
+        /// </summary>
+        internal static string M0047 {
+            get {
+                return ResourceManager.GetString("M0047", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Conta bancária já cadastrada.
+        /// </summary>
+        internal static string M0048 {
+            get {
+                return ResourceManager.GetString("M0048", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Impossível excluir essa conta bancária. Existem registros vinculados a ele..
+        /// </summary>
+        internal static string M0049 {
+            get {
+                return ResourceManager.GetString("M0049", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a A Senha não pode ficar em branco.
         /// </summary>
         internal static string M0073 {

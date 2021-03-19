@@ -44,6 +44,13 @@ namespace MvcMapping.Mappers
             CreateMap<ForoViewModel, FORO>();
             CreateMap<VaraViewModel, VARA>();
             CreateMap<UsuariofuncionarioViewModel, USUARIO_FUNCIONARIO>();
+            CreateMap<BancoViewModel, BANCO>();
+            CreateMap<ContaBancariaViewModel, CONTA_BANCO>();
+            CreateMap<ContaBancariaContatoViewModel, CONTA_BANCO_CONTATO>();
+            CreateMap<ContaBancariaLancamentoViewModel, CONTA_BANCO_LANCAMENTO>();
+            CreateMap<CentroCustoViewModel, CENTRO_CUSTO>();
+            CreateMap<GrupoViewModel, GRUPO>();
+            CreateMap<SubgrupoViewModel, SUBGRUPO>();
         }
     }
 }
