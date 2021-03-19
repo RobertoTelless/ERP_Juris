@@ -199,6 +199,8 @@
     <Compile Include="Repositories\FornecedorContatoRepository.cs" />
     <Compile Include="Repositories\FornecedorMensagemRepository.cs" />
     <Compile Include="Repositories\FornecedorRepository.cs" />
+    <Compile Include="Repositories\GrupoRepository.cs" />
+    <Compile Include="Repositories\SubgrupoRepository.cs" />
     <Compile Include="Repositories\TipoContaRepository.cs" />
     <Compile Include="Repositories\VaraRepository.cs" />
     <Compile Include="Repositories\LogRepository.cs" />
