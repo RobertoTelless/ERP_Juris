@@ -245,11 +245,16 @@
     <Compile Include="Interfaces\Repositories\IAgendaAnexoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IAgendaRepository.cs" />
     <Compile Include="Interfaces\Repositories\IAssinanteRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IBancoRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICargoRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICategoriaAgendaRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICategoriaFornecedorRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICategoriaNotificacaoRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICategoriaUsuarioRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICentroCustoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IContaBancariaContatoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IContaBancariaLancamentoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IContaBancariaRepository.cs" />
     <Compile Include="Interfaces\Repositories\IEmpresaRepository.cs" />
     <Compile Include="Interfaces\Repositories\IConfiguracaoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IFornecedoMensagemRepository.cs" />
@@ -257,6 +262,7 @@
     <Compile Include="Interfaces\Repositories\IFornecedorCnpjRepository.cs" />
     <Compile Include="Interfaces\Repositories\IFornecedorContatoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IFornecedorRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITipoContaRepository.cs" />
     <Compile Include="Interfaces\Repositories\IVaraRepository.cs" />
     <Compile Include="Interfaces\Repositories\ILogRepository.cs" />
     <Compile Include="Interfaces\Repositories\INoticiaComentarioRepository.cs" />
@@ -321,6 +327,9 @@
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CATEGORIA_USUARIO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CENTRO_CUSTO.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CIDADE_COMARCA.cs">
@@ -422,6 +431,9 @@
     <Compile Include="Model\GRAU_PARENTESCO.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\GRUPO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\GRUPO_DOCUMENTO.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
@@ -483,6 +495,9 @@
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\SITUACAO_PROCESSO.cs">
+      <DependentUpon>ERPJuris_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SUBGRUPO.cs">
       <DependentUpon>ERPJuris_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\SUBSECAO.cs">

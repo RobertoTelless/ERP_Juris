@@ -167,6 +167,21 @@
           <Property Name="CAUS_IN_ATIVO" Type="int" />
           <Property Name="ASSI_CD_ID" Type="int" />
         </EntityType>
+        <EntityType Name="CENTRO_CUSTO">
+          <Key>
+            <PropertyRef Name="CECU_CD_ID" />
+          </Key>
+          <Property Name="CECU_CD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ASSI_CD_ID" Type="int" Nullable="false" />
+          <Property Name="CECU_NR_NUMERO" Type="varchar" MaxLength="10" />
+          <Property Name="CECU_NM_NOME" Type="varchar" MaxLength="50" />
+          <Property Name="CECU_IN_ATIVO" Type="int" Nullable="false" />
+          <Property Name="GRUP_CD_ID" Type="int" />
+          <Property Name="SUBG_CD_ID" Type="int" />
+          <Property Name="CECU_IN_TIPO" Type="int" />
+          <Property Name="CECU_IN_MOVTO" Type="int" />
+          <Property Name="CECU_NM_EXIBE" Type="varchar" MaxLength="63" StoreGeneratedPattern="Computed" />
+        </EntityType>
         <EntityType Name="CIDADE_COMARCA">
           <Key>
             <PropertyRef Name="CICO_CD_ID" />
@@ -604,6 +619,17 @@
           <Property Name="GRPA_NM_NOME" Type="varchar" MaxLength="50" />
           <Property Name="GRPA_IN_ATIVO" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="GRUPO">
+          <Key>
+            <PropertyRef Name="GRUP_CD_ID" />
+          </Key>
+          <Property Name="GRUP_CD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ASSI_CD_ID" Type="int" Nullable="false" />
+          <Property Name="GRUP_NM_NOME" Type="varchar" MaxLength="50" />
+          <Property Name="GRUP_IN_ATIVO" Type="int" />
+          <Property Name="GRUP_NR_NUMERO" Type="varchar" MaxLength="10" />
+          <Property Name="GR_NM_EXIBE" Type="varchar" MaxLength="63" StoreGeneratedPattern="Computed" />
+        </EntityType>
         <EntityType Name="GRUPO_DOCUMENTO">
           <Key>
             <PropertyRef Name="GRDO_CD_ID" />
@@ -858,6 +884,18 @@
           <Property Name="SIPR_CD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SIPR_NM_NOME" Type="varchar" MaxLength="50" />
           <Property Name="SIPR_IN_ATIVO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SUBGRUPO">
+          <Key>
+            <PropertyRef Name="SUBG_CD_ID" />
+          </Key>
+          <Property Name="SUBG_CD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ASSI_CD_ID" Type="int" Nullable="false" />
+          <Property Name="GRUP_CD_ID" Type="int" />
+          <Property Name="SUBG_NM_NOME" Type="varchar" MaxLength="50" />
+          <Property Name="SUBG_IN_ATIVO" Type="int" />
+          <Property Name="SUBG_NR_NUMERO" Type="varchar" MaxLength="10" />
+          <Property Name="SUBG_NM_EXIBE" Type="varchar" MaxLength="63" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="SUBSECAO">
           <Key>
@@ -1368,6 +1406,42 @@
             </Principal>
             <Dependent Role="CATEGORIA_USUARIO">
               <PropertyRef Name="ASSI_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CENTRO_CUSTO_ASSINANTE">
+          <End Role="ASSINANTE" Type="Self.ASSINANTE" Multiplicity="1" />
+          <End Role="CENTRO_CUSTO" Type="Self.CENTRO_CUSTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSINANTE">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Principal>
+            <Dependent Role="CENTRO_CUSTO">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CENTRO_CUSTO_GRUPO">
+          <End Role="GRUPO" Type="Self.GRUPO" Multiplicity="0..1" />
+          <End Role="CENTRO_CUSTO" Type="Self.CENTRO_CUSTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRUPO">
+              <PropertyRef Name="GRUP_CD_ID" />
+            </Principal>
+            <Dependent Role="CENTRO_CUSTO">
+              <PropertyRef Name="GRUP_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CENTRO_CUSTO_SUBGRUPO">
+          <End Role="SUBGRUPO" Type="Self.SUBGRUPO" Multiplicity="0..1" />
+          <End Role="CENTRO_CUSTO" Type="Self.CENTRO_CUSTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUBGRUPO">
+              <PropertyRef Name="SUBG_CD_ID" />
+            </Principal>
+            <Dependent Role="CENTRO_CUSTO">
+              <PropertyRef Name="SUBG_CD_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2091,6 +2165,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_GRUPO_ASSINANTE">
+          <End Role="ASSINANTE" Type="Self.ASSINANTE" Multiplicity="1" />
+          <End Role="GRUPO" Type="Self.GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSINANTE">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Principal>
+            <Dependent Role="GRUPO">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_LOG_ASSINANTE">
           <End Role="ASSINANTE" Type="Self.ASSINANTE" Multiplicity="1" />
           <End Role="LOG" Type="Self.LOG" Multiplicity="*" />
@@ -2472,6 +2558,30 @@
             </Principal>
             <Dependent Role="SECAO">
               <PropertyRef Name="REJU_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUBGRUPO_ASSINANTE">
+          <End Role="ASSINANTE" Type="Self.ASSINANTE" Multiplicity="1" />
+          <End Role="SUBGRUPO" Type="Self.SUBGRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSINANTE">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Principal>
+            <Dependent Role="SUBGRUPO">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUBGRUPO_GRUPO">
+          <End Role="GRUPO" Type="Self.GRUPO" Multiplicity="0..1" />
+          <End Role="SUBGRUPO" Type="Self.SUBGRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRUPO">
+              <PropertyRef Name="GRUP_CD_ID" />
+            </Principal>
+            <Dependent Role="SUBGRUPO">
+              <PropertyRef Name="GRUP_CD_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2909,6 +3019,7 @@
           <EntitySet Name="CATEGORIA_FORNECEDOR" EntityType="Self.CATEGORIA_FORNECEDOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CATEGORIA_NOTIFICACAO" EntityType="Self.CATEGORIA_NOTIFICACAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CATEGORIA_USUARIO" EntityType="Self.CATEGORIA_USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CENTRO_CUSTO" EntityType="Self.CENTRO_CUSTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CIDADE_COMARCA" EntityType="Self.CIDADE_COMARCA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CLASSE" EntityType="Self.CLASSE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
@@ -2937,6 +3048,7 @@
           <EntitySet Name="FORNECEDOR_QUADRO_SOCIETARIO" EntityType="Self.FORNECEDOR_QUADRO_SOCIETARIO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FORO" EntityType="Self.FORO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GRAU_PARENTESCO" EntityType="Self.GRAU_PARENTESCO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GRUPO" EntityType="Self.GRUPO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GRUPO_DOCUMENTO" EntityType="Self.GRUPO_DOCUMENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOG" EntityType="Self.LOG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="METADADO" EntityType="Self.METADADO" Schema="dbo" store:Type="Tables" />
@@ -2958,6 +3070,7 @@
           <EntitySet Name="SECAO" EntityType="Self.SECAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SEXO" EntityType="Self.SEXO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SITUACAO_PROCESSO" EntityType="Self.SITUACAO_PROCESSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUBGRUPO" EntityType="Self.SUBGRUPO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SUBSECAO" EntityType="Self.SUBSECAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAREFA" EntityType="Self.TAREFA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAREFA_ACOMPANHAMENTO" EntityType="Self.TAREFA_ACOMPANHAMENTO" Schema="dbo" store:Type="Tables" />
@@ -3046,6 +3159,18 @@
           <AssociationSet Name="FK_CATEGORIA_USUARIO_ASSINANTE" Association="Self.FK_CATEGORIA_USUARIO_ASSINANTE">
             <End Role="ASSINANTE" EntitySet="ASSINANTE" />
             <End Role="CATEGORIA_USUARIO" EntitySet="CATEGORIA_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CENTRO_CUSTO_ASSINANTE" Association="Self.FK_CENTRO_CUSTO_ASSINANTE">
+            <End Role="ASSINANTE" EntitySet="ASSINANTE" />
+            <End Role="CENTRO_CUSTO" EntitySet="CENTRO_CUSTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CENTRO_CUSTO_GRUPO" Association="Self.FK_CENTRO_CUSTO_GRUPO">
+            <End Role="GRUPO" EntitySet="GRUPO" />
+            <End Role="CENTRO_CUSTO" EntitySet="CENTRO_CUSTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CENTRO_CUSTO_SUBGRUPO" Association="Self.FK_CENTRO_CUSTO_SUBGRUPO">
+            <End Role="SUBGRUPO" EntitySet="SUBGRUPO" />
+            <End Role="CENTRO_CUSTO" EntitySet="CENTRO_CUSTO" />
           </AssociationSet>
           <AssociationSet Name="FK_CIDADE_COMARCA_ASSINANTE" Association="Self.FK_CIDADE_COMARCA_ASSINANTE">
             <End Role="ASSINANTE" EntitySet="ASSINANTE" />
@@ -3287,6 +3412,10 @@
             <End Role="UF" EntitySet="UF" />
             <End Role="FORO" EntitySet="FORO" />
           </AssociationSet>
+          <AssociationSet Name="FK_GRUPO_ASSINANTE" Association="Self.FK_GRUPO_ASSINANTE">
+            <End Role="ASSINANTE" EntitySet="ASSINANTE" />
+            <End Role="GRUPO" EntitySet="GRUPO" />
+          </AssociationSet>
           <AssociationSet Name="FK_LOG_ASSINANTE" Association="Self.FK_LOG_ASSINANTE">
             <End Role="ASSINANTE" EntitySet="ASSINANTE" />
             <End Role="LOG" EntitySet="LOG" />
@@ -3414,6 +3543,14 @@
           <AssociationSet Name="FK_SECAO_REGIAO_JUSTICA" Association="Self.FK_SECAO_REGIAO_JUSTICA">
             <End Role="REGIAO_JUSTICA" EntitySet="REGIAO_JUSTICA" />
             <End Role="SECAO" EntitySet="SECAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUBGRUPO_ASSINANTE" Association="Self.FK_SUBGRUPO_ASSINANTE">
+            <End Role="ASSINANTE" EntitySet="ASSINANTE" />
+            <End Role="SUBGRUPO" EntitySet="SUBGRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUBGRUPO_GRUPO" Association="Self.FK_SUBGRUPO_GRUPO">
+            <End Role="GRUPO" EntitySet="GRUPO" />
+            <End Role="SUBGRUPO" EntitySet="SUBGRUPO" />
           </AssociationSet>
           <AssociationSet Name="FK_SUBSECAO_ASSINANTE" Association="Self.FK_SUBSECAO_ASSINANTE">
             <End Role="ASSINANTE" EntitySet="ASSINANTE" />
@@ -3652,6 +3789,9 @@
           <NavigationProperty Name="TIPO_JUSTICA" Relationship="ERP_JurisModel.FK_TIPO_JUSTICA_ASSINANTE" FromRole="ASSINANTE" ToRole="TIPO_JUSTICA" />
           <NavigationProperty Name="VARA" Relationship="ERP_JurisModel.FK_VARA_ASSINANTE" FromRole="ASSINANTE" ToRole="VARA" />
           <NavigationProperty Name="ESPECIALIDADE" Relationship="ERP_JurisModel.FK_ESPECIALIDADE_ASSINANTE" FromRole="ASSINANTE" ToRole="ESPECIALIDADE" />
+          <NavigationProperty Name="CENTRO_CUSTO" Relationship="ERP_JurisModel.FK_CENTRO_CUSTO_ASSINANTE" FromRole="ASSINANTE" ToRole="CENTRO_CUSTO" />
+          <NavigationProperty Name="GRUPO" Relationship="ERP_JurisModel.FK_GRUPO_ASSINANTE" FromRole="ASSINANTE" ToRole="GRUPO" />
+          <NavigationProperty Name="SUBGRUPO" Relationship="ERP_JurisModel.FK_SUBGRUPO_ASSINANTE" FromRole="ASSINANTE" ToRole="SUBGRUPO" />
         </EntityType>
         <EntityType Name="CARGO">
           <Key>
@@ -5425,6 +5565,33 @@
           <AssociationSet Name="FK_USUARIO_FUNCIONARIO_UF4" Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF4">
             <End Role="UF" EntitySet="UF" />
             <End Role="USUARIO_FUNCIONARIO" EntitySet="USUARIO_FUNCIONARIO" />
+          </AssociationSet>
+          <EntitySet Name="CENTRO_CUSTO" EntityType="ERP_JurisModel.CENTRO_CUSTO" />
+          <AssociationSet Name="FK_CENTRO_CUSTO_ASSINANTE" Association="ERP_JurisModel.FK_CENTRO_CUSTO_ASSINANTE">
+            <End Role="ASSINANTE" EntitySet="ASSINANTE" />
+            <End Role="CENTRO_CUSTO" EntitySet="CENTRO_CUSTO" />
+          </AssociationSet>
+          <EntitySet Name="GRUPO" EntityType="ERP_JurisModel.GRUPO" />
+          <EntitySet Name="SUBGRUPO" EntityType="ERP_JurisModel.SUBGRUPO" />
+          <AssociationSet Name="FK_GRUPO_ASSINANTE" Association="ERP_JurisModel.FK_GRUPO_ASSINANTE">
+            <End Role="ASSINANTE" EntitySet="ASSINANTE" />
+            <End Role="GRUPO" EntitySet="GRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUBGRUPO_ASSINANTE" Association="ERP_JurisModel.FK_SUBGRUPO_ASSINANTE">
+            <End Role="ASSINANTE" EntitySet="ASSINANTE" />
+            <End Role="SUBGRUPO" EntitySet="SUBGRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CENTRO_CUSTO_GRUPO" Association="ERP_JurisModel.FK_CENTRO_CUSTO_GRUPO">
+            <End Role="GRUPO" EntitySet="GRUPO" />
+            <End Role="CENTRO_CUSTO" EntitySet="CENTRO_CUSTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CENTRO_CUSTO_SUBGRUPO" Association="ERP_JurisModel.FK_CENTRO_CUSTO_SUBGRUPO">
+            <End Role="SUBGRUPO" EntitySet="SUBGRUPO" />
+            <End Role="CENTRO_CUSTO" EntitySet="CENTRO_CUSTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUBGRUPO_GRUPO" Association="ERP_JurisModel.FK_SUBGRUPO_GRUPO">
+            <End Role="GRUPO" EntitySet="GRUPO" />
+            <End Role="SUBGRUPO" EntitySet="SUBGRUPO" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="TIPO_MENSAGEM">
@@ -7399,6 +7566,125 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="CENTRO_CUSTO">
+          <Key>
+            <PropertyRef Name="CECU_CD_ID" />
+          </Key>
+          <Property Name="CECU_CD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ASSI_CD_ID" Type="Int32" Nullable="false" />
+          <Property Name="CECU_NR_NUMERO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CECU_NM_NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CECU_IN_TIPO" Type="Int32" />
+          <Property Name="CECU_IN_ATIVO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ASSINANTE" Relationship="ERP_JurisModel.FK_CENTRO_CUSTO_ASSINANTE" FromRole="CENTRO_CUSTO" ToRole="ASSINANTE" />
+          <Property Name="GRUP_CD_ID" Type="Int32" />
+          <Property Name="SUBG_CD_ID" Type="Int32" />
+          <Property Name="CECU_IN_MOVTO" Type="Int32" />
+          <Property Name="CECU_NM_EXIBE" Type="String" MaxLength="63" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="GRUPO" Relationship="ERP_JurisModel.FK_CENTRO_CUSTO_GRUPO" FromRole="CENTRO_CUSTO" ToRole="GRUPO" />
+          <NavigationProperty Name="SUBGRUPO" Relationship="ERP_JurisModel.FK_CENTRO_CUSTO_SUBGRUPO" FromRole="CENTRO_CUSTO" ToRole="SUBGRUPO" />
+        </EntityType>
+        <Association Name="FK_CENTRO_CUSTO_ASSINANTE">
+          <End Type="ERP_JurisModel.ASSINANTE" Role="ASSINANTE" Multiplicity="1" />
+          <End Type="ERP_JurisModel.CENTRO_CUSTO" Role="CENTRO_CUSTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSINANTE">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Principal>
+            <Dependent Role="CENTRO_CUSTO">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="GRUPO">
+          <Key>
+            <PropertyRef Name="GRUP_CD_ID" />
+          </Key>
+          <Property Name="GRUP_CD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ASSI_CD_ID" Type="Int32" Nullable="false" />
+          <Property Name="GRUP_NM_NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GRUP_IN_ATIVO" Type="Int32" />
+          <Property Name="GRUP_NR_NUMERO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="GR_NM_EXIBE" Type="String" MaxLength="63" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="ASSINANTE" Relationship="ERP_JurisModel.FK_GRUPO_ASSINANTE" FromRole="GRUPO" ToRole="ASSINANTE" />
+          <NavigationProperty Name="CENTRO_CUSTO" Relationship="ERP_JurisModel.FK_CENTRO_CUSTO_GRUPO" FromRole="GRUPO" ToRole="CENTRO_CUSTO" />
+          <NavigationProperty Name="SUBGRUPO" Relationship="ERP_JurisModel.FK_SUBGRUPO_GRUPO" FromRole="GRUPO" ToRole="SUBGRUPO" />
+        </EntityType>
+        <EntityType Name="SUBGRUPO">
+          <Key>
+            <PropertyRef Name="SUBG_CD_ID" />
+          </Key>
+          <Property Name="SUBG_CD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ASSI_CD_ID" Type="Int32" Nullable="false" />
+          <Property Name="GRUP_CD_ID" Type="Int32" />
+          <Property Name="SUBG_NM_NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUBG_IN_ATIVO" Type="Int32" />
+          <Property Name="SUBG_NR_NUMERO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SUBG_NM_EXIBE" Type="String" MaxLength="63" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="ASSINANTE" Relationship="ERP_JurisModel.FK_SUBGRUPO_ASSINANTE" FromRole="SUBGRUPO" ToRole="ASSINANTE" />
+          <NavigationProperty Name="CENTRO_CUSTO" Relationship="ERP_JurisModel.FK_CENTRO_CUSTO_SUBGRUPO" FromRole="SUBGRUPO" ToRole="CENTRO_CUSTO" />
+          <NavigationProperty Name="GRUPO" Relationship="ERP_JurisModel.FK_SUBGRUPO_GRUPO" FromRole="SUBGRUPO" ToRole="GRUPO" />
+        </EntityType>
+        <Association Name="FK_GRUPO_ASSINANTE">
+          <End Type="ERP_JurisModel.ASSINANTE" Role="ASSINANTE" Multiplicity="1" />
+          <End Type="ERP_JurisModel.GRUPO" Role="GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSINANTE">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Principal>
+            <Dependent Role="GRUPO">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUBGRUPO_ASSINANTE">
+          <End Type="ERP_JurisModel.ASSINANTE" Role="ASSINANTE" Multiplicity="1" />
+          <End Type="ERP_JurisModel.SUBGRUPO" Role="SUBGRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSINANTE">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Principal>
+            <Dependent Role="SUBGRUPO">
+              <PropertyRef Name="ASSI_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CENTRO_CUSTO_GRUPO">
+          <End Type="ERP_JurisModel.GRUPO" Role="GRUPO" Multiplicity="0..1" />
+          <End Type="ERP_JurisModel.CENTRO_CUSTO" Role="CENTRO_CUSTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRUPO">
+              <PropertyRef Name="GRUP_CD_ID" />
+            </Principal>
+            <Dependent Role="CENTRO_CUSTO">
+              <PropertyRef Name="GRUP_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CENTRO_CUSTO_SUBGRUPO">
+          <End Type="ERP_JurisModel.SUBGRUPO" Role="SUBGRUPO" Multiplicity="0..1" />
+          <End Type="ERP_JurisModel.CENTRO_CUSTO" Role="CENTRO_CUSTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUBGRUPO">
+              <PropertyRef Name="SUBG_CD_ID" />
+            </Principal>
+            <Dependent Role="CENTRO_CUSTO">
+              <PropertyRef Name="SUBG_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUBGRUPO_GRUPO">
+          <End Type="ERP_JurisModel.GRUPO" Role="GRUPO" Multiplicity="0..1" />
+          <End Type="ERP_JurisModel.SUBGRUPO" Role="SUBGRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRUPO">
+              <PropertyRef Name="GRUP_CD_ID" />
+            </Principal>
+            <Dependent Role="SUBGRUPO">
+              <PropertyRef Name="GRUP_CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8647,6 +8933,47 @@
                 <ScalarProperty Name="ESPE_NM_NOME" ColumnName="ESPE_NM_NOME" />
                 <ScalarProperty Name="ASSI_CD_ID" ColumnName="ASSI_CD_ID" />
                 <ScalarProperty Name="ESPE_CD_ID" ColumnName="ESPE_CD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CENTRO_CUSTO">
+            <EntityTypeMapping TypeName="ERP_JurisModel.CENTRO_CUSTO">
+              <MappingFragment StoreEntitySet="CENTRO_CUSTO">
+                <ScalarProperty Name="CECU_NM_EXIBE" ColumnName="CECU_NM_EXIBE" />
+                <ScalarProperty Name="CECU_IN_MOVTO" ColumnName="CECU_IN_MOVTO" />
+                <ScalarProperty Name="SUBG_CD_ID" ColumnName="SUBG_CD_ID" />
+                <ScalarProperty Name="GRUP_CD_ID" ColumnName="GRUP_CD_ID" />
+                <ScalarProperty Name="CECU_IN_ATIVO" ColumnName="CECU_IN_ATIVO" />
+                <ScalarProperty Name="CECU_IN_TIPO" ColumnName="CECU_IN_TIPO" />
+                <ScalarProperty Name="CECU_NM_NOME" ColumnName="CECU_NM_NOME" />
+                <ScalarProperty Name="CECU_NR_NUMERO" ColumnName="CECU_NR_NUMERO" />
+                <ScalarProperty Name="ASSI_CD_ID" ColumnName="ASSI_CD_ID" />
+                <ScalarProperty Name="CECU_CD_ID" ColumnName="CECU_CD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GRUPO">
+            <EntityTypeMapping TypeName="ERP_JurisModel.GRUPO">
+              <MappingFragment StoreEntitySet="GRUPO">
+                <ScalarProperty Name="GR_NM_EXIBE" ColumnName="GR_NM_EXIBE" />
+                <ScalarProperty Name="GRUP_NR_NUMERO" ColumnName="GRUP_NR_NUMERO" />
+                <ScalarProperty Name="GRUP_IN_ATIVO" ColumnName="GRUP_IN_ATIVO" />
+                <ScalarProperty Name="GRUP_NM_NOME" ColumnName="GRUP_NM_NOME" />
+                <ScalarProperty Name="ASSI_CD_ID" ColumnName="ASSI_CD_ID" />
+                <ScalarProperty Name="GRUP_CD_ID" ColumnName="GRUP_CD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUBGRUPO">
+            <EntityTypeMapping TypeName="ERP_JurisModel.SUBGRUPO">
+              <MappingFragment StoreEntitySet="SUBGRUPO">
+                <ScalarProperty Name="SUBG_NM_EXIBE" ColumnName="SUBG_NM_EXIBE" />
+                <ScalarProperty Name="SUBG_NR_NUMERO" ColumnName="SUBG_NR_NUMERO" />
+                <ScalarProperty Name="SUBG_IN_ATIVO" ColumnName="SUBG_IN_ATIVO" />
+                <ScalarProperty Name="SUBG_NM_NOME" ColumnName="SUBG_NM_NOME" />
+                <ScalarProperty Name="GRUP_CD_ID" ColumnName="GRUP_CD_ID" />
+                <ScalarProperty Name="ASSI_CD_ID" ColumnName="ASSI_CD_ID" />
+                <ScalarProperty Name="SUBG_CD_ID" ColumnName="SUBG_CD_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

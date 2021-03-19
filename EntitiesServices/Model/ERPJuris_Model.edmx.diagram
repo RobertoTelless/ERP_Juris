@@ -232,6 +232,15 @@
         <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF2" />
         <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF3" />
         <AssociationConnector Association="ERP_JurisModel.FK_USUARIO_FUNCIONARIO_UF4" />
+        <EntityTypeShape EntityType="ERP_JurisModel.CENTRO_CUSTO" Width="1.5" PointX="5.25" PointY="21.625" />
+        <AssociationConnector Association="ERP_JurisModel.FK_CENTRO_CUSTO_ASSINANTE" />
+        <EntityTypeShape EntityType="ERP_JurisModel.GRUPO" Width="1.5" PointX="5.25" PointY="17.625" />
+        <EntityTypeShape EntityType="ERP_JurisModel.SUBGRUPO" Width="1.5" PointX="13.5" PointY="28.25" />
+        <AssociationConnector Association="ERP_JurisModel.FK_GRUPO_ASSINANTE" />
+        <AssociationConnector Association="ERP_JurisModel.FK_SUBGRUPO_ASSINANTE" />
+        <AssociationConnector Association="ERP_JurisModel.FK_CENTRO_CUSTO_GRUPO" />
+        <AssociationConnector Association="ERP_JurisModel.FK_CENTRO_CUSTO_SUBGRUPO" />
+        <AssociationConnector Association="ERP_JurisModel.FK_SUBGRUPO_GRUPO" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

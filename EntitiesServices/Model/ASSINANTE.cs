@@ -51,6 +51,9 @@ namespace EntitiesServices.Model
             this.TIPO_JUSTICA = new HashSet<TIPO_JUSTICA>();
             this.VARA = new HashSet<VARA>();
             this.ESPECIALIDADE = new HashSet<ESPECIALIDADE>();
+            this.CENTRO_CUSTO = new HashSet<CENTRO_CUSTO>();
+            this.GRUPO = new HashSet<GRUPO>();
+            this.SUBGRUPO = new HashSet<SUBGRUPO>();
         }
     
         public int ASSI_CD_ID { get; set; }
@@ -141,5 +144,11 @@ namespace EntitiesServices.Model
         public virtual ICollection<VARA> VARA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ESPECIALIDADE> ESPECIALIDADE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CENTRO_CUSTO> CENTRO_CUSTO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GRUPO> GRUPO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SUBGRUPO> SUBGRUPO { get; set; }
     }
 }

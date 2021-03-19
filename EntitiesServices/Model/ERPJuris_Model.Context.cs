@@ -108,5 +108,8 @@ namespace EntitiesServices.Model
         public virtual DbSet<TIPO_METADADO> TIPO_METADADO { get; set; }
         public virtual DbSet<VARA> VARA { get; set; }
         public virtual DbSet<ESPECIALIDADE> ESPECIALIDADE { get; set; }
+        public virtual DbSet<CENTRO_CUSTO> CENTRO_CUSTO { get; set; }
+        public virtual DbSet<GRUPO> GRUPO { get; set; }
+        public virtual DbSet<SUBGRUPO> SUBGRUPO { get; set; }
     }
 }
