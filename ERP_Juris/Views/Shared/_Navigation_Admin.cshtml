@@ -55,7 +55,7 @@
             <li>
                 <a href="@Url.Action("CarregarBase", "BaseAdmin")"><i class="fa fa-th-large"></i> <span class="nav-label" data-i18n="nav.dashboard">Cadastros Auxiliares</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse @Html.IsSelected(controller: "BaseAdmin", cssClass: "in")">
-                    <li class="@Html.IsSelected(action: "MontarTelaEquipamento")"><a href="@Url.Action("MontarTelaTipoAcao", "TipoAcao")">Tipo de Ação</a></li>
+                    <li class="@Html.IsSelected(action: "MontarTelaTipoAcao")"><a href="@Url.Action("MontarTelaTipoAcao", "TipoAcao")">Tipo de Ação</a></li>
                     <li class="@Html.IsSelected(action: "Index")"><a href="@Url.Action("CarregarBase", "BaseAdmin")"><i class="fa fa-th-large"></i> <span class="nav-label" data-i18n="nav.dashboard">Justiça</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level collapse @Html.IsSelected(controller: "GestaoOperacional", cssClass: "in")">
                             <li class="@Html.IsSelected(action: "MontarTelaTipoJustica")"><a href="@Url.Action("MontarTelaTipoJustica", "TipoJustica")">Tipo de Justiça</a></li>

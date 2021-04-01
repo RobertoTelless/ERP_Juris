@@ -700,6 +700,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Imagens\1\Noticias\1\Fotos\p_big3.jpg" />
     <Content Include="Imagens\1\Usuarios\1\Fotos\a4.jpg" />
+    <Content Include="Imagens\1\Usuarios\1\Fotos\FotoOficial.jpg" />
     <Content Include="Imagens\Base\FotoBase.jpg" />
     <Content Include="Imagens\Base\FotoOficial.jpg" />
     <Content Include="Images\1.jpg" />
@@ -1533,6 +1534,10 @@
     <Content Include="Images\gallery\Rec_Parc.png" />
     <Content Include="Images\gallery\Rec_Sim.png" />
     <Content Include="Images\header.jpg" />
+    <Content Include="Images\Justica_1.jpeg" />
+    <Content Include="Images\Justica_2.jpg" />
+    <Content Include="Images\Justica_3.jpg" />
+    <Content Include="Images\Justica_4.png" />
     <Content Include="Images\landing\avatar1.jpg" />
     <Content Include="Images\landing\avatar2.jpg" />
     <Content Include="Images\landing\avatar3.jpg" />

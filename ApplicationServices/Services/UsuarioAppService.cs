@@ -635,7 +635,7 @@ namespace ApplicationServices.Services
                         {
                             if (usuario.USUA_DT_ULTIMA_FALHA.Value.Date != DateTime.Now.Date)
                             {
-                                usuario.USUA_DT_ULTIMA_FALHA = DateTime.Now.Date;
+                                usuario.USUA_DT_ULTIMA_FALHA = DateTime.Now;
                                 usuario.USUA_NR_FALHAS = 1;
                             }
                             else
@@ -645,17 +645,17 @@ namespace ApplicationServices.Services
                         }
                         else
                         {
-                            usuario.USUA_DT_ULTIMA_FALHA = DateTime.Today.Date;
+                            usuario.USUA_DT_ULTIMA_FALHA = DateTime.Now;
                             usuario.USUA_NR_FALHAS = 1;
                         }
 
                     }
                     else if (usuario.USUA_NR_FALHAS > _usuarioService.CarregaConfiguracao(usuario.ASSI_CD_ID).CONF_NR_FALHAS_DIA)
                     {
-                        usuario.USUA_DT_BLOQUEADO = DateTime.Today.Date;
+                        usuario.USUA_DT_BLOQUEADO = DateTime.Now;
                         usuario.USUA_IN_BLOQUEADO = 1;
                         usuario.USUA_NR_FALHAS = 0;
-                        usuario.USUA_DT_ULTIMA_FALHA = DateTime.Today.Date;
+                        usuario.USUA_DT_ULTIMA_FALHA = DateTime.Now;
                         Int32 voltaBloqueio = _usuarioService.EditUser(usuario);
                         return 6;
                     }
@@ -665,7 +665,7 @@ namespace ApplicationServices.Services
 
                 // Atualiza acessos e data do acesso
                 usuario.USUA_NR_ACESSOS = ++usuario.USUA_NR_ACESSOS;
-                usuario.USUA_DT_ACESSO = DateTime.Now.Date;
+                usuario.USUA_DT_ACESSO = DateTime.Now;
                 usuario.USUA_IN_LOGADO = 1;
                 Int32 voltaAcesso = _usuarioService.EditUser(usuario);
                 return 0;

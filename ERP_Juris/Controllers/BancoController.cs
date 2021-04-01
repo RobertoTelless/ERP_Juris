@@ -1329,11 +1329,6 @@ namespace ERP_Juris.Controllers
         {
             try
             {
-                if ((String)Session["Ativa"] == null)
-                {
-                    return RedirectToAction("Login", "ControleAcesso");
-                }
-
                 // Acerta saldo
                 USUARIO usuarioLogado = (USUARIO)Session["UserCredentials"];
                 CONTA_BANCO_LANCAMENTO lanc = contaApp.GetLancamentoById(item.CBLA_CD_ID);

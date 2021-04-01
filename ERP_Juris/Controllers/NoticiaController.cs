@@ -76,7 +76,7 @@ namespace ERP_Juris.Controllers
             USUARIO usuarioLogado = (USUARIO)Session["UserCredentials"];
             NOTICIA_COMENTARIO coment = new NOTICIA_COMENTARIO();
             NoticiaComentarioViewModel vm = Mapper.Map<NOTICIA_COMENTARIO, NoticiaComentarioViewModel>(coment);
-            vm.NOCO_DT_COMENTARIO = DateTime.Today;
+            vm.NOCO_DT_COMENTARIO = DateTime.Now;
             vm.NOCO_IN_ATIVO = 1;
             vm.NOTC_CD_ID = item.NOTC_CD_ID;
             vm.USUARIO = usuarioLogado;

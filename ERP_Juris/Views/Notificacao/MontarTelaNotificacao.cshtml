@@ -124,7 +124,7 @@
                                             <th>Título</th>   
                                             <th>Data</th>
                                             <th>Validade</th>   
-                                            <th>Nível</th>   
+                                            <th>Tipo</th>   
                                             <th>Vista</th>
                                             <th class="td-one-action">Ações</th>
                                         </tr>
@@ -134,7 +134,7 @@
                                         {
                                             <tr>
                                                 <td>@cond.NOTI_NM_TITULO</td>
-                                                <td>@cond.NOTI_DT_EMISSAO.Value.ToShortDateString()</td>
+                                                <td>@cond.NOTI_DT_EMISSAO</td>
                                                 @if (cond.NOTI_DT_VALIDADE == null)
                                                 {
                                                     <td>-</td>

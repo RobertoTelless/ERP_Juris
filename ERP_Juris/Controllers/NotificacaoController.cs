@@ -516,7 +516,7 @@ namespace ERP_Juris.Controllers
             // Prepara view
             NOTIFICACAO item = new NOTIFICACAO();
             NotificacaoViewModel vm = Mapper.Map<NOTIFICACAO, NotificacaoViewModel>(item);
-            vm.NOTI_DT_EMISSAO = DateTime.Today.Date;
+            vm.NOTI_DT_EMISSAO = DateTime.Now;
             vm.NOTI_IN_ATIVO = 1;
             vm.ASSI_CD_ID = idAss;
             vm.NOTI_DT_VALIDADE = DateTime.Today.Date.AddDays(30);
@@ -920,7 +920,7 @@ namespace ERP_Juris.Controllers
 
             PdfPCell cell = new PdfPCell();
             cell.Border = 0;
-            Image image = Image.GetInstance(Server.MapPath("~/Images/logoSMS.jpg"));
+            Image image = Image.GetInstance(Server.MapPath("~/Images/Justica_4.png"));
             image.ScaleAbsolute(50, 50);
             cell.AddElement(image);
             table.AddCell(cell);
@@ -1193,7 +1193,7 @@ namespace ERP_Juris.Controllers
 
             PdfPCell cell = new PdfPCell();
             cell.Border = 0;
-            Image image = Image.GetInstance(Server.MapPath("~/Images/LogoSMS.jpg"));
+            Image image = Image.GetInstance(Server.MapPath("~/Images/Justica_4.png"));
             image.ScaleAbsolute(50, 50);
             cell.AddElement(image);
             table.AddCell(cell);
@@ -1251,7 +1251,7 @@ namespace ERP_Juris.Controllers
 
             if (aten.NOTI_DT_EMISSAO != null)
             {
-                cell = new PdfPCell(new Paragraph("Emissão: " + aten.NOTI_DT_EMISSAO.Value.ToShortDateString(), meuFont));
+                cell = new PdfPCell(new Paragraph("Emissão: " + aten.NOTI_DT_EMISSAO.Value.ToShortDateString() + " " + aten.NOTI_DT_EMISSAO.Value.ToShortTimeString(), meuFont));
                 cell.Border = 0;
                 cell.Colspan = 1;
                 cell.VerticalAlignment = Element.ALIGN_MIDDLE;
@@ -1287,7 +1287,7 @@ namespace ERP_Juris.Controllers
             }
             if (aten.NOTI_DT_VISTA != null)
             {
-                cell = new PdfPCell(new Paragraph("Data de Visualização: " + aten.NOTI_DT_VISTA.Value.ToShortDateString(), meuFont));
+                cell = new PdfPCell(new Paragraph("Data de Visualização: " + aten.NOTI_DT_VISTA.Value.ToShortDateString() + " " + aten.NOTI_DT_VISTA.Value.ToShortTimeString(), meuFont));
                 cell.Border = 0;
                 cell.Colspan = 2;
                 cell.VerticalAlignment = Element.ALIGN_MIDDLE;

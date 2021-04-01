@@ -218,7 +218,7 @@ namespace ERP_Juris.Controllers
             ViewBag.Title = "Tarefas";
 
             // Indicadores
-            ViewBag.Tarefas = listaMaster.Count;
+            ViewBag.Tarefas = ((List<TAREFA>)Session["ListaTarefa"]).Count;
             ViewBag.Tipos = new SelectList(baseApp.GetAllTipos(idAss), "TITR_CD_ID", "TITR_NM_NOME");
             ViewBag.TarefasPendentes = baseApp.GetTarefaStatus(usuario.USUA_CD_ID, 1).Count;
             ViewBag.TarefasEncerradas = baseApp.GetTarefaStatus(usuario.USUA_CD_ID, 2).Count; 
