@@ -6998,7 +6998,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Erp_JurisEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ERP_JurisEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ADVOGADO_CONTRARIO" EntityType="Self.ADVOGADO_CONTRARIO" />
           <EntitySet Name="ADVOGADO_CONTRARIO_ANEXO" EntityType="Self.ADVOGADO_CONTRARIO_ANEXO" />
           <EntitySet Name="ADVOGADO_CONTRARIO_COMENTARIO" EntityType="Self.ADVOGADO_CONTRARIO_COMENTARIO" />
@@ -7691,7 +7691,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Erp_JurisModelStoreContainer" CdmEntityContainer="Erp_JurisEntities">
+        <EntityContainerMapping StorageEntityContainer="Erp_JurisModelStoreContainer" CdmEntityContainer="ERP_JurisEntities">
           <EntitySetMapping Name="ADVOGADO_CONTRARIO">
             <EntityTypeMapping TypeName="Erp_JurisModel.ADVOGADO_CONTRARIO">
               <MappingFragment StoreEntitySet="ADVOGADO_CONTRARIO">

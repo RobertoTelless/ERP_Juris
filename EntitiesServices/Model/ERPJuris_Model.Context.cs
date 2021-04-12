@@ -13,10 +13,10 @@ namespace EntitiesServices.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Erp_JurisEntities : DbContext
+    public partial class ERP_JurisEntities : DbContext
     {
-        public Erp_JurisEntities()
-            : base("name=Erp_JurisEntities")
+        public ERP_JurisEntities()
+            : base("name=ERP_JurisEntities")
         {
         }
     

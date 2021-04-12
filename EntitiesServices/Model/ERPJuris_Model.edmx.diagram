@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="57cb6077569c4eef8f17d729255b3048" Name="Diagram1">
+      <Diagram DiagramId="9a8bb55c38544df1b2f20523019e2f05" Name="Diagram1">
         <EntityTypeShape EntityType="Erp_JurisModel.ADVOGADO_CONTRARIO" Width="1.5" PointX="3" PointY="94.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Erp_JurisModel.ADVOGADO_CONTRARIO_ANEXO" Width="1.5" PointX="5.25" PointY="104.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Erp_JurisModel.ADVOGADO_CONTRARIO_COMENTARIO" Width="1.5" PointX="8.25" PointY="96.25" IsExpanded="true" />
