@@ -193,6 +193,7 @@ namespace ERP_Juris.Controllers
             {
                 return RedirectToAction("Login", "ControleAcesso");
             }
+            Session["ListaTipoAcao"] = null;
             return RedirectToAction("MontarTelaTipoAcao");
         }
 

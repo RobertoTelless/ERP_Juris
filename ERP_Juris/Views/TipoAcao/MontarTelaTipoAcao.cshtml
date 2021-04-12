@@ -170,6 +170,7 @@
                                     <thead style ="background-color:lightsteelblue">
                                         <tr>
                                             <th>Nome</th>   
+                                            <th>Descrição</th>   
                                             <th class="td-one-action">Ações</th>
                                         </tr>
                                     </thead>
@@ -178,8 +179,8 @@
                                         {
                                             <tr>
                                                 <td>@cond.TIAC_NM_NOME</td>
+                                                <td>@cond.TIAC_DS_DESCRICAO</td>
                                                 <td class="td-one-action">
-                                                    <span style="color: #337ab7; cursor: pointer;" class="tbl-link fa-lg fa fa-info-circle" onclick="mostrarDesc('@cond.TIAC_DS_DESCRICAO')"></span>
                                                     @Html.TableLinkDetails(cond.TIAC_CD_ID, "EditarTipoAcao","fa-edit", "Editar/Consultar")
                                                     @if (ViewBag.Perfil == "ADM")
                                                     {

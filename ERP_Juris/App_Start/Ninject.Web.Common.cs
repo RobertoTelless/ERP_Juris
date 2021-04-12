@@ -178,7 +178,6 @@ namespace Presentation.Start
             kernel.Bind<IGrupoRepository>().To<GrupoRepository>();
             kernel.Bind<ISubgrupoRepository>().To<SubgrupoRepository>();
             kernel.Bind<ITipoContaRepository>().To<TipoContaRepository>();
-            kernel.Bind<ICategoriaAgendaRepository>().To<CategoriaAgendaRepository>();
 
         }
     }

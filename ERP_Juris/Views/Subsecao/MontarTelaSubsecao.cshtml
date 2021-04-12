@@ -176,6 +176,7 @@
                                         <tr>
                                             <th>Seção</th>   
                                             <th>Nome</th>   
+                                            <th>Descrição</th>   
                                             <th class="td-one-action">Ações</th>
                                         </tr>
                                     </thead>
@@ -185,8 +186,8 @@
                                             <tr>
                                                 <td>@cond.SECAO.SECA_NM_NOME</td>
                                                 <td>@cond.SUSE_NM_NOME</td>
+                                                <td>@cond.SUSE_DS_DESCRICAO</td>
                                                 <td class="td-one-action">
-                                                    <span style="color: #337ab7; cursor: pointer;" class="tbl-link fa-lg fa fa-info-circle" onclick="mostrarDesc('@cond.SUSE_DS_DESCRICAO')"></span>
                                                     @Html.TableLinkDetails(cond.SUSE_CD_ID, "EditarSubsecao","fa-edit", "Editar/Consultar")
                                                     @if (ViewBag.Perfil == "ADM")
                                                     {

@@ -176,6 +176,7 @@
                                         <tr>
                                             <th>Tipo de Justiça</th>   
                                             <th>Nome</th>   
+                                            <th>Descrição</th>   
                                             <th class="td-one-action">Ações</th>
                                         </tr>
                                     </thead>
@@ -185,8 +186,8 @@
                                             <tr>
                                                 <td>@cond.TIPO_JUSTICA.TIJU_NM_NOME</td>
                                                 <td>@cond.REJU_NM_NOME</td>
+                                                <td>@cond.REJU_DS_DESCRICAO</td>
                                                 <td class="td-one-action">
-                                                    <span style="color: #337ab7; cursor: pointer;" class="tbl-link fa-lg fa fa-info-circle" onclick="mostrarDesc('@cond.REJU_DS_DESCRICAO')"></span>
                                                     @Html.TableLinkDetails(cond.REJU_CD_ID, "EditarTipoAcao","fa-edit", "Editar/Consultar")
                                                     @if (ViewBag.Perfil == "ADM")
                                                     {
