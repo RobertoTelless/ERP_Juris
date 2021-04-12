@@ -49,7 +49,7 @@
                 <div class="ibox-content">
                     <h1 class="no-margins">@ViewBag.Tarefas</h1>
                     <div class="stat-percent font-bold text-navy">32% <i class="fa fa-level-up"></i></div>
-                    <small>Tarefas Cadastrados</small>
+                    <small>Tarefas Exibidas</small>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@
                             </div>
                             <div class="col-lg-3 col-md-3 col-xs-12">
                                 Data de Início
-                                @Html.TextBoxFor(m => m.TARE_DT_CADASTRO, "{0:dd/MM/yyyy}", new { @class = "form-control date-picker", autofocus = true })
+                                @Html.TextBoxFor(m => m.TARE_DT_CADASTRO, "{0:dd/MM/yyyy}", new { @class = "form-control date-picker", autofocus = true, @id = "data" })
                             </div>
                             <div class="col-lg-3 col-md-3 col-xs-12">
                                 Status
@@ -262,15 +262,25 @@
     <link href="~/Content/themes/base/all.css" rel="stylesheet" />
     @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
     @Styles.Render("~/plugins/jasnyBootstrapStyles")
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/touchSpinStyles")
+    @Styles.Render("~/plugins/sweetAlertStyles")
     @Styles.Render("~/plugins/toastrStyles")
 }
 
 @section Scripts {
 
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     @Scripts.Render("~/plugins/toastr")
     @Scripts.Render("~/plugins/dataTables")
     @Scripts.Render("~/bundles/inputmask")
     @Scripts.Render("~/plugins/jasnyBootstrap")
+    @Scripts.Render("~/plugins/sparkline")
+    @Scripts.Render("~/plugins/switchery")
+    @Scripts.Render("~/plugins/touchSpin")
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/plugins/sweetAlert")
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
 
     <script>
@@ -334,6 +344,7 @@
         $(function () {
             $("#cpf").mask("999.999.999-99");
             $("#cnpj").mask("99.999.999/9999-99");
+            $("#data").mask("99/99/9999");
         });
     </script>
     <script type="text/javascript" language="javascript">

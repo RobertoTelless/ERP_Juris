@@ -16,6 +16,9 @@ namespace EntitiesServices.Model
     {
         public int USFU_CD_ID { get; set; }
         public int USUA_CD_ID { get; set; }
+        public Nullable<int> ESCO_CD_ID { get; set; }
+        public Nullable<int> ESCI_CD_ID { get; set; }
+        public Nullable<int> PROF_CD_ID { get; set; }
         public Nullable<System.DateTime> USFU_DT_NASCIMENTO { get; set; }
         public string USFU_NM_PAI { get; set; }
         public string USFU_NM_MAE { get; set; }
@@ -50,9 +53,6 @@ namespace EntitiesServices.Model
         public Nullable<System.DateTime> USFU_DT_CNH_VALIDADE { get; set; }
         public string USFU_NM_CNH_CATEGORIA { get; set; }
         public string USFU_NR_CNS { get; set; }
-        public Nullable<int> ESCO_CD_ID { get; set; }
-        public Nullable<int> ESCI_CD_ID { get; set; }
-        public Nullable<int> PROF_CD_ID { get; set; }
         public string USFU_NM_ENDERECO { get; set; }
         public string USFU_NR_NUMERO { get; set; }
         public string USFU_NR_COMPLEMENTO { get; set; }
@@ -65,7 +65,6 @@ namespace EntitiesServices.Model
         public Nullable<int> USFU_SG_TITULO_UF { get; set; }
         public Nullable<int> USFU_SG_CARTTRAB_UF { get; set; }
     
-        public virtual USUARIO USUARIO { get; set; }
         public virtual ESCOLARIDADE ESCOLARIDADE { get; set; }
         public virtual ESTADO_CIVIL ESTADO_CIVIL { get; set; }
         public virtual PROFISSAO PROFISSAO { get; set; }
@@ -74,5 +73,6 @@ namespace EntitiesServices.Model
         public virtual UF UF2 { get; set; }
         public virtual UF UF3 { get; set; }
         public virtual UF UF4 { get; set; }
+        public virtual USUARIO USUARIO { get; set; }
     }
 }

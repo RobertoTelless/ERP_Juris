@@ -58,6 +58,10 @@
                     <div class="tabs-container">
                         @using (Html.BeginForm("IncluirAgenda", "Agenda", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", @id = "pwd-container1" }))
                         {
+                            <div class="form-group">
+                                <button class="btnSubmit btn btn-sm btn-success" id="basictoast" type="button">Confirma Inclusão da Agenda</button>
+                                @Html.ButtonLinkIndex(text: "Cancelar", action: "VoltarBaseAgenda", controller: "Agenda")
+                            </div>
                             <ul class="nav nav-tabs">
                                 <li class="active"><a data-toggle="tab" href="#tab-1">Dados Gerais</a></li>
                                 <li><a data-toggle="tab" href="#tab-2">Imagens</a></li>
@@ -194,6 +198,7 @@
             $("#cnpj").mask("99.999.999/9999-99");
             $("#cep").mask("99999-999");
             $("#hora").mask("99:99");
+            $("#data").mask("99/99/9999");
         });
     </script>
     <script type="text/javascript">

@@ -18,10 +18,10 @@ namespace EntitiesServices.Model
         public int ASSI_CD_ID { get; set; }
         public string CECU_NR_NUMERO { get; set; }
         public string CECU_NM_NOME { get; set; }
-        public Nullable<int> CECU_IN_TIPO { get; set; }
         public int CECU_IN_ATIVO { get; set; }
         public Nullable<int> GRUP_CD_ID { get; set; }
         public Nullable<int> SUBG_CD_ID { get; set; }
+        public Nullable<int> CECU_IN_TIPO { get; set; }
         public Nullable<int> CECU_IN_MOVTO { get; set; }
         public string CECU_NM_EXIBE { get; set; }
     

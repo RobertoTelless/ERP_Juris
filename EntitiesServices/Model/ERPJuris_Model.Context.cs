@@ -13,10 +13,10 @@ namespace EntitiesServices.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ERP_JurisEntities : DbContext
+    public partial class Erp_JurisEntities : DbContext
     {
-        public ERP_JurisEntities()
-            : base("name=ERP_JurisEntities")
+        public Erp_JurisEntities()
+            : base("name=Erp_JurisEntities")
         {
         }
     
@@ -25,46 +25,20 @@ namespace EntitiesServices.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AGENDA> AGENDA { get; set; }
-        public virtual DbSet<AGENDA_ANEXO> AGENDA_ANEXO { get; set; }
-        public virtual DbSet<ASSINANTE> ASSINANTE { get; set; }
-        public virtual DbSet<CARGO> CARGO { get; set; }
-        public virtual DbSet<CATEGORIA_AGENDA> CATEGORIA_AGENDA { get; set; }
-        public virtual DbSet<CATEGORIA_FORNECEDOR> CATEGORIA_FORNECEDOR { get; set; }
-        public virtual DbSet<CATEGORIA_NOTIFICACAO> CATEGORIA_NOTIFICACAO { get; set; }
-        public virtual DbSet<CATEGORIA_USUARIO> CATEGORIA_USUARIO { get; set; }
-        public virtual DbSet<CONFIGURACAO> CONFIGURACAO { get; set; }
-        public virtual DbSet<FORNECEDOR> FORNECEDOR { get; set; }
-        public virtual DbSet<FORNECEDOR_ANEXO> FORNECEDOR_ANEXO { get; set; }
-        public virtual DbSet<FORNECEDOR_COMENTARIO> FORNECEDOR_COMENTARIO { get; set; }
-        public virtual DbSet<FORNECEDOR_CONTATO> FORNECEDOR_CONTATO { get; set; }
-        public virtual DbSet<FORNECEDOR_QUADRO_SOCIETARIO> FORNECEDOR_QUADRO_SOCIETARIO { get; set; }
-        public virtual DbSet<LOG> LOG { get; set; }
-        public virtual DbSet<NOTICIA> NOTICIA { get; set; }
-        public virtual DbSet<NOTICIA_COMENTARIO> NOTICIA_COMENTARIO { get; set; }
-        public virtual DbSet<NOTIFICACAO> NOTIFICACAO { get; set; }
-        public virtual DbSet<NOTIFICACAO_ANEXO> NOTIFICACAO_ANEXO { get; set; }
-        public virtual DbSet<PERFIL> PERFIL { get; set; }
-        public virtual DbSet<TAREFA> TAREFA { get; set; }
-        public virtual DbSet<TAREFA_ACOMPANHAMENTO> TAREFA_ACOMPANHAMENTO { get; set; }
-        public virtual DbSet<TAREFA_ANEXO> TAREFA_ANEXO { get; set; }
-        public virtual DbSet<TAREFA_NOTIFICACAO> TAREFA_NOTIFICACAO { get; set; }
-        public virtual DbSet<TAREFA_VINCULO> TAREFA_VINCULO { get; set; }
-        public virtual DbSet<TEMPLATE> TEMPLATE { get; set; }
-        public virtual DbSet<TIPO_PESSOA> TIPO_PESSOA { get; set; }
-        public virtual DbSet<TIPO_TAREFA> TIPO_TAREFA { get; set; }
-        public virtual DbSet<UF> UF { get; set; }
-        public virtual DbSet<USUARIO> USUARIO { get; set; }
-        public virtual DbSet<USUARIO_ANEXO> USUARIO_ANEXO { get; set; }
-        public virtual DbSet<USUARIO_FUNCIONARIO> USUARIO_FUNCIONARIO { get; set; }
-        public virtual DbSet<TIPO_MENSAGEM> TIPO_MENSAGEM { get; set; }
-        public virtual DbSet<FORNECEDOR_MENSAGEM> FORNECEDOR_MENSAGEM { get; set; }
-        public virtual DbSet<EMPRESA> EMPRESA { get; set; }
         public virtual DbSet<ADVOGADO_CONTRARIO> ADVOGADO_CONTRARIO { get; set; }
         public virtual DbSet<ADVOGADO_CONTRARIO_ANEXO> ADVOGADO_CONTRARIO_ANEXO { get; set; }
         public virtual DbSet<ADVOGADO_CONTRARIO_COMENTARIO> ADVOGADO_CONTRARIO_COMENTARIO { get; set; }
+        public virtual DbSet<AGENDA> AGENDA { get; set; }
+        public virtual DbSet<AGENDA_ANEXO> AGENDA_ANEXO { get; set; }
+        public virtual DbSet<ASSINANTE> ASSINANTE { get; set; }
         public virtual DbSet<BANCO> BANCO { get; set; }
+        public virtual DbSet<CARGO> CARGO { get; set; }
+        public virtual DbSet<CATEGORIA_AGENDA> CATEGORIA_AGENDA { get; set; }
         public virtual DbSet<CATEGORIA_CLIENTE> CATEGORIA_CLIENTE { get; set; }
+        public virtual DbSet<CATEGORIA_FORNECEDOR> CATEGORIA_FORNECEDOR { get; set; }
+        public virtual DbSet<CATEGORIA_NOTIFICACAO> CATEGORIA_NOTIFICACAO { get; set; }
+        public virtual DbSet<CATEGORIA_USUARIO> CATEGORIA_USUARIO { get; set; }
+        public virtual DbSet<CENTRO_CUSTO> CENTRO_CUSTO { get; set; }
         public virtual DbSet<CIDADE_COMARCA> CIDADE_COMARCA { get; set; }
         public virtual DbSet<CLASSE> CLASSE { get; set; }
         public virtual DbSet<CLIENTE> CLIENTE { get; set; }
@@ -75,21 +49,37 @@ namespace EntitiesServices.Model
         public virtual DbSet<CLIENTE_MENSAGEM> CLIENTE_MENSAGEM { get; set; }
         public virtual DbSet<CLIENTE_QUADRO_SOCIETARIO> CLIENTE_QUADRO_SOCIETARIO { get; set; }
         public virtual DbSet<CONDICAO_PROCESSUAL> CONDICAO_PROCESSUAL { get; set; }
+        public virtual DbSet<CONFIGURACAO> CONFIGURACAO { get; set; }
         public virtual DbSet<CONTA_BANCO> CONTA_BANCO { get; set; }
         public virtual DbSet<CONTA_BANCO_CONTATO> CONTA_BANCO_CONTATO { get; set; }
         public virtual DbSet<CONTA_BANCO_LANCAMENTO> CONTA_BANCO_LANCAMENTO { get; set; }
         public virtual DbSet<DOCUMENTO> DOCUMENTO { get; set; }
         public virtual DbSet<DOCUMENTO_METADADO> DOCUMENTO_METADADO { get; set; }
+        public virtual DbSet<EMPRESA> EMPRESA { get; set; }
         public virtual DbSet<ESCOLARIDADE> ESCOLARIDADE { get; set; }
+        public virtual DbSet<ESPECIALIDADE> ESPECIALIDADE { get; set; }
         public virtual DbSet<ESTADO_CIVIL> ESTADO_CIVIL { get; set; }
+        public virtual DbSet<FORNECEDOR> FORNECEDOR { get; set; }
+        public virtual DbSet<FORNECEDOR_ANEXO> FORNECEDOR_ANEXO { get; set; }
+        public virtual DbSet<FORNECEDOR_COMENTARIO> FORNECEDOR_COMENTARIO { get; set; }
+        public virtual DbSet<FORNECEDOR_CONTATO> FORNECEDOR_CONTATO { get; set; }
+        public virtual DbSet<FORNECEDOR_MENSAGEM> FORNECEDOR_MENSAGEM { get; set; }
+        public virtual DbSet<FORNECEDOR_QUADRO_SOCIETARIO> FORNECEDOR_QUADRO_SOCIETARIO { get; set; }
         public virtual DbSet<FORO> FORO { get; set; }
         public virtual DbSet<GRAU_PARENTESCO> GRAU_PARENTESCO { get; set; }
+        public virtual DbSet<GRUPO> GRUPO { get; set; }
         public virtual DbSet<GRUPO_DOCUMENTO> GRUPO_DOCUMENTO { get; set; }
+        public virtual DbSet<LOG> LOG { get; set; }
         public virtual DbSet<METADADO> METADADO { get; set; }
         public virtual DbSet<MODELO_DOCUMENTO> MODELO_DOCUMENTO { get; set; }
         public virtual DbSet<NIVEL_SEGURANCA> NIVEL_SEGURANCA { get; set; }
+        public virtual DbSet<NOTICIA> NOTICIA { get; set; }
+        public virtual DbSet<NOTICIA_COMENTARIO> NOTICIA_COMENTARIO { get; set; }
+        public virtual DbSet<NOTIFICACAO> NOTIFICACAO { get; set; }
+        public virtual DbSet<NOTIFICACAO_ANEXO> NOTIFICACAO_ANEXO { get; set; }
         public virtual DbSet<ORGAO_CLASSE> ORGAO_CLASSE { get; set; }
         public virtual DbSet<PARTE_CONTRARIA> PARTE_CONTRARIA { get; set; }
+        public virtual DbSet<PERFIL> PERFIL { get; set; }
         public virtual DbSet<PROCESSO> PROCESSO { get; set; }
         public virtual DbSet<PROCESSO_ANDAMENTO> PROCESSO_ANDAMENTO { get; set; }
         public virtual DbSet<PROCESSO_COMENTARIO> PROCESSO_COMENTARIO { get; set; }
@@ -99,17 +89,27 @@ namespace EntitiesServices.Model
         public virtual DbSet<SECAO> SECAO { get; set; }
         public virtual DbSet<SEXO> SEXO { get; set; }
         public virtual DbSet<SITUACAO_PROCESSO> SITUACAO_PROCESSO { get; set; }
+        public virtual DbSet<SUBGRUPO> SUBGRUPO { get; set; }
         public virtual DbSet<SUBSECAO> SUBSECAO { get; set; }
+        public virtual DbSet<TAREFA> TAREFA { get; set; }
+        public virtual DbSet<TAREFA_ACOMPANHAMENTO> TAREFA_ACOMPANHAMENTO { get; set; }
+        public virtual DbSet<TAREFA_ANEXO> TAREFA_ANEXO { get; set; }
+        public virtual DbSet<TAREFA_NOTIFICACAO> TAREFA_NOTIFICACAO { get; set; }
+        public virtual DbSet<TAREFA_VINCULO> TAREFA_VINCULO { get; set; }
+        public virtual DbSet<TEMPLATE> TEMPLATE { get; set; }
         public virtual DbSet<TIPO_ACAO> TIPO_ACAO { get; set; }
         public virtual DbSet<TIPO_ANDAMENTO> TIPO_ANDAMENTO { get; set; }
         public virtual DbSet<TIPO_CONTA> TIPO_CONTA { get; set; }
         public virtual DbSet<TIPO_DESLIGAMENTO> TIPO_DESLIGAMENTO { get; set; }
         public virtual DbSet<TIPO_JUSTICA> TIPO_JUSTICA { get; set; }
+        public virtual DbSet<TIPO_MENSAGEM> TIPO_MENSAGEM { get; set; }
         public virtual DbSet<TIPO_METADADO> TIPO_METADADO { get; set; }
+        public virtual DbSet<TIPO_PESSOA> TIPO_PESSOA { get; set; }
+        public virtual DbSet<TIPO_TAREFA> TIPO_TAREFA { get; set; }
+        public virtual DbSet<UF> UF { get; set; }
+        public virtual DbSet<USUARIO> USUARIO { get; set; }
+        public virtual DbSet<USUARIO_ANEXO> USUARIO_ANEXO { get; set; }
+        public virtual DbSet<USUARIO_FUNCIONARIO> USUARIO_FUNCIONARIO { get; set; }
         public virtual DbSet<VARA> VARA { get; set; }
-        public virtual DbSet<ESPECIALIDADE> ESPECIALIDADE { get; set; }
-        public virtual DbSet<CENTRO_CUSTO> CENTRO_CUSTO { get; set; }
-        public virtual DbSet<GRUPO> GRUPO { get; set; }
-        public virtual DbSet<SUBGRUPO> SUBGRUPO { get; set; }
     }
 }

@@ -23,6 +23,8 @@ namespace EntitiesServices.Model
         public string EMPR_NM_NOME { get; set; }
         public string EMPR_NM_RAZAO_SOCIAL { get; set; }
         public string EMPR_NM_ENDERECO { get; set; }
+        public string EMPR_NR_NUMERO { get; set; }
+        public string EMPR_NR_COMPLEMENTO { get; set; }
         public string EMPR_NM_BAIRRO { get; set; }
         public string EMPR_NM_CIDADE { get; set; }
         public string EMPR_NR_CEP { get; set; }
@@ -30,8 +32,6 @@ namespace EntitiesServices.Model
         public string EMPR_NR_INSCRICAO_MUNICIPAL { get; set; }
         public string EMPR_NR_INSCRICAO_ESTADUAL { get; set; }
         public string EMPR_AQ_LOGO { get; set; }
-        public string EMPR_NR_NUMERO { get; set; }
-        public string EMPR_NR_COMPLEMENTO { get; set; }
     
         public virtual ASSINANTE ASSINANTE { get; set; }
         public virtual TIPO_PESSOA TIPO_PESSOA { get; set; }

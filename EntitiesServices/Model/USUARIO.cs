@@ -17,9 +17,15 @@ namespace EntitiesServices.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public USUARIO()
         {
+            this.ADVOGADO_CONTRARIO_COMENTARIO = new HashSet<ADVOGADO_CONTRARIO_COMENTARIO>();
             this.AGENDA = new HashSet<AGENDA>();
             this.AGENDA1 = new HashSet<AGENDA>();
+            this.CLIENTE = new HashSet<CLIENTE>();
+            this.CLIENTE_COMENTARIO = new HashSet<CLIENTE_COMENTARIO>();
+            this.CLIENTE_MENSAGEM = new HashSet<CLIENTE_MENSAGEM>();
+            this.EMPRESA = new HashSet<EMPRESA>();
             this.FORNECEDOR_COMENTARIO = new HashSet<FORNECEDOR_COMENTARIO>();
+            this.FORNECEDOR_MENSAGEM = new HashSet<FORNECEDOR_MENSAGEM>();
             this.LOG = new HashSet<LOG>();
             this.NOTICIA_COMENTARIO = new HashSet<NOTICIA_COMENTARIO>();
             this.NOTIFICACAO = new HashSet<NOTIFICACAO>();
@@ -29,12 +35,6 @@ namespace EntitiesServices.Model
             this.TAREFA_VINCULO = new HashSet<TAREFA_VINCULO>();
             this.USUARIO_ANEXO = new HashSet<USUARIO_ANEXO>();
             this.USUARIO_FUNCIONARIO = new HashSet<USUARIO_FUNCIONARIO>();
-            this.FORNECEDOR_MENSAGEM = new HashSet<FORNECEDOR_MENSAGEM>();
-            this.EMPRESA = new HashSet<EMPRESA>();
-            this.ADVOGADO_CONTRARIO_COMENTARIO = new HashSet<ADVOGADO_CONTRARIO_COMENTARIO>();
-            this.CLIENTE = new HashSet<CLIENTE>();
-            this.CLIENTE_COMENTARIO = new HashSet<CLIENTE_COMENTARIO>();
-            this.CLIENTE_MENSAGEM = new HashSet<CLIENTE_MENSAGEM>();
         }
     
         public int USUA_CD_ID { get; set; }
@@ -42,6 +42,8 @@ namespace EntitiesServices.Model
         public int PERF_CD_ID { get; set; }
         public Nullable<int> CAUS_CD_ID { get; set; }
         public Nullable<int> CARG_CD_ID { get; set; }
+        public Nullable<int> ESPE_CD_ID { get; set; }
+        public Nullable<int> TIDE_CD_ID { get; set; }
         public string USUA_NM_NOME { get; set; }
         public string USUA_NM_LOGIN { get; set; }
         public string USUA_NM_EMAIL { get; set; }
@@ -69,15 +71,15 @@ namespace EntitiesServices.Model
         public Nullable<int> USUA_IN_LOGADO { get; set; }
         public string USUA_NR_CPF { get; set; }
         public string USUA_NR_RG { get; set; }
+        public string USUA_NR_OAB { get; set; }
+        public Nullable<System.DateTime> USUA_DT_OAB { get; set; }
         public Nullable<System.DateTime> USUA_DT_ENTRADA { get; set; }
         public Nullable<System.DateTime> USUA_DT_SAIDA { get; set; }
         public string USUA_DS_MOTIVO_SAIDA { get; set; }
         public string USUA_DS_JUSTIFICATIVA { get; set; }
-        public Nullable<int> ESPE_CD_ID { get; set; }
-        public Nullable<int> TIDE_CD_ID { get; set; }
-        public string USUA_NR_OAB { get; set; }
-        public Nullable<System.DateTime> USUA_DT_OAB { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ADVOGADO_CONTRARIO_COMENTARIO> ADVOGADO_CONTRARIO_COMENTARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AGENDA> AGENDA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -86,7 +88,18 @@ namespace EntitiesServices.Model
         public virtual CARGO CARGO { get; set; }
         public virtual CATEGORIA_USUARIO CATEGORIA_USUARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CLIENTE> CLIENTE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CLIENTE_COMENTARIO> CLIENTE_COMENTARIO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CLIENTE_MENSAGEM> CLIENTE_MENSAGEM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EMPRESA> EMPRESA { get; set; }
+        public virtual ESPECIALIDADE ESPECIALIDADE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FORNECEDOR_COMENTARIO> FORNECEDOR_COMENTARIO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FORNECEDOR_MENSAGEM> FORNECEDOR_MENSAGEM { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LOG> LOG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -102,23 +115,10 @@ namespace EntitiesServices.Model
         public virtual ICollection<TAREFA_NOTIFICACAO> TAREFA_NOTIFICACAO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TAREFA_VINCULO> TAREFA_VINCULO { get; set; }
+        public virtual TIPO_DESLIGAMENTO TIPO_DESLIGAMENTO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USUARIO_ANEXO> USUARIO_ANEXO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USUARIO_FUNCIONARIO> USUARIO_FUNCIONARIO { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FORNECEDOR_MENSAGEM> FORNECEDOR_MENSAGEM { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EMPRESA> EMPRESA { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ADVOGADO_CONTRARIO_COMENTARIO> ADVOGADO_CONTRARIO_COMENTARIO { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CLIENTE> CLIENTE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CLIENTE_COMENTARIO> CLIENTE_COMENTARIO { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CLIENTE_MENSAGEM> CLIENTE_MENSAGEM { get; set; }
-        public virtual ESPECIALIDADE ESPECIALIDADE { get; set; }
-        public virtual TIPO_DESLIGAMENTO TIPO_DESLIGAMENTO { get; set; }
     }
 }

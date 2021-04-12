@@ -25,8 +25,8 @@ namespace EntitiesServices.Model
         public int ASSI_CD_ID { get; set; }
         public string CICO_NM_NOME { get; set; }
         public Nullable<int> UF_CD_ID { get; set; }
-        public string CICO_IN_ATIVO { get; set; }
         public Nullable<int> CICO_IN_TIPO { get; set; }
+        public string CICO_IN_ATIVO { get; set; }
     
         public virtual ASSINANTE ASSINANTE { get; set; }
         public virtual UF UF { get; set; }

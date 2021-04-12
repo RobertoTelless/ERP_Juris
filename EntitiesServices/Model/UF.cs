@@ -17,21 +17,21 @@ namespace EntitiesServices.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UF()
         {
-            this.ASSINANTE = new HashSet<ASSINANTE>();
-            this.FORNECEDOR = new HashSet<FORNECEDOR>();
-            this.EMPRESA = new HashSet<EMPRESA>();
             this.ADVOGADO_CONTRARIO = new HashSet<ADVOGADO_CONTRARIO>();
+            this.ASSINANTE = new HashSet<ASSINANTE>();
             this.CIDADE_COMARCA = new HashSet<CIDADE_COMARCA>();
             this.CLIENTE = new HashSet<CLIENTE>();
             this.CLIENTE1 = new HashSet<CLIENTE>();
             this.CLIENTE2 = new HashSet<CLIENTE>();
+            this.EMPRESA = new HashSet<EMPRESA>();
+            this.FORNECEDOR = new HashSet<FORNECEDOR>();
             this.FORO = new HashSet<FORO>();
-            this.VARA = new HashSet<VARA>();
             this.USUARIO_FUNCIONARIO = new HashSet<USUARIO_FUNCIONARIO>();
             this.USUARIO_FUNCIONARIO1 = new HashSet<USUARIO_FUNCIONARIO>();
             this.USUARIO_FUNCIONARIO2 = new HashSet<USUARIO_FUNCIONARIO>();
             this.USUARIO_FUNCIONARIO3 = new HashSet<USUARIO_FUNCIONARIO>();
             this.USUARIO_FUNCIONARIO4 = new HashSet<USUARIO_FUNCIONARIO>();
+            this.VARA = new HashSet<VARA>();
         }
     
         public int UF_CD_ID { get; set; }
@@ -40,13 +40,9 @@ namespace EntitiesServices.Model
         public Nullable<int> UF_IN_ATIVO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ASSINANTE> ASSINANTE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FORNECEDOR> FORNECEDOR { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EMPRESA> EMPRESA { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ADVOGADO_CONTRARIO> ADVOGADO_CONTRARIO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ASSINANTE> ASSINANTE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CIDADE_COMARCA> CIDADE_COMARCA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -56,9 +52,11 @@ namespace EntitiesServices.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CLIENTE> CLIENTE2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FORO> FORO { get; set; }
+        public virtual ICollection<EMPRESA> EMPRESA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VARA> VARA { get; set; }
+        public virtual ICollection<FORNECEDOR> FORNECEDOR { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FORO> FORO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USUARIO_FUNCIONARIO> USUARIO_FUNCIONARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -69,5 +67,7 @@ namespace EntitiesServices.Model
         public virtual ICollection<USUARIO_FUNCIONARIO> USUARIO_FUNCIONARIO3 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USUARIO_FUNCIONARIO> USUARIO_FUNCIONARIO4 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VARA> VARA { get; set; }
     }
 }
