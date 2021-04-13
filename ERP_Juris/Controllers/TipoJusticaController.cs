@@ -95,13 +95,13 @@ namespace ERP_Juris.Controllers
                 Session["ListaTipoJustica"] = listaMaster;
             }
 
-            ViewBag.Listas = listaMaster;
+            ViewBag.Listas = (List<TIPO_JUSTICA>)Session["ListaTipoJustica"];
             ViewBag.Title = "Tipos de Justiça";
             //ViewBag.Cats = new SelectList(fornApp.GetAllCategorias(idAss), "CAFO_CD_ID", "CAFO_NM_NOME");
             ViewBag.Perfil = usuario.PERFIL.PERF_SG_SIGLA;
 
             // Indicadores
-            ViewBag.TiposJustica = listaMaster.Count;
+            ViewBag.TiposJustica = ((List<TIPO_JUSTICA>)Session["ListaTipoJustica"]).Count;
             
             // Mensagem
             if ((Int32)Session["MensTipoJustica"] == 1)
@@ -329,7 +329,7 @@ namespace ERP_Juris.Controllers
                     // Executa a operação
                     USUARIO usuario = (USUARIO)Session["UserCredentials"];
                     TIPO_JUSTICA item = Mapper.Map<TipoJusticaViewModel, TIPO_JUSTICA>(vm);
-                    Int32 volta = baseApp.ValidateEdit(item, objetoAntes, usuario);
+                    Int32 volta = baseApp.ValidateEdit(item, (TIPO_JUSTICA)Session["TipoJustica"], usuario);
 
                     // Verifica retorno
                     if (volta == 1)

@@ -121,8 +121,8 @@ namespace ApplicationServices.Services
                     ASSI_CD_ID = usuario.ASSI_CD_ID,
                     LOG_NM_OPERACAO = "EditTIAC",
                     LOG_IN_ATIVO = 1,
-                    LOG_TX_REGISTRO = Serialization.SerializeJSON<TIPO_ACAO>(item),
-                    LOG_TX_REGISTRO_ANTES = Serialization.SerializeJSON<TIPO_ACAO>(itemAntes)
+                    LOG_TX_REGISTRO = item.TIAC_NM_NOME + "|" + item.TIAC_DS_DESCRICAO + "|" + item.TIAC_VL_VALOR_HORA.ToString(),
+                    LOG_TX_REGISTRO_ANTES = itemAntes.TIAC_NM_NOME + "|" + itemAntes.TIAC_DS_DESCRICAO + "|" + itemAntes.TIAC_VL_VALOR_HORA.ToString()
                 };
 
                 // Persiste
@@ -168,7 +168,7 @@ namespace ApplicationServices.Services
                     ASSI_CD_ID = usuario.ASSI_CD_ID,
                     LOG_IN_ATIVO = 1,
                     LOG_NM_OPERACAO = "DeleTIAC",
-                    LOG_TX_REGISTRO = "Tipo de Ação: " + item.TIAC_NM_NOME
+                    LOG_TX_REGISTRO = item.TIAC_NM_NOME + "|" + item.TIAC_DS_DESCRICAO + "|" + item.TIAC_VL_VALOR_HORA.ToString(),
                 };
 
                 // Persiste
@@ -197,7 +197,7 @@ namespace ApplicationServices.Services
                     ASSI_CD_ID = usuario.ASSI_CD_ID,
                     LOG_IN_ATIVO = 1,
                     LOG_NM_OPERACAO = "ReatTIAC",
-                    LOG_TX_REGISTRO = "Tipo de Ação: " + item.TIAC_NM_NOME
+                    LOG_TX_REGISTRO = item.TIAC_NM_NOME + "|" + item.TIAC_DS_DESCRICAO + "|" + item.TIAC_VL_VALOR_HORA.ToString(),
                 };
 
                 // Persiste

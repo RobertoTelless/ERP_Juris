@@ -96,13 +96,13 @@ namespace ERP_Juris.Controllers
                 Session["ListaSecao"] = listaMaster;
             }
 
-            ViewBag.Listas = listaMaster;
+            ViewBag.Listas = (List<SECAO>)Session["ListaSecao"];
             ViewBag.Title = "Seções";
             ViewBag.Regioes = new SelectList(tjApp.GetAllItens(idAss), "REJU_CD_ID", "REJU_NM_NOME");
             ViewBag.Perfil = usuario.PERFIL.PERF_SG_SIGLA;
 
             // Indicadores
-            ViewBag.Secoes = listaMaster.Count;
+            ViewBag.Secoes = ((List<SECAO>)Session["ListaSecao"]).Count;
             
             // Mensagem
             if ((Int32)Session["MensSecao"] == 1)
@@ -332,7 +332,7 @@ namespace ERP_Juris.Controllers
                     // Executa a operação
                     USUARIO usuario = (USUARIO)Session["UserCredentials"];
                     SECAO item = Mapper.Map<SecaoViewModel, SECAO>(vm);
-                    Int32 volta = baseApp.ValidateEdit(item, objetoAntes, usuario);
+                    Int32 volta = baseApp.ValidateEdit(item, (SECAO)Session["Secao"], usuario);
 
                     // Verifica retorno
                     if (volta == 1)

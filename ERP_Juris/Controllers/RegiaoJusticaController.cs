@@ -96,13 +96,13 @@ namespace ERP_Juris.Controllers
                 Session["ListaRegiaoJustica"] = listaMaster;
             }
 
-            ViewBag.Listas = listaMaster;
+            ViewBag.Listas = (List<REGIAO_JUSTICA>)Session["ListaRegiaoJustica"];
             ViewBag.Title = "Regiões de Justiça";
             ViewBag.Tipos = new SelectList(tjApp.GetAllItens(idAss), "TIJU_CD_ID", "TIJU_NM_NOME");
             ViewBag.Perfil = usuario.PERFIL.PERF_SG_SIGLA;
 
             // Indicadores
-            ViewBag.Regioes = listaMaster.Count;
+            ViewBag.Regioes = ((List<REGIAO_JUSTICA>)Session["ListaRegiaoJustica"]).Count;
             
             // Mensagem
             if ((Int32)Session["MensRegiaoJustica"] == 1)
@@ -332,7 +332,7 @@ namespace ERP_Juris.Controllers
                     // Executa a operação
                     USUARIO usuario = (USUARIO)Session["UserCredentials"];
                     REGIAO_JUSTICA item = Mapper.Map<RegiaoJusticaViewModel, REGIAO_JUSTICA>(vm);
-                    Int32 volta = baseApp.ValidateEdit(item, objetoAntes, usuario);
+                    Int32 volta = baseApp.ValidateEdit(item, (REGIAO_JUSTICA)Session["RegiaoJustica"], usuario);
 
                     // Verifica retorno
                     if (volta == 1)

@@ -19,6 +19,7 @@ function SendFiles(inputProfileId, controller, actionIncluir, actionUpload, acti
     let inputFile = $('#inputFile');
     let inputProfile = $('#' + inputProfileId); //$('#imgExemplo');
     let buttonSubmit = $('.btnSubmit');
+    let buttonReturn = $('.btnReturn');
     let filesContainer = $('#myFiles');
     let files = [];
 
@@ -72,6 +73,11 @@ function SendFiles(inputProfileId, controller, actionIncluir, actionUpload, acti
         }
     });
 
+    buttonReturn.click(function () {
+        actionMontarTela = actionIncluir;
+        buttonSubmit.click();
+    });
+
     buttonSubmit.click(function () {
         //toastr.success('Inclusão em andamento!')
 
@@ -85,6 +91,7 @@ function SendFiles(inputProfileId, controller, actionIncluir, actionUpload, acti
 
         $.ajax({
             url: controller + actionIncluir //'../Exemplo/IncluirExemplo'
+            , async: false
             , data: $('#pwd-container1').serializeArray()
             , type: 'POST'
             , success: function (r) {
@@ -104,6 +111,8 @@ function SendFiles(inputProfileId, controller, actionIncluir, actionUpload, acti
                             , success: function (data) {
                                 if (getUrlParameter('voltaCliente') == "1") {
                                     window.open('../Atendimento/IncluirAtendimento', '_self');
+                                } else if (getUrlParameter('voltaCompra') == "1") {
+                                    window.open('../Compra/MontarTelaPedidoCompra', '_self');
                                 } else {
                                     if (editar) {
                                         window.open(controller + actionMontarTela + '/' + r.id, '_self');
@@ -120,6 +129,8 @@ function SendFiles(inputProfileId, controller, actionIncluir, actionUpload, acti
                     } else {
                         if (getUrlParameter('voltaCliente') == "1") {
                             window.open('../Atendimento/IncluirAtendimento', '_self');
+                        } else if (getUrlParameter('voltaCompra') == "1") {
+                            window.open('../Compra/MontarTelaPedidoCompra', '_self');
                         } else {
                             if (editar && r.id != undefined) {
                                 window.open(controller + actionMontarTela + '/' + r.id, '_self');
@@ -157,12 +168,13 @@ function SendFiles(inputProfileId, controller, actionIncluir, actionUpload, acti
 }
 
 
-function SendFilesCompra(inputProfileId, controller, actionIncluir, actionUpload, actionMontarTela, editar = false) {
+function SendFilesV2(inputProfileId, controller, actionUpload) {
     controller = '../' + controller + '/';
 
     let inputFile = $('#inputFile');
     let inputProfile = $('#' + inputProfileId); //$('#imgExemplo');
     let buttonSubmit = $('.btnSubmit');
+    let buttonReturn = $('.btnReturn');
     let filesContainer = $('#myFiles');
     let files = [];
 
@@ -189,6 +201,8 @@ function SendFilesCompra(inputProfileId, controller, actionIncluir, actionUpload
         });
     });
 
+    var profileName = "";
+
     inputProfile.change(function () {
         if ($('#profile').length == 0) {
             let newFiles = [];
@@ -204,6 +218,8 @@ function SendFilesCompra(inputProfileId, controller, actionIncluir, actionUpload
                 $('.dataTables_empty').parent().remove()
                 filesContainer.prepend(fileElement);
 
+                profileName = file.name;
+
                 fileElement.click(function (event) {
                     let fileElement = $(event.target);
                     let indexToRemove = files.indexOf(fileElement.data('fileData'));
@@ -216,88 +232,50 @@ function SendFilesCompra(inputProfileId, controller, actionIncluir, actionUpload
         }
     });
 
+    buttonReturn.click(function () {
+        $.ajax({
+            url: controller + 'FlagContinua'
+            , async: true
+            , type: 'POST'
+            , cache: false
+            , processData: false
+            , contentType: false
+        });
+
+        buttonSubmit.click();
+    });
+
     buttonSubmit.click(function () {
         //toastr.success('Inclusão em andamento!')
+        buttonSubmit.prop('disabled', true);
 
         let formData = new FormData();
 
-        files.forEach(file => {
-            formData.append('files', file);
-        });
-
-        console.log('Sending...');
-
-        var model = {
-            "ASSI_CD_ID": $('#ASSI_CD_ID').val()
-            , "PECO_IN_ATIVO": $('#PECO_IN_ATIVO').val()
-            , "PECO_IN_STATUS": $('#PECO_IN_STATUS').val()
-            , "MATR_CD_ID": $('#MATR_CD_ID').val()
-            , "FILI_CD_ID": $('#FILI_CD_ID').val()
-            , "USUA_CD_ID": $('#USUA_CD_ID').val()
-            , "PECO_NM_NOME": $('#PECO_NM_NOME').val()
-            , "PECO_DT_DATA": $('#PECO_DT_DATA').val()
-            , "PECO_DT_PREVISTA": $('#PECO_DT_PREVISTA').val()
-            , "PECO_DS_DESCRICAO": $('#PECO_DS_DESCRICAO').val()
-            , "PECO_CD_ID": $('#PECO_CD_ID').val()
-            , "PECO_TX_OBSERVACAO": $('#PECO_TX_OBSERVACAO').val()
-        }
-
-        var json = new Array();
-
-        $('table#itemPedido > tbody > tr').each(function (i, e) {
-            json.push({
-                "ITPC_IN_TIPO": $(e).find('input[name="rowTipo"]').val()
-                , "PROD_CD_ID": $(e).find('input[name="rowProd"]').val()
-                , "MAPR_CD_ID": $(e).find('input[name="rowIns"]').val()
-                , "UNID_CD_ID": $(e).find('input[name="rowUnd"]').val()
-                , "ITPC_QN_QUANTIDADE": $(e).find('input[name="rowQtde"]').val()
-                , "ITPC_TX_OBSERVACOES": $(e).find('input[name="rowObs"]').val()
+        if (files.length > 0) {
+            files.forEach(file => {
+                formData.append('files', file);
             });
-        });
 
-        var data = {
-            "vm": model
-            , "tabelaItemPedido": JSON.stringify(json)
+            if ($('#profile').length != 0) {
+                formData.append('profile', profileName);
+            }
+
+            $.ajax({
+                url: controller + actionUpload
+                , async: false
+                , data: formData
+                , type: 'POST'
+                , error: function (data) {
+                    buttonSubmit.prop('disabled', false);
+                    console.log('ERROR!!');
+                }
+                , cache: false
+                , processData: false
+                , contentType: false
+            });
         }
 
-        $.ajax({
-            url: controller + actionIncluir //'../Exemplo/IncluirExemplo'
-            , data: data
-            , type: 'POST'
-            , success: function (r) {
-                if ($('#profile').length == 0) {
-                    formData.append('perfil', 0);
-                } else {
-                    formData.append('perfil', 1);
-                }
-
-                if (files.length > 0) {
-                    $.ajax({
-                        url: controller + actionUpload //'../Exemplo/UploadFileExemplo_Inclusao'
-                        , async: false
-                        , data: formData
-                        , type: 'POST'
-                        , success: function (data) {
-                            if (editar) {
-                                window.open(controller + actionMontarTela + '/' + r, '_self');
-                            } else {
-                                window.open(controller + actionMontarTela, '_self');
-                            }
-                        } //'../Exemplo/MontarTelaExemplo'
-                        , error: function (data) { console.log('ERROR!!'); }
-                        , cache: false
-                        , processData: false
-                        , contentType: false
-                    });
-                } else {
-                    if (editar) {
-                        window.open(controller + actionMontarTela + '/' + r, '_self');
-                    } else {
-                        window.open(controller + actionMontarTela, '_self');
-                    }
-                }
-            }
-        });
+        $('#submit').click();
     });
 }
 
@@ -509,6 +487,7 @@ function SendFilesAgenda(inputProfileId, controller, actionIncluir, actionUpload
 
         $.ajax({
             url: controller + actionIncluir //'../Exemplo/IncluirExemplo'
+            , async: false
             , data: data
             , type: 'POST'
             , success: function (r) {
@@ -549,6 +528,7 @@ function SendFilesAgenda(inputProfileId, controller, actionIncluir, actionUpload
 }
 
 function SendFilesAgenda(inputProfileId, controller, actionIncluir, actionUpload, actionMontarTela, editar = false) {
+
     controller = '../' + controller + '/';
 
     let inputFile = $('#inputFile');
@@ -612,6 +592,24 @@ function SendFilesAgenda(inputProfileId, controller, actionIncluir, actionUpload
 
         let formData = new FormData();
 
+        var model = {
+            "ASSI_CD_ID": $('#cdAssi').val()
+            , "AGEN_IN_ATIVO": $('#ativo').val()
+            , "USUA_CD_ID": $('#cdUsua').val()
+            , "AGEN_IN_STATUS": $('#status').val()
+            , "AGEN_DT_DATA": $('#data').val()
+            , "AGEN_HR_HORA": $('#hora').val()
+            , "CAAG_CD_ID": $('#catAgenda').val()
+            , "AGEN_CD_USUARIO": $('#cdUsuAgenda').val()
+            , "AGEN_NM_TITULO": $('#titulo').val()
+            , "AGEN_DS_DESCRICAO": $('#desc').val()
+            , "AGEN_TX_OBSERVACOES": $('#obs').val()
+        }
+
+        var data = {
+            vm: model
+        }
+
         files.forEach(file => {
             formData.append('files', file);
         });
@@ -620,7 +618,8 @@ function SendFilesAgenda(inputProfileId, controller, actionIncluir, actionUpload
 
         $.ajax({
             url: controller + actionIncluir //'../Exemplo/IncluirExemplo'
-            , data: $('#pwd-container1').serializeArray()
+            , async: false
+            , data: data
             , type: 'POST'
             , success: function (r) {
                 if (r.idAtendimento != undefined) {

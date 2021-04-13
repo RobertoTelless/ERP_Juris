@@ -66,10 +66,15 @@
                                     @Html.TextBoxFor(m => m.TIAC_NM_NOME, new { @class = "form-control", autofocus = true })
                                     @Html.ValidationMessageFor(m => m.TIAC_NM_NOME, "",new { @style="color:red" })
                                 </div>
-                                <div class="col-lg-9 col-md-9 col-xs-12">
+                                <div class="col-lg-7 col-md-7 col-xs-12">
                                     Descrição
                                     @Html.TextBoxFor(m => m.TIAC_DS_DESCRICAO, new { @class = "form-control", autofocus = true })
                                     @Html.ValidationMessageFor(m => m.TIAC_DS_DESCRICAO, "",new { @style="color:red" })
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-xs-12">
+                                    Valor Hora (R$)
+                                    @Html.TextBoxFor(m => m.TIAC_VL_VALOR_HORA,"{0:n2}", new { @class = "form-control", autofocus = true })
+                                    @Html.ValidationMessageFor(m => m.TIAC_VL_VALOR_HORA, "",new { @style="color:red" })
                                 </div>
                             </div>
                         </div>

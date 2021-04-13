@@ -95,13 +95,13 @@ namespace ERP_Juris.Controllers
                 Session["ListaTipoAcao"] = listaMaster;
             }
 
-            ViewBag.Listas = listaMaster;
+            ViewBag.Listas = (List<TIPO_ACAO>)Session["ListaTipoAcao"];
             ViewBag.Title = "Tipos de Ação";
             //ViewBag.Cats = new SelectList(fornApp.GetAllCategorias(idAss), "CAFO_CD_ID", "CAFO_NM_NOME");
             ViewBag.Perfil = usuario.PERFIL.PERF_SG_SIGLA;
 
             // Indicadores
-            ViewBag.TiposAcao = listaMaster.Count;
+            ViewBag.TiposAcao = ((List<TIPO_ACAO>)Session["ListaTipoAcao"]).Count;
             
             // Mensagem
             if ((Int32)Session["MensTipoAcao"] == 1)
@@ -231,6 +231,7 @@ namespace ERP_Juris.Controllers
             TipoAcaoViewModel vm = Mapper.Map<TIPO_ACAO, TipoAcaoViewModel>(item);
             vm.TIAC_IN_ATIVO = 1;
             vm.ASSI_CD_ID = idAss;
+            vm.TIAC_VL_VALOR_HORA = 0;
             return View(vm);
         }
 
@@ -312,7 +313,6 @@ namespace ERP_Juris.Controllers
             }
 
             TIPO_ACAO item = baseApp.GetItemById(id);
-            objetoAntes = item;
             Session["TipoAcao"] = item;
             Session["IdVolta"] = id;
             TipoAcaoViewModel vm = Mapper.Map<TIPO_ACAO, TipoAcaoViewModel>(item);
@@ -331,7 +331,7 @@ namespace ERP_Juris.Controllers
                     // Executa a operação
                     USUARIO usuario = (USUARIO)Session["UserCredentials"];
                     TIPO_ACAO item = Mapper.Map<TipoAcaoViewModel, TIPO_ACAO>(vm);
-                    Int32 volta = baseApp.ValidateEdit(item, objetoAntes, usuario);
+                    Int32 volta = baseApp.ValidateEdit(item, (TIPO_ACAO)Session["TipoAcao"], usuario);
 
                     // Verifica retorno
                     if (volta == 1)

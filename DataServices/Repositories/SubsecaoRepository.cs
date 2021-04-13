@@ -56,7 +56,7 @@ namespace DataServices.Repositories
             }
             if (!String.IsNullOrEmpty(descricao))
             {
-                query = query.Where(p => p.SUSE_DS_DESCRICAO.Contains(nome));
+                query = query.Where(p => p.SUSE_DS_DESCRICAO.Contains(descricao));
             }
             if (idSecao != 0)
             {

@@ -13,13 +13,13 @@ function CriaModal(nome, img) {
         + '</span>'
         + '</div>'
         + '<div class="modal-body">'
-        + '<img src="' + img + '" style="margin-left: auto; margin-right:auto; width: auto; height: auto; min-width: 500px; max-height: 500px;">'
+        + '<img src="' + img + '" style="margin-left: auto; margin-right:auto; width: auto; height: auto; min-width: 500px; max-width: 500px; max-height: auto;">'
         + '</div>'
         + '</div>'
         + '</div>'
         + '</div>';
 
-    $('#modalContainer').append(modal);
+    $('#modalContainer').html(modal);
 }
 
 // Deleta o modal para evitar erros com modais duplicados

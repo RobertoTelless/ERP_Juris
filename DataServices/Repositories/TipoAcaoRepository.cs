@@ -20,6 +20,7 @@ namespace DataServices.Repositories
         {
             IQueryable<TIPO_ACAO> query = Db.TIPO_ACAO;
             query = query.Where(p => p.TIAC_CD_ID == id);
+            query = query.Include(p => p.ASSINANTE);
             return query.FirstOrDefault();
         }
 
@@ -47,7 +48,7 @@ namespace DataServices.Repositories
             }
             if (!String.IsNullOrEmpty(descricao))
             {
-                query = query.Where(p => p.TIAC_DS_DESCRICAO.Contains(nome));
+                query = query.Where(p => p.TIAC_DS_DESCRICAO.Contains(descricao));
             }
             if (query != null)
             {

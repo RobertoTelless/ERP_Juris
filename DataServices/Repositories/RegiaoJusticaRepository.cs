@@ -57,7 +57,7 @@ namespace DataServices.Repositories
             }
             if (!String.IsNullOrEmpty(descricao))
             {
-                query = query.Where(p => p.REJU_DS_DESCRICAO.Contains(nome));
+                query = query.Where(p => p.REJU_DS_DESCRICAO.Contains(descricao));
             }
             if (idTipo != 0)
             {

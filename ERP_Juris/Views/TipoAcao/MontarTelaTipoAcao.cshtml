@@ -171,6 +171,7 @@
                                         <tr>
                                             <th>Nome</th>   
                                             <th>Descrição</th>   
+                                            <th>Valor Hora Base (R$)</th>   
                                             <th class="td-one-action">Ações</th>
                                         </tr>
                                     </thead>
@@ -180,6 +181,7 @@
                                             <tr>
                                                 <td>@cond.TIAC_NM_NOME</td>
                                                 <td>@cond.TIAC_DS_DESCRICAO</td>
+                                                <td>@cond.TIAC_VL_VALOR_HORA</td>
                                                 <td class="td-one-action">
                                                     @Html.TableLinkDetails(cond.TIAC_CD_ID, "EditarTipoAcao","fa-edit", "Editar/Consultar")
                                                     @if (ViewBag.Perfil == "ADM")
@@ -208,20 +210,28 @@
 
 @section Styles {
     <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
-    <link href="~/Content/themes/base/all.css" rel="stylesheet" />  
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
     @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
     @Styles.Render("~/plugins/jasnyBootstrapStyles")
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/touchSpinStyles")
+    @Styles.Render("~/plugins/sweetAlertStyles")
     @Styles.Render("~/plugins/toastrStyles")
 }
 
 @section Scripts {
 
-    @Scripts.Render("~/plugins/toastr")
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    @Scripts.Render("~/plugins/toastr")
     @Scripts.Render("~/plugins/dataTables")
     @Scripts.Render("~/bundles/inputmask")
     @Scripts.Render("~/plugins/jasnyBootstrap")
+    @Scripts.Render("~/plugins/sparkline")
+    @Scripts.Render("~/plugins/switchery")
+    @Scripts.Render("~/plugins/touchSpin")
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/plugins/sweetAlert")
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
 
     <script>
